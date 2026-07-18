@@ -33,6 +33,7 @@ button { cursor: pointer; }
 .atlas-map .ol-viewport { font-family: inherit; }
 .source-raster-layer { filter: saturate(1.05) contrast(1.03); }
 .premium-relief-raster-layer { filter: saturate(1.22) contrast(1.08) brightness(.98); }
+.stylized-v2-raster-layer { filter: saturate(1.08) contrast(1.04) brightness(.99); }
 .relief-raster-layer { filter: saturate(1.08) contrast(1.03); }
 
 .panel {

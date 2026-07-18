@@ -1,0 +1,246 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import sharp from 'sharp';
+
+const root = process.cwd();
+const projectRoot = path.resolve(root, '..');
+const terrainRoot = path.join(projectRoot, 'terrain-data');
+const sourcePath = path.join(root, 'public/assets/worldofmalazan-z6-mosaic.png');
+const outDir = path.join(root, 'work/cartography/v2');
+
+const SOURCE_W = 10000;
+const SOURCE_H = 5571;
+const SCALE = Number(process.env.V2_SCALE ?? 0.5);
+const W = Math.round(SOURCE_W * SCALE);
+const H = Math.round(SOURCE_H * SCALE);
+
+function clamp(v, lo = 0, hi = 255) { return Math.max(lo, Math.min(hi, v)); }
+function smoothstep(edge0, edge1, x) {
+  const t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)));
+  return t * t * (3 - 2 * t);
+}
+function mix(a, b, t) { return a + (b - a) * t; }
+function mix3(a, b, t) { return [mix(a[0], b[0], t), mix(a[1], b[1], t), mix(a[2], b[2], t)]; }
+function lum(r, g, b) { return 0.2126 * r + 0.7152 * g + 0.0722 * b; }
+function fract(n) { return n - Math.floor(n); }
+function hash(x, y) { return fract(Math.sin(x * 12.9898 + y * 78.233) * 43758.5453123); }
+function valueNoise(x, y) {
+  const xi = Math.floor(x), yi = Math.floor(y);
+  const xf = x - xi, yf = y - yi;
+  const u = xf * xf * (3 - 2 * xf);
+  const v = yf * yf * (3 - 2 * yf);
+  const a = hash(xi, yi), b = hash(xi + 1, yi), c = hash(xi, yi + 1), d = hash(xi + 1, yi + 1);
+  return mix(mix(a, b, u), mix(c, d, u), v);
+}
+function fbm(x, y, oct = 5) {
+  let v = 0, amp = 0.5, f = 1, norm = 0;
+  for (let i = 0; i < oct; i++) { v += amp * valueNoise(x * f, y * f); norm += amp; amp *= 0.52; f *= 2.03; }
+  return v / norm;
+}
+function at(buf, x, y) {
+  return buf[Math.max(0, Math.min(H - 1, y)) * W + Math.max(0, Math.min(W - 1, x))] / 255;
+}
+async function gray(file, kernel = 'lanczos3') {
+  const { data } = await sharp(path.join(terrainRoot, file)).resize(W, H, { fit: 'fill', kernel }).greyscale().raw().toBuffer({ resolveWithObject: true });
+  return data;
+}
+async function rgb(file) {
+  const { data, info } = await sharp(file).resize(W, H, { fit: 'fill', kernel: 'lanczos3' }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  return { data, info };
+}
+
+await fs.mkdir(outDir, { recursive: true });
+
+console.log(`v2 preview size ${W}x${H} (scale ${SCALE})`);
+const [{ data: source, info }, height, land, water, mountain, mountainBroad, forest, desert, ice, coastal, micro] = await Promise.all([
+  rgb(sourcePath),
+  gray('world_height_controlled_16bit.png'),
+  gray('land_mask.png'),
+  gray('water_mask.png'),
+  gray('mountain_mask.png'),
+  gray('mountain_broad_mask.png'),
+  gray('forest_mask.png'),
+  gray('desert_mask.png'),
+  gray('ice_mask.png'),
+  gray('coastal_rise_mask.png'),
+  gray('micro_relief.png'),
+]);
+
+// Protected ink/label mask: detect existing text, coast/river linework, city rings, red labels.
+const ink = new Uint8Array(W * H);
+for (let i = 0; i < W * H; i++) {
+  const si = i * info.channels;
+  const r = source[si], g = source[si + 1], b = source[si + 2];
+  const L = lum(r, g, b);
+  const dark = L < 118 && !(b > r + 20 && g > r + 4 && L > 92); // keep most black/brown type/linework
+  const blueLine = b > r * 1.16 && b > g * 0.92 && L < 182;
+  const redLine = r > 132 && g < 118 && b < 130 && L < 165;
+  const x = i % W;
+  const y = Math.floor(i / W);
+  const inSourceLegendBox = x < Math.round(1700 * SCALE) && y < Math.round(1120 * SCALE);
+  const redGuideLine = redLine && Math.abs(y - Math.round(2785 * SCALE)) < Math.max(3, Math.round(10 * SCALE));
+  if (!inSourceLegendBox && !redGuideLine && (dark || blueLine)) ink[i] = blueLine ? 180 : 220;
+}
+const halo = new Uint8Array(W * H);
+for (let y = 0; y < H; y++) {
+  for (let x = 0; x < W; x++) {
+    const i = y * W + x;
+    if (!ink[i]) continue;
+    for (let yy = -2; yy <= 2; yy++) for (let xx = -2; xx <= 2; xx++) {
+      const d = xx * xx + yy * yy;
+      if (d > 5) continue;
+      const nx = x + xx, ny = y + yy;
+      if (nx >= 0 && nx < W && ny >= 0 && ny < H) halo[ny * W + nx] = Math.max(halo[ny * W + nx], 110 - d * 12);
+    }
+  }
+}
+
+const out = Buffer.alloc(W * H * 3);
+const waterDeep = [15, 55, 72];
+const waterMid = [34, 104, 127];
+const waterShallow = [76, 159, 169];
+const shoreFoam = [176, 221, 207];
+const plain = [190, 184, 130];
+const grass = [118, 157, 91];
+const forestDark = [23, 88, 43];
+const forestLight = [52, 123, 54];
+const desertWarm = [214, 162, 82];
+const ridgeOchre = [198, 117, 58];
+const ridgeShadow = [74, 54, 42];
+const snow = [234, 238, 224];
+const iceBlue = [219, 236, 232];
+
+for (let y = 0; y < H; y++) {
+  const yOff = y * W;
+  for (let x = 0; x < W; x++) {
+    const i = yOff + x;
+    const si = i * info.channels;
+    const sr = source[si], sg = source[si + 1], sb = source[si + 2];
+    const inSourceLegendBox = x < Math.round(1700 * SCALE) && y < Math.round(1120 * SCALE);
+    const sourceGuideBand = Math.abs(y - Math.round(2785 * SCALE)) < Math.max(3, Math.round(12 * SCALE));
+    const sourceRedGuide = sourceGuideBand && sr > 95 && sg < 155 && sb < 155 && lum(sr, sg, sb) < 200;
+    const h = height[i] / 255;
+    let l = land[i] / 255;
+    let w = water[i] / 255;
+    const m = mountain[i] / 255;
+    const mb = mountainBroad[i] / 255;
+    const f = forest[i] / 255;
+    const d = desert[i] / 255;
+    const ic = ice[i] / 255;
+    let co = coastal[i] / 255;
+    const mic = micro[i] / 255;
+
+    // Known non-map source artifacts live in open ocean; render them as authored ocean,
+    // not as source-derived mask/ink/height. This avoids pasted/inpainted repair scars.
+    if (inSourceLegendBox || sourceGuideBand) {
+      l = 0;
+      w = 1;
+      co = 0;
+    }
+
+    // Multi-scale NW hillshade and local ambient occlusion.
+    const dx1 = at(height, x + 3, y) - at(height, x - 3, y);
+    const dy1 = at(height, x, y + 3) - at(height, x, y - 3);
+    const dx2 = at(height, x + 14, y) - at(height, x - 14, y);
+    const dy2 = at(height, x, y + 14) - at(height, x, y - 14);
+    const dx3 = at(height, x + 42, y) - at(height, x - 42, y);
+    const dy3 = at(height, x, y + 42) - at(height, x, y - 42);
+    const shadeFine = clamp(0.98 + (-dx1 * 4.4) + (-dy1 * 3.0), 0.48, 1.62);
+    const shadeMed = clamp(1.00 + (-dx2 * 3.2) + (-dy2 * 2.3), 0.54, 1.52);
+    const shadeBroad = clamp(1.00 + (-dx3 * 2.1) + (-dy3 * 1.45), 0.64, 1.38);
+    const slope = Math.min(1, Math.hypot(dx1, dy1) * 9 + Math.hypot(dx2, dy2) * 3);
+    const ao = 1 - slope * (0.12 + mb * 0.10 + m * 0.18);
+
+    const paper = fbm(x / 310, y / 310, 5);
+    const grain = hash(x, y);
+    const terrainNoise = fbm(x / 62, y / 62, 4);
+    let col;
+
+    if (w > 0.52 && l < 0.42) {
+      // Water is authored as water only — no new fake blue river strokes.
+      const depth = smoothstep(0.06, 0.92, 1 - co);
+      const current = 0.5 + 0.5 * Math.sin((x * 0.010 + y * 0.006) + fbm(x / 700, y / 700) * 5.5);
+      col = mix3(waterShallow, waterMid, 0.52 + depth * 0.30);
+      col = mix3(col, waterDeep, depth * 0.36);
+      col = mix3(col, [105, 185, 190], current * 0.025 + paper * 0.018);
+      col = mix3(col, shoreFoam, co * 0.20);
+      // keep ice bright but distinct from ocean
+      col = mix3(col, iceBlue, ic * 0.86);
+      col = col.map(c => c * (0.94 + (grain - 0.5) * 0.018));
+    } else {
+      col = mix3(plain, grass, 0.30 + h * 0.20 + terrainNoise * 0.10);
+      col = mix3(col, forestLight, f * 0.44);
+      col = mix3(col, forestDark, f * (0.42 + terrainNoise * 0.18));
+      col = mix3(col, desertWarm, d * 0.82);
+      col = mix3(col, ridgeOchre, Math.min(0.82, mb * 0.38 + m * 0.68));
+      col = mix3(col, ridgeShadow, m * slope * 0.28);
+      col = mix3(col, snow, Math.min(0.96, ic * 0.95 + m * smoothstep(0.56, 0.92, h) * 0.48));
+      col = mix3(col, [219, 202, 139], co * 0.12);
+
+      // Biome texture language: forest stipple, desert grain, ridge roughness, plains paper.
+      const forestStipple = f * (hash(Math.floor(x / 3), Math.floor(y / 3)) - 0.5) * 0.12;
+      const desertGrain = d * (fbm(x / 38, y / 38, 3) - 0.5) * 0.16;
+      const ridgeRough = (m * 0.20 + mb * 0.08) * (mic - 0.5 + terrainNoise - 0.5);
+      const material = 0.97 + (paper - 0.5) * 0.055 + forestStipple + desertGrain + ridgeRough;
+      const shade = Math.pow(shadeFine, 0.28 + m * 0.28) * Math.pow(shadeMed, 0.48 + mb * 0.32) * Math.pow(shadeBroad, 0.30) * ao;
+      col = col.map(c => c * clamp(shade * material, 0.42, 1.55));
+    }
+
+    // Halo first, then original protected ink/labels. This is the important readability layer.
+    if (halo[i] && !ink[i]) {
+      const ht = halo[i] / 255;
+      const haloCol = w > 0.52 ? [205, 226, 217] : [239, 229, 194];
+      col = mix3(col, haloCol, ht * 0.32);
+    }
+    if (ink[i]) {
+      const L = lum(sr, sg, sb);
+      const blueInk = sb > sr * 1.16 && sb > sg * 0.92 && L < 182;
+      const redInk = sr > 132 && sg < 118 && sb < 130 && L < 165;
+      const inkCol = blueInk ? [30, 73, 150] : redInk ? [137, 48, 44] : [38, 33, 29];
+      col = mix3(col, inkCol, blueInk ? 0.72 : redInk ? 0.66 : 0.78);
+      // Preserve some original anti-aliasing / type character.
+      col = mix3(col, [sr, sg, sb], blueInk ? 0.16 : 0.10);
+    } else if (!inSourceLegendBox && !sourceRedGuide && !sourceGuideBand && !(w > 0.52 && l < 0.42)) {
+      // Very light source blend only on land, to keep exact coast/labels context without source-map look.
+      // Open water is generated from masks/procedural texture so source artifacts cannot leak through.
+      col = mix3(col, [sr, sg, sb], 0.035);
+    }
+
+    // Warm atlas grade.
+    col = mix3(col, [255, 237, 199], 0.025);
+    const oi = i * 3;
+    out[oi] = clamp(col[0]); out[oi + 1] = clamp(col[1]); out[oi + 2] = clamp(col[2]);
+  }
+  if (y % 350 === 0) console.log(`v2 rows ${y}/${H}`);
+}
+
+const fullPath = path.join(outDir, 'stylized-relief-v2-preview.png');
+await sharp(out, { raw: { width: W, height: H, channels: 3 } }).png().toFile(fullPath);
+console.log(`wrote ${fullPath}`);
+
+const crops = [
+  { name: 'lake-azur-darujhistan', x: 6100, y: 880, w: 1900, h: 1350 },
+  { name: 'seven-cities-jhag-odhan', x: 2500, y: 2450, w: 2400, h: 1500 },
+  { name: 'jacuruku-stratem', x: 4400, y: 3100, w: 2500, h: 1500 },
+  { name: 'falar-quip-tali', x: 3000, y: 400, w: 2500, h: 1550 },
+];
+const cropFiles = [];
+for (const c of crops) {
+  const left = Math.round(c.x * SCALE), top = Math.round(c.y * SCALE), width = Math.round(c.w * SCALE), height = Math.round(c.h * SCALE);
+  const out = path.join(outDir, `${c.name}.png`);
+  await sharp(fullPath).extract({ left, top, width, height }).resize({ width: 1200 }).png().toFile(out);
+  cropFiles.push(out);
+  console.log(`wrote crop ${out}`);
+}
+
+const preview = path.join(outDir, 'world-preview-1800.png');
+await sharp(fullPath).resize({ width: 1800 }).png().toFile(preview);
+console.log(`wrote ${preview}`);
+
+const contact = path.join(outDir, 'v2-contact-sheet.jpg');
+const thumbs = await Promise.all([preview, ...cropFiles].map(async file => sharp(file).resize(900, 520, { fit: 'inside', background: '#101615' }).extend({ top: 20, bottom: 20, left: 20, right: 20, background: '#101615' }).jpeg({ quality: 92 }).toBuffer()));
+await sharp({ create: { width: 1880, height: 1680, channels: 3, background: '#101615' } })
+  .composite(thumbs.map((input, idx) => ({ input, left: (idx % 2) * 940, top: Math.floor(idx / 2) * 560 })))
+  .jpeg({ quality: 92 })
+  .toFile(contact);
+console.log(`wrote ${contact}`);

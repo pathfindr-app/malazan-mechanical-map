@@ -59,7 +59,7 @@ function useAtlasData() {
   return { data, error };
 }
 
-function createTileLayer(tileSet: 'source' | 'relief' | 'premium-relief', opacity = 1) {
+function createTileLayer(tileSet: 'source' | 'relief' | 'premium-relief' | 'stylized-v2', opacity = 1) {
   const projection = new Projection({ code: 'MALAZAN_SOURCE_PIXEL', units: 'pixels', extent: EXTENT });
   const resolutions = Array.from({ length: MAX_ZOOM + 1 }, (_, z) => 2 ** (MAX_ZOOM - z));
   const tileGrid = new TileGrid({ extent: EXTENT, origin: [0, SOURCE_HEIGHT], tileSize: TILE_SIZE, resolutions });
@@ -116,10 +116,10 @@ function createVectorLayers(data: AtlasData, getSelectedName: () => string | und
   return { locationLayer, riverLayer, areaLayer };
 }
 
-function AtlasMap({ data, selected, setSelected, search, category, layers, cleanMode, styleMode }: { data: AtlasData; selected: Selected | null; setSelected: (s: Selected) => void; search: string; category: Category; layers: { locations: boolean; rivers: boolean; areas: boolean }; cleanMode: boolean; styleMode: 'premium' | 'relief' | 'source' | 'blend' }) {
+function AtlasMap({ data, selected, setSelected, search, category, layers, cleanMode, styleMode }: { data: AtlasData; selected: Selected | null; setSelected: (s: Selected) => void; search: string; category: Category; layers: { locations: boolean; rivers: boolean; areas: boolean }; cleanMode: boolean; styleMode: 'v2' | 'premium' | 'relief' | 'source' | 'blend' }) {
   const mapEl = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<Map | null>(null);
-  const layerRefs = useRef<(ReturnType<typeof createVectorLayers> & { sourceLayer: TileLayer<XYZ>; reliefLayer: TileLayer<XYZ>; premiumLayer: TileLayer<XYZ> }) | null>(null);
+  const layerRefs = useRef<(ReturnType<typeof createVectorLayers> & { sourceLayer: TileLayer<XYZ>; reliefLayer: TileLayer<XYZ>; premiumLayer: TileLayer<XYZ>; v2Layer: TileLayer<XYZ> }) | null>(null);
   const selectedRef = useRef<Selected | null>(selected);
   const searchRef = useRef(search);
   selectedRef.current = selected;
@@ -130,16 +130,18 @@ function AtlasMap({ data, selected, setSelected, search, category, layers, clean
     const { projection, layer: sourceLayer } = createTileLayer('source', 1);
     const { layer: reliefLayer } = createTileLayer('relief', 1);
     const { layer: premiumLayer } = createTileLayer('premium-relief', 1);
+    const { layer: v2Layer } = createTileLayer('stylized-v2', 1);
     sourceLayer.setVisible(false);
     reliefLayer.setVisible(false);
-    premiumLayer.setVisible(true);
+    premiumLayer.setVisible(false);
+    v2Layer.setVisible(true);
     const vectors = createVectorLayers(data, () => selectedRef.current?.name, () => Boolean(searchRef.current.trim()));
-    layerRefs.current = { ...vectors, sourceLayer, reliefLayer, premiumLayer };
+    layerRefs.current = { ...vectors, sourceLayer, reliefLayer, premiumLayer, v2Layer };
     const mousePosition = new MousePosition({ coordinateFormat: (coord) => !coord ? '' : `source ${formatSource(mapToSource(coord as [number, number]))}`, projection, className: 'coordinate-readout' });
     const map = new Map({
       target: mapEl.current,
       controls: defaultControls({ attribution: false, rotate: false }).extend([new ScaleLine({ units: 'metric', bar: true, text: true, minWidth: 120 }), mousePosition]),
-      layers: [sourceLayer, reliefLayer, premiumLayer, vectors.areaLayer, vectors.riverLayer, vectors.locationLayer],
+      layers: [sourceLayer, reliefLayer, premiumLayer, v2Layer, vectors.areaLayer, vectors.riverLayer, vectors.locationLayer],
       view: new View({
         projection,
         extent: EXTENT,
@@ -167,11 +169,13 @@ function AtlasMap({ data, selected, setSelected, search, category, layers, clean
   useEffect(() => {
     const vectors = layerRefs.current;
     if (!vectors) return;
-    vectors.premiumLayer.setVisible(styleMode === 'premium' || styleMode === 'blend');
+    vectors.v2Layer.setVisible(styleMode === 'v2' || styleMode === 'blend');
+    vectors.premiumLayer.setVisible(styleMode === 'premium');
     vectors.sourceLayer.setVisible(styleMode === 'source' || styleMode === 'blend');
     vectors.reliefLayer.setVisible(styleMode === 'relief');
-    vectors.premiumLayer.setOpacity(styleMode === 'blend' ? 0.88 : 1);
-    vectors.sourceLayer.setOpacity(styleMode === 'blend' ? 0.34 : 1);
+    vectors.v2Layer.setOpacity(styleMode === 'blend' ? 0.92 : 1);
+    vectors.premiumLayer.setOpacity(1);
+    vectors.sourceLayer.setOpacity(styleMode === 'blend' ? 0.28 : 1);
     vectors.reliefLayer.setOpacity(1);
     vectors.locationLayer.setVisible(layers.locations);
     vectors.riverLayer.setVisible(layers.rivers);
@@ -210,7 +214,7 @@ function App() {
   const [selected, setSelected] = useState<Selected | null>(null);
   const [cleanMode, setCleanMode] = useState(false);
   const [layers, setLayers] = useState({ locations: true, rivers: false, areas: false });
-  const [styleMode, setStyleMode] = useState<'premium' | 'relief' | 'source' | 'blend'>('premium');
+  const [styleMode, setStyleMode] = useState<'v2' | 'premium' | 'relief' | 'source' | 'blend'>('v2');
   const toggleLayer = (key: keyof typeof layers) => setLayers((value) => ({ ...value, [key]: !value[key] }));
 
   const results = useMemo(() => {
@@ -242,7 +246,7 @@ function App() {
         <button onClick={() => fly('Genabackis river slice', [6828, 1536], 'Prototype river vectors are visible here as draft geography controls.')}>Rivers</button>
       </div>
     </section>
-    <section className="panel top-right layers-panel"><h2><Layers size={16}/> Atlas layers</h2><p>Explore a source-derived relief atlas with biome shading, mask-based terrain, searchable places, and source-map comparison.</p><ul><li><b>Source:</b> z6 mosaic + terrain masks</li><li><b>Pixels:</b> 10,000 × 5,571</li><li><b>Tiles:</b> 512px, native z5 + overzoom</li><li><b>CRS:</b> source-pixel, top-left origin</li><li><b>POI:</b> {data.locations.locations.length} exact-coordinate locations</li></ul><div className="style-switcher"><button className={styleMode === 'premium' ? 'active' : ''} onClick={() => setStyleMode('premium')}>Premium relief</button><button className={styleMode === 'source' ? 'active' : ''} onClick={() => setStyleMode('source')}>Source map</button><button className={styleMode === 'blend' ? 'active' : ''} onClick={() => setStyleMode('blend')}>Blend</button><button className={styleMode === 'relief' ? 'active' : ''} onClick={() => setStyleMode('relief')}>Old relief</button></div><div className="layer-toggle-row"><button className={layers.locations ? 'active' : ''} onClick={() => toggleLayer('locations')}>Locations</button><button className={layers.rivers ? 'active' : ''} onClick={() => toggleLayer('rivers')}>Draft rivers</button><button className={layers.areas ? 'active' : ''} onClick={() => toggleLayer('areas')}>Draft areas</button></div></section>
+    <section className="panel top-right layers-panel"><h2><Layers size={16}/> Atlas layers</h2><p>Explore a source-derived stylized relief atlas with biome shading, protected labels, mask-based terrain, and source-map comparison.</p><ul><li><b>Source:</b> z6 mosaic + terrain masks</li><li><b>Pixels:</b> 10,000 × 5,571</li><li><b>Tiles:</b> 512px, native z5 + overzoom</li><li><b>CRS:</b> source-pixel, top-left origin</li><li><b>POI:</b> {data.locations.locations.length} exact-coordinate locations</li></ul><div className="style-switcher"><button className={styleMode === 'v2' ? 'active' : ''} onClick={() => setStyleMode('v2')}>Stylized v2</button><button className={styleMode === 'premium' ? 'active' : ''} onClick={() => setStyleMode('premium')}>Premium v1</button><button className={styleMode === 'source' ? 'active' : ''} onClick={() => setStyleMode('source')}>Source map</button><button className={styleMode === 'blend' ? 'active' : ''} onClick={() => setStyleMode('blend')}>Blend</button><button className={styleMode === 'relief' ? 'active' : ''} onClick={() => setStyleMode('relief')}>Old relief</button></div><div className="layer-toggle-row"><button className={layers.locations ? 'active' : ''} onClick={() => toggleLayer('locations')}>Locations</button><button className={layers.rivers ? 'active' : ''} onClick={() => toggleLayer('rivers')}>Draft rivers</button><button className={layers.areas ? 'active' : ''} onClick={() => toggleLayer('areas')}>Draft areas</button></div></section>
     {selected && <section className="panel bottom-right selected-panel"><div className="pill">{selected.category}</div><h2>{selected.name}</h2><p>{selected.detail}</p><div className="selected-icons"><MapPin/><Waves/><Mountain/><Trees/><Route/></div></section>}
   </main>;
 }

@@ -29,6 +29,11 @@ ok('premium manifest coordinate space', premiumManifest.coordinateSpace === 'mal
 ok('premium manifest source pixels', premiumManifest.sourcePixels?.[0] === 10000 && premiumManifest.sourcePixels?.[1] === 5571);
 const premiumTileCount = premiumManifest.levels.reduce((sum, level) => sum + level.cols * level.rows, 0);
 ok('premium tile count is 304', premiumTileCount === 304);
+const v2Manifest = JSON.parse(await fs.readFile(path.join(root, 'public/tiles/stylized-v2/manifest.json'), 'utf8'));
+ok('stylized v2 manifest coordinate space', v2Manifest.coordinateSpace === 'malazan.source-pixel');
+ok('stylized v2 manifest source pixels', v2Manifest.sourcePixels?.[0] === 10000 && v2Manifest.sourcePixels?.[1] === 5571);
+const v2TileCount = v2Manifest.levels.reduce((sum, level) => sum + level.cols * level.rows, 0);
+ok('stylized v2 tile count is 304', v2TileCount === 304);
 
 for (const level of manifest.levels) {
   for (let x = 0; x < level.cols; x += 1) {
@@ -46,4 +51,4 @@ for (const loc of locations.locations) {
   ok(`location in bounds: ${loc.name}`, x >= 0 && x <= 10000 && y >= 0 && y <= 5571);
 }
 
-console.log(`validated source=${meta.width}x${meta.height}, sourceTiles=${tileCount}, reliefTiles=${reliefTileCount}, premiumTiles=${premiumTileCount}, locations=${locations.locations.length}`);
+console.log(`validated source=${meta.width}x${meta.height}, sourceTiles=${tileCount}, reliefTiles=${reliefTileCount}, premiumTiles=${premiumTileCount}, v2Tiles=${v2TileCount}, locations=${locations.locations.length}`);

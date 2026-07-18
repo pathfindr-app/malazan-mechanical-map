@@ -1,0 +1,72 @@
+{
+  "name": "malazan-stylized-v2-relief-pyramid",
+  "sourceImage": "work/cartography/v2/stylized-relief-v2-preview.png",
+  "sourcePixels": [
+    10000,
+    5571
+  ],
+  "tileSize": 512,
+  "maxZoom": 5,
+  "format": "webp",
+  "quality": 94,
+  "origin": "top-left",
+  "coordinateSpace": "malazan.source-pixel",
+  "renderer": "scripts/generate-cartography-v2-preview.mjs",
+  "notes": "v2 source-derived stylized relief: open-water source blend disabled, protected labels/ink, biome textures, measured source-artifact suppression.",
+  "levels": [
+    {
+      "z": 0,
+      "scale": 32,
+      "width": 313,
+      "height": 175,
+      "cols": 1,
+      "rows": 1,
+      "resolution": 32
+    },
+    {
+      "z": 1,
+      "scale": 16,
+      "width": 625,
+      "height": 349,
+      "cols": 2,
+      "rows": 1,
+      "resolution": 16
+    },
+    {
+      "z": 2,
+      "scale": 8,
+      "width": 1250,
+      "height": 697,
+      "cols": 3,
+      "rows": 2,
+      "resolution": 8
+    },
+    {
+      "z": 3,
+      "scale": 4,
+      "width": 2500,
+      "height": 1393,
+      "cols": 5,
+      "rows": 3,
+      "resolution": 4
+    },
+    {
+      "z": 4,
+      "scale": 2,
+      "width": 5000,
+      "height": 2786,
+      "cols": 10,
+      "rows": 6,
+      "resolution": 2
+    },
+    {
+      "z": 5,
+      "scale": 1,
+      "width": 10000,
+      "height": 5571,
+      "cols": 20,
+      "rows": 11,
+      "resolution": 1
+    }
+  ]
+}

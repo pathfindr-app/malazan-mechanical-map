@@ -13,7 +13,9 @@
     "test": "vitest run",
     "tiles:relief": "node scripts/generate-relief-tiles.mjs",
     "tiles:all": "npm run tiles:source && npm run tiles:relief",
-    "tiles:premium": "node scripts/generate-premium-relief-tiles.mjs"
+    "tiles:premium": "node scripts/generate-premium-relief-tiles.mjs",
+    "cartography:v2:preview": "node scripts/generate-cartography-v2-preview.mjs",
+    "tiles:v2": "node scripts/generate-stylized-v2-tiles.mjs"
   },
   "dependencies": {
     "@react-three/drei": "latest",
