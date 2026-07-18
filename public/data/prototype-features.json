@@ -1,0 +1,192 @@
+{
+  "rivers": [
+    {
+      "id": "river_azure_run",
+      "name": "Azure Run (prototype)",
+      "rank": 1,
+      "certainty": "provisional visual trace",
+      "points_px": [
+        [
+          6560,
+          1280
+        ],
+        [
+          6630,
+          1350
+        ],
+        [
+          6705,
+          1430
+        ],
+        [
+          6772,
+          1483
+        ],
+        [
+          6828,
+          1536
+        ],
+        [
+          6885,
+          1615
+        ],
+        [
+          6960,
+          1705
+        ]
+      ]
+    },
+    {
+      "id": "river_gadrobi_thread",
+      "name": "Gadrobi Tributary (prototype)",
+      "rank": 2,
+      "certainty": "provisional visual trace",
+      "points_px": [
+        [
+          6940,
+          1420
+        ],
+        [
+          6890,
+          1492
+        ],
+        [
+          6828,
+          1536
+        ]
+      ]
+    },
+    {
+      "id": "river_pale_brook",
+      "name": "Pale Brook (prototype)",
+      "rank": 2,
+      "certainty": "provisional visual trace",
+      "points_px": [
+        [
+          6680,
+          1310
+        ],
+        [
+          6749,
+          1391
+        ],
+        [
+          6772,
+          1483
+        ]
+      ]
+    }
+  ],
+  "basins": [
+    {
+      "id": "basin_darujhistan",
+      "name": "Darujhistan / Lake Azur Basin (prototype)",
+      "certainty": "provisional",
+      "points_px": [
+        [
+          6460,
+          1230
+        ],
+        [
+          6750,
+          1150
+        ],
+        [
+          7040,
+          1330
+        ],
+        [
+          7130,
+          1630
+        ],
+        [
+          6940,
+          1840
+        ],
+        [
+          6620,
+          1760
+        ],
+        [
+          6410,
+          1500
+        ]
+      ]
+    }
+  ],
+  "biomes": [
+    {
+      "id": "biome_gadrobi_hills",
+      "name": "Gadrobi Hills",
+      "type": "hills",
+      "points_px": [
+        [
+          6815,
+          1475
+        ],
+        [
+          6960,
+          1480
+        ],
+        [
+          7010,
+          1580
+        ],
+        [
+          6880,
+          1630
+        ],
+        [
+          6760,
+          1570
+        ]
+      ]
+    },
+    {
+      "id": "biome_lake_azur",
+      "name": "Lake Azur",
+      "type": "lake",
+      "points_px": [
+        [
+          6688,
+          1458
+        ],
+        [
+          6838,
+          1468
+        ],
+        [
+          6850,
+          1510
+        ],
+        [
+          6690,
+          1512
+        ]
+      ]
+    },
+    {
+      "id": "biome_blackdog",
+      "name": "Blackdog Forest zone",
+      "type": "forest",
+      "points_px": [
+        [
+          6500,
+          1120
+        ],
+        [
+          6770,
+          1060
+        ],
+        [
+          6900,
+          1220
+        ],
+        [
+          6660,
+          1310
+        ]
+      ]
+    }
+  ]
+}

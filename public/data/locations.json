@@ -1,0 +1,6630 @@
+{
+  "source": "https://worldofmalazan.com/",
+  "imageWidth": 10000,
+  "imageHeight": 5571,
+  "locationsCount": 602,
+  "locations": [
+    {
+      "name": "Lether",
+      "kind": "region",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        2545.0,
+        3302.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lether"
+    },
+    {
+      "name": "Tiste",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1081,
+        3317
+      ],
+      "link": "https://malazan.fandom.com/wiki/Tiste"
+    },
+    {
+      "name": "High Fort",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        1162,
+        3335
+      ],
+      "link": "https://malazan.fandom.com/wiki/High_Fort"
+    },
+    {
+      "name": "Trate",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1059,
+        3353
+      ],
+      "link": "https://malazan.fandom.com/wiki/Trate"
+    },
+    {
+      "name": "Katter",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1049,
+        3386
+      ],
+      "link": "https://malazan.fandom.com/wiki/Katter"
+    },
+    {
+      "name": "Catch",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1031,
+        3406
+      ],
+      "link": "https://malazan.fandom.com/wiki/Catch"
+    },
+    {
+      "name": "Dresh",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1008,
+        3439
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dresh"
+    },
+    {
+      "name": "Fort Shake",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        1191,
+        3373
+      ],
+      "link": "https://malazan.fandom.com/wiki/Fort_Shake"
+    },
+    {
+      "name": "The Manse",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1181,
+        3395
+      ],
+      "link": "https://malazan.fandom.com/wiki/The_Manse"
+    },
+    {
+      "name": "White Point",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1206,
+        3436
+      ],
+      "link": "https://malazan.fandom.com/wiki/White_Point"
+    },
+    {
+      "name": "First Reach",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1351,
+        3367
+      ],
+      "link": "https://malazan.fandom.com/wiki/First_Reach"
+    },
+    {
+      "name": "Bran's Keep",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        1197,
+        3470
+      ],
+      "link": "https://malazan.fandom.com/wiki/Brans_Keep"
+    },
+    {
+      "name": "Cargo",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1105,
+        3505
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cargo"
+    },
+    {
+      "name": "Brous",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1061,
+        3504
+      ],
+      "link": "https://malazan.fandom.com/wiki/Brous"
+    },
+    {
+      "name": "Miner Sluice",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1008,
+        3529
+      ],
+      "link": "https://malazan.fandom.com/wiki/Miner_Sluice"
+    },
+    {
+      "name": "Harness",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1047,
+        3590
+      ],
+      "link": "https://malazan.fandom.com/wiki/Harness"
+    },
+    {
+      "name": "Letheras",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1203,
+        3511
+      ],
+      "link": "https://malazan.fandom.com/wiki/Letheras"
+    },
+    {
+      "name": "Cargo",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1106,
+        3505
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cargo"
+    },
+    {
+      "name": "Awl",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        933,
+        3459
+      ],
+      "link": "https://malazan.fandom.com/wiki/Awl_(city)"
+    },
+    {
+      "name": "Tulamesh",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        934,
+        3494
+      ],
+      "link": "https://malazan.fandom.com/wiki/Tulamesh"
+    },
+    {
+      "name": "Rennis",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        944,
+        3531
+      ],
+      "link": "https://malazan.fandom.com/wiki/Rennis"
+    },
+    {
+      "name": "Maiden Forts",
+      "kind": "region",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        926.5,
+        3408.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Second_Maiden_Fort"
+    },
+    {
+      "name": "Saltsong's Reach",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        781.0,
+        3438.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Saltsong's_Reach"
+    },
+    {
+      "name": "The Reach",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        912.0,
+        3363.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/The_Reach_(peninsula)"
+    },
+    {
+      "name": "Katter Bight",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        985.5,
+        3393.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Katter_Bight"
+    },
+    {
+      "name": "Brous (downriver)",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1008,
+        3529
+      ],
+      "link": "https://malazan.fandom.com/wiki/Brous"
+    },
+    {
+      "name": "Bridle",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        965,
+        3573
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bridle"
+    },
+    {
+      "name": "Old Gedure",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        969,
+        3641
+      ],
+      "link": "https://malazan.fandom.com/wiki/Old_Gedure"
+    },
+    {
+      "name": "Sadon",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        972,
+        3693
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sadon"
+    },
+    {
+      "name": "Lenth",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1037,
+        3702
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lenth"
+    },
+    {
+      "name": "Roster",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1046,
+        3666
+      ],
+      "link": "https://malazan.fandom.com/wiki/Roster"
+    },
+    {
+      "name": "Gedry",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1068,
+        3664
+      ],
+      "link": "https://malazan.fandom.com/wiki/Gedry"
+    },
+    {
+      "name": "Ouster Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        967.5,
+        3729.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ouster_Sea"
+    },
+    {
+      "name": "Empire of Lether",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1261.0,
+        3614.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Empire_of_Lether"
+    },
+    {
+      "name": "Pockface Islands",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        944.0,
+        3899.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Pockface_Islands"
+    },
+    {
+      "name": "Fire",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        948,
+        3997
+      ],
+      "link": "https://malazan.fandom.com/wiki/Fire_(city)"
+    },
+    {
+      "name": "Korshenn",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1025,
+        4009
+      ],
+      "link": "https://malazan.fandom.com/wiki/Korshenn"
+    },
+    {
+      "name": "Twill",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1120,
+        4001
+      ],
+      "link": "https://malazan.fandom.com/wiki/Twill"
+    },
+    {
+      "name": "Ender",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1192,
+        3980
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ender"
+    },
+    {
+      "name": "Pilott",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1209.0,
+        4003.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Pilott"
+    },
+    {
+      "name": "T'Roos",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1239.0,
+        4118.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/T'roos"
+    },
+    {
+      "name": "Sea Iban",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        1342.5,
+        4109.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sea_Iban"
+    },
+    {
+      "name": "D'Aliban",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1455.5,
+        4125.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/D'aliban"
+    },
+    {
+      "name": "Peck",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1412,
+        4050
+      ],
+      "link": "https://malazan.fandom.com/wiki/Peck"
+    },
+    {
+      "name": "Deal (city)",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        1489,
+        4075
+      ],
+      "link": "https://malazan.fandom.com/wiki/Deal"
+    },
+    {
+      "name": "Krass",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1542,
+        4068
+      ],
+      "link": "https://malazan.fandom.com/wiki/Krass"
+    },
+    {
+      "name": "Deal",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1495.0,
+        4030.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Deal"
+    },
+    {
+      "name": "D'Rhasilhani",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1612.0,
+        3930.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/D'rhasilhani"
+    },
+    {
+      "name": "Karn (city)",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        1356,
+        3917
+      ],
+      "link": "https://malazan.fandom.com/wiki/Karn"
+    },
+    {
+      "name": "Karn",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1289.0,
+        3916.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Karn"
+    },
+    {
+      "name": "Tallis",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1348,
+        3849
+      ],
+      "link": "https://malazan.fandom.com/wiki/Tallis"
+    },
+    {
+      "name": "Truce",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1413.0,
+        3845.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Truce_(nation)"
+    },
+    {
+      "name": "Truce (city)",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        1372,
+        3818
+      ],
+      "link": "https://malazan.fandom.com/wiki/Truce_(city)"
+    },
+    {
+      "name": "Beller",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1366,
+        3796
+      ],
+      "link": "https://malazan.fandom.com/wiki/Beller"
+    },
+    {
+      "name": "Feint",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1486,
+        3815
+      ],
+      "link": "https://malazan.fandom.com/wiki/Feint"
+    },
+    {
+      "name": "Obertull",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1375,
+        3756
+      ],
+      "link": "https://malazan.fandom.com/wiki/Obertull"
+    },
+    {
+      "name": "Gress",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1327,
+        3740
+      ],
+      "link": "https://malazan.fandom.com/wiki/Gress"
+    },
+    {
+      "name": "Trails",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1212,
+        3752
+      ],
+      "link": "https://malazan.fandom.com/wiki/Trails"
+    },
+    {
+      "name": "Deselen",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1162,
+        3789
+      ],
+      "link": "https://malazan.fandom.com/wiki/Deselen"
+    },
+    {
+      "name": "East Bay",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        1154.5,
+        3815.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/East_Bay"
+    },
+    {
+      "name": "Karyx",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1040,
+        3917
+      ],
+      "link": "https://malazan.fandom.com/wiki/Karyx"
+    },
+    {
+      "name": "Dracons Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        1196.0,
+        3894.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dracons_Sea"
+    },
+    {
+      "name": "Deepwaters",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        1282.5,
+        3785.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Deepwaters"
+    },
+    {
+      "name": "The Preserve",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        973.5,
+        3856.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/The_Preserve"
+    },
+    {
+      "name": "Ridge Island",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        1112.0,
+        3913.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ridge_Island"
+    },
+    {
+      "name": "Drene",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1895,
+        3477
+      ],
+      "link": "https://malazan.fandom.com/wiki/Drene"
+    },
+    {
+      "name": "Korasch",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1815,
+        3521
+      ],
+      "link": "https://malazan.fandom.com/wiki/Korasch"
+    },
+    {
+      "name": "Santchur",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1751,
+        3557
+      ],
+      "link": "https://malazan.fandom.com/wiki/Santchur"
+    },
+    {
+      "name": "Olived",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1752,
+        3609
+      ],
+      "link": "https://malazan.fandom.com/wiki/Olived"
+    },
+    {
+      "name": "Wend",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1663,
+        3595
+      ],
+      "link": "https://malazan.fandom.com/wiki/Wend"
+    },
+    {
+      "name": "Ouster",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1626,
+        3664
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ouster"
+    },
+    {
+      "name": "Stall",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1615,
+        3598
+      ],
+      "link": "https://malazan.fandom.com/wiki/Stall_(Lether)"
+    },
+    {
+      "name": "Pearls",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1573,
+        3558
+      ],
+      "link": "https://malazan.fandom.com/wiki/Pearls"
+    },
+    {
+      "name": "Andara",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1524,
+        3482
+      ],
+      "link": "https://malazan.fandom.com/wiki/Andara"
+    },
+    {
+      "name": "Bluerose",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1593,
+        3505
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bluerose"
+    },
+    {
+      "name": "Jasp",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1615,
+        3434
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jasp"
+    },
+    {
+      "name": "Lekester",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1709,
+        3510
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lekester"
+    },
+    {
+      "name": "Outbound",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1702,
+        3358
+      ],
+      "link": "https://malazan.fandom.com/wiki/Outbound"
+    },
+    {
+      "name": "Bluerose Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        1760.0,
+        3434.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bluerose_Sea"
+    },
+    {
+      "name": "Kryn",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1666.0,
+        3748.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kryn"
+    },
+    {
+      "name": "Kryn (city)",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        1662,
+        3784
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kryn"
+    },
+    {
+      "name": "Ak'ryn",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1827.5,
+        3766.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ak'ryn"
+    },
+    {
+      "name": "Awl'dan",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        2006.5,
+        3628.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Awl'dan"
+    },
+    {
+      "name": "Saphinand",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        2052.5,
+        3786.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Saphinand_Kingdom"
+    },
+    {
+      "name": "Saphinand (city)",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        2041,
+        3814
+      ],
+      "link": "https://malazan.fandom.com/wiki/Saphinand_Kingdom"
+    },
+    {
+      "name": "Bolkando",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        1818.0,
+        3953.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bolkando"
+    },
+    {
+      "name": "Bolkando (city)",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        1969,
+        3979
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bolkando"
+    },
+    {
+      "name": "The Wastelands",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        2278.5,
+        3762.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Wastelands"
+    },
+    {
+      "name": "The Glass Desert",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        2559.5,
+        3703.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Glass_Desert"
+    },
+    {
+      "name": "Icarias",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        2556,
+        3612
+      ],
+      "link": "https://malazan.fandom.com/wiki/Icarias"
+    },
+    {
+      "name": "Ses Mountains",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        3149.0,
+        3584.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ses_Mountains"
+    },
+    {
+      "name": "North Citadel",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3111,
+        3618
+      ],
+      "link": "https://malazan.fandom.com/wiki/North_Citadel"
+    },
+    {
+      "name": "Estobanese Province",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3018.0,
+        3655.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Estobanse"
+    },
+    {
+      "name": "Gest Pass",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        2950.0,
+        3717.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Gest_Pass"
+    },
+    {
+      "name": "East Elan Plain",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        2881.0,
+        3782.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/East_Elan_Plain"
+    },
+    {
+      "name": "Back",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3171,
+        3658
+      ],
+      "link": "https://malazan.fandom.com/wiki/Back"
+    },
+    {
+      "name": "Danan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3219,
+        3676
+      ],
+      "link": "https://malazan.fandom.com/wiki/Danan"
+    },
+    {
+      "name": "Hetok",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3254,
+        3697
+      ],
+      "link": "https://malazan.fandom.com/wiki/Hetok"
+    },
+    {
+      "name": "Trelar",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3247,
+        3732
+      ],
+      "link": "https://malazan.fandom.com/wiki/Trelar"
+    },
+    {
+      "name": "Spire",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3240,
+        3795
+      ],
+      "link": "https://malazan.fandom.com/wiki/Spire"
+    },
+    {
+      "name": "Kolanse",
+      "kind": "point",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        3209,
+        3794
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kolanse"
+    },
+    {
+      "name": "Valley of Blessed Gift",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3081.5,
+        3821.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Valley_of_Blessed_Gift"
+    },
+    {
+      "name": "Stet",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        2887,
+        3876
+      ],
+      "link": "https://malazan.fandom.com/wiki/Stet"
+    },
+    {
+      "name": "Kingdom of Kolanse",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        2935.0,
+        3932.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kolanse"
+    },
+    {
+      "name": "Okan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        2998,
+        4007
+      ],
+      "link": "https://malazan.fandom.com/wiki/Okan"
+    },
+    {
+      "name": "Korbanse",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3345,
+        3940
+      ],
+      "link": "https://malazan.fandom.com/wiki/Korbanse"
+    },
+    {
+      "name": "Korbanse Province",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3346.5,
+        4077.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Korbanse"
+    },
+    {
+      "name": "Kanros",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3147,
+        4125
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kanros"
+    },
+    {
+      "name": "Krosis",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        2992,
+        4220
+      ],
+      "link": "https://malazan.fandom.com/wiki/Krosis"
+    },
+    {
+      "name": "Pelasiar Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        3061.5,
+        4346.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Pelasiar_Sea"
+    },
+    {
+      "name": "Jacuruku",
+      "kind": "region",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        4432.0,
+        3980.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jacuruku"
+    },
+    {
+      "name": "Dolmens of Tien",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4569,
+        3303
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dolmens_of_Tien"
+    },
+    {
+      "name": "Anditi Pura",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4430,
+        3403
+      ],
+      "link": "https://malazan.fandom.com/wiki/Anditi_Pura"
+    },
+    {
+      "name": "Thaumaturg Kingdom",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4389.0,
+        3468.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Thaumaturg"
+    },
+    {
+      "name": "Isana Pura",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4382,
+        3522
+      ],
+      "link": "https://malazan.fandom.com/wiki/Isana_Pura"
+    },
+    {
+      "name": "Canyon Lands",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4458.0,
+        3583.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Canyon_Lands"
+    },
+    {
+      "name": "Gangrek Range",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        4541.0,
+        3541.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Gangrek_Range"
+    },
+    {
+      "name": "Desert of the Adwami Tribes",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        4430.0,
+        3714.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Desert_of_the_Adwami_Tribes"
+    },
+    {
+      "name": "Jakal Viharn",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4635,
+        3519
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jakal_Viharn"
+    },
+    {
+      "name": "Jungle of Himatan",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4744.0,
+        3769.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jungle_of_Himatan"
+    },
+    {
+      "name": "White Spires Ocean (Explorer's Sea)",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        4518.0,
+        4410.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/White_Spires_Ocean"
+    },
+    {
+      "name": "Domain Ocean",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        402.0,
+        3779.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Domain_Ocean"
+    },
+    {
+      "name": "Horn Ocean",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        4490.0,
+        2736.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Horn_Ocean"
+    },
+    {
+      "name": "Sea of Storms",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5332.0,
+        3092.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sea_of_Storms"
+    },
+    {
+      "name": "Reacher's Ocean",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6392.0,
+        2466.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Reacher's_Ocean"
+    },
+    {
+      "name": "Seeker's Deep (Meningalle Ocean)",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6190.0,
+        1336.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Seeker's_Deep"
+    },
+    {
+      "name": "Dryjna Ocean",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        4713.0,
+        588.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dryjna_Ocean"
+    },
+    {
+      "name": "Bloodmare Ocean",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6921.0,
+        3438.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bloodmare_Ocean"
+    },
+    {
+      "name": "Domain Ocean (East)",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        9106.0,
+        3388.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Domain_Ocean"
+    },
+    {
+      "name": "Rust Ocean",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        8192.0,
+        1071.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Rust_Ocean"
+    },
+    {
+      "name": "Korelri (Fist)",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6358.0,
+        2722.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Korelri"
+    },
+    {
+      "name": "Isle of Fist",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6270.5,
+        2866.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Fist_Island"
+    },
+    {
+      "name": "Skolati",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6501.5,
+        2824.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Skolati"
+    },
+    {
+      "name": "Fist Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6392.0,
+        2907.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Fist_Sea"
+    },
+    {
+      "name": "Rool",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6331.5,
+        3053.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Rool"
+    },
+    {
+      "name": "Mare",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6417.5,
+        3168.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Mare"
+    },
+    {
+      "name": "Dorik",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6309,
+        2928
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dorik"
+    },
+    {
+      "name": "Lorest",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6464,
+        2873
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lorest"
+    },
+    {
+      "name": "Falt",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6555,
+        2878
+      ],
+      "link": "https://malazan.fandom.com/wiki/Falt"
+    },
+    {
+      "name": "Homdo",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6195,
+        2956
+      ],
+      "link": "https://malazan.fandom.com/wiki/Homdo"
+    },
+    {
+      "name": "Lallit",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6188,
+        3014
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lallit"
+    },
+    {
+      "name": "Thol",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6338,
+        2991
+      ],
+      "link": "https://malazan.fandom.com/wiki/Thol"
+    },
+    {
+      "name": "Paliss",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6249,
+        3023
+      ],
+      "link": "https://malazan.fandom.com/wiki/Paliss"
+    },
+    {
+      "name": "Banith",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6266,
+        3073
+      ],
+      "link": "https://malazan.fandom.com/wiki/Banith"
+    },
+    {
+      "name": "Zestr",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6354,
+        3097
+      ],
+      "link": "https://malazan.fandom.com/wiki/Zestr"
+    },
+    {
+      "name": "Black City",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        6375,
+        3139
+      ],
+      "link": "https://malazan.fandom.com/wiki/Black_City"
+    },
+    {
+      "name": "Rivdo",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6423,
+        3211
+      ],
+      "link": "https://malazan.fandom.com/wiki/Rivdo"
+    },
+    {
+      "name": "Kevil",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6453,
+        3275
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kevil"
+    },
+    {
+      "name": "Kren",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6435,
+        3117
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kren"
+    },
+    {
+      "name": "Mald",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6514,
+        3112
+      ],
+      "link": "https://malazan.fandom.com/wiki/Mald"
+    },
+    {
+      "name": "Three Sisters",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6442,
+        3061
+      ],
+      "link": "https://malazan.fandom.com/wiki/Three_Sisters"
+    },
+    {
+      "name": "Haft",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6442,
+        3023
+      ],
+      "link": "https://malazan.fandom.com/wiki/Haft"
+    },
+    {
+      "name": "Gost",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6512,
+        3017
+      ],
+      "link": "https://malazan.fandom.com/wiki/Gost"
+    },
+    {
+      "name": "Aamil",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6528,
+        2986
+      ],
+      "link": "https://malazan.fandom.com/wiki/Aamil"
+    },
+    {
+      "name": "Ft. Drii",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6488,
+        2934
+      ],
+      "link": "https://malazan.fandom.com/wiki/Fort_Drii"
+    },
+    {
+      "name": "East Watch",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6542,
+        3359
+      ],
+      "link": "https://malazan.fandom.com/wiki/East_Watch"
+    },
+    {
+      "name": "The Deep Wilderness",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6301.5,
+        3447.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Deep_Wilderness"
+    },
+    {
+      "name": "Ebon Mountains",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        6284.5,
+        3345.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ebon_Mountains"
+    },
+    {
+      "name": "Shale",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6176,
+        3319
+      ],
+      "link": "https://malazan.fandom.com/wiki/Shale"
+    },
+    {
+      "name": "Stygg",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6237.0,
+        3299.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Stygg"
+    },
+    {
+      "name": "Shroud",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6231,
+        3264
+      ],
+      "link": "https://malazan.fandom.com/wiki/Shroud"
+    },
+    {
+      "name": "Cast",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6246,
+        3224
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cast"
+    },
+    {
+      "name": "Shade",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6287,
+        3239
+      ],
+      "link": "https://malazan.fandom.com/wiki/Shade"
+    },
+    {
+      "name": "Dim",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6288,
+        3205
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dim_(city)"
+    },
+    {
+      "name": "Ebon",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6310,
+        3137
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ebon"
+    },
+    {
+      "name": "Drak",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6341,
+        3219
+      ],
+      "link": "https://malazan.fandom.com/wiki/Drak"
+    },
+    {
+      "name": "Sty",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6293,
+        3296
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sty"
+    },
+    {
+      "name": "Plains of Blight",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        5874.5,
+        3603.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Plains_of_Blight"
+    },
+    {
+      "name": "Iceback Range",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        6034.0,
+        3610.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Iceback_Range"
+    },
+    {
+      "name": "Blight Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5749.0,
+        3640.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Blight_Sea"
+    },
+    {
+      "name": "Lorti",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5759,
+        3560
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lorti"
+    },
+    {
+      "name": "Dami",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5738,
+        3514
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dami"
+    },
+    {
+      "name": "Zelt",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5813,
+        3499
+      ],
+      "link": "https://malazan.fandom.com/wiki/Zelt"
+    },
+    {
+      "name": "Jasston",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5789.5,
+        3467.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jasston"
+    },
+    {
+      "name": "Jassr",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5810,
+        3421
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jassr"
+    },
+    {
+      "name": "The Curl",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5909.5,
+        3469.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/The_Curl"
+    },
+    {
+      "name": "Blight",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5685,
+        3624
+      ],
+      "link": "https://malazan.fandom.com/wiki/Blight"
+    },
+    {
+      "name": "Ring",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5627,
+        3541
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ring"
+    },
+    {
+      "name": "Jourilan Empire",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5607.5,
+        3598.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jourilan"
+    },
+    {
+      "name": "Aurgatt Range",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        5913.0,
+        3779.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Aurgatt_Range"
+    },
+    {
+      "name": "Antr",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5447,
+        3705
+      ],
+      "link": "https://malazan.fandom.com/wiki/Antr"
+    },
+    {
+      "name": "Pon-Rou",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5509,
+        3669
+      ],
+      "link": "https://malazan.fandom.com/wiki/Pon-Ruo"
+    },
+    {
+      "name": "Golk",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5474,
+        3665
+      ],
+      "link": "https://malazan.fandom.com/wiki/Golk"
+    },
+    {
+      "name": "Damos",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5446,
+        3546
+      ],
+      "link": "https://malazan.fandom.com/wiki/Damos"
+    },
+    {
+      "name": "Damos Bay",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5468.5,
+        3474.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Damos_Bay"
+    },
+    {
+      "name": "Jour",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5538,
+        3468
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jour"
+    },
+    {
+      "name": "Dourkan",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5622.0,
+        3436.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dourkan"
+    },
+    {
+      "name": "Dourkal",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5632,
+        3394
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dourkol"
+    },
+    {
+      "name": "Wolt",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5605,
+        3350
+      ],
+      "link": "https://malazan.fandom.com/wiki/Wolt"
+    },
+    {
+      "name": "Dour",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5673,
+        3334
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dour"
+    },
+    {
+      "name": "Flow Strait",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5750.5,
+        3435.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Flow_Strait"
+    },
+    {
+      "name": "Ghost City",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        5698,
+        3431
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ghost_City"
+    },
+    {
+      "name": "Remnant Isle",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5743.0,
+        3336.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Remnant_Isle"
+    },
+    {
+      "name": "Children's Ridge Mountains",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        5874.5,
+        3253.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Children_Ridge_Mountains"
+    },
+    {
+      "name": "Tower Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5878.5,
+        3284.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Tower_Sea"
+    },
+    {
+      "name": "Sky Tower",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        5871,
+        3323
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sky_Tower"
+    },
+    {
+      "name": "Protector Isle",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6029.5,
+        3355.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Protector_Isle"
+    },
+    {
+      "name": "Sender's Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6132.0,
+        3210.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sender's_Sea"
+    },
+    {
+      "name": "Fall Strait",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6061.5,
+        3105.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Fall_Strait"
+    },
+    {
+      "name": "Pirate's Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6107.5,
+        3011.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Pirate's_Sea"
+    },
+    {
+      "name": "Korelri",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5475.5,
+        3327.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Korelri"
+    },
+    {
+      "name": "Screaming Range",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        5473.5,
+        3367.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Screaming_Range"
+    },
+    {
+      "name": "Storm",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5553,
+        3283
+      ],
+      "link": "https://malazan.fandom.com/wiki/Storm"
+    },
+    {
+      "name": "Shelter",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5615,
+        3284
+      ],
+      "link": "https://malazan.fandom.com/wiki/Shelter"
+    },
+    {
+      "name": "Dead shore Stormwall",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5627.0,
+        3180.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dead_Shore"
+    },
+    {
+      "name": "Elri",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5679,
+        3231
+      ],
+      "link": "https://malazan.fandom.com/wiki/Elri"
+    },
+    {
+      "name": "Crack Strait",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5701.0,
+        3274.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Crack_Strait"
+    },
+    {
+      "name": "Kor",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5745,
+        3159
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kor"
+    },
+    {
+      "name": "Barrier Range",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        5703.0,
+        3101.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Barrier_Range"
+    },
+    {
+      "name": "Katakan",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5721.5,
+        3006.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Katakan"
+    },
+    {
+      "name": "Narrows",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5835.0,
+        3156.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Narrows"
+    },
+    {
+      "name": "Bali",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5813,
+        3124
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bali"
+    },
+    {
+      "name": "Xixr",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5792,
+        3083
+      ],
+      "link": "https://malazan.fandom.com/wiki/Xixr"
+    },
+    {
+      "name": "Blood Isthmus",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5811.0,
+        3034.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Blood_Isthmus"
+    },
+    {
+      "name": "Poon",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5860,
+        3092
+      ],
+      "link": "https://malazan.fandom.com/wiki/Poon"
+    },
+    {
+      "name": "Molz",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5925,
+        3063
+      ],
+      "link": "https://malazan.fandom.com/wiki/Molz"
+    },
+    {
+      "name": "Danig",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5946,
+        3057
+      ],
+      "link": "https://malazan.fandom.com/wiki/Danig"
+    },
+    {
+      "name": "Stall",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5975,
+        3048
+      ],
+      "link": "https://malazan.fandom.com/wiki/Stall_(Stormguard)"
+    },
+    {
+      "name": "Filk",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5988,
+        3020
+      ],
+      "link": "https://malazan.fandom.com/wiki/Filk"
+    },
+    {
+      "name": "Rip",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6005,
+        3002
+      ],
+      "link": "https://malazan.fandom.com/wiki/Rip"
+    },
+    {
+      "name": "Lamentable Moll",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6028,
+        2965
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lamentable_Moll"
+    },
+    {
+      "name": "Steel",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6069,
+        2946
+      ],
+      "link": "https://malazan.fandom.com/wiki/Steel"
+    },
+    {
+      "name": "Grest",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6095,
+        2889
+      ],
+      "link": "https://malazan.fandom.com/wiki/Grest"
+    },
+    {
+      "name": "Theft",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6040.5,
+        2923.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Theft"
+    },
+    {
+      "name": "Storin Cut",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5939.5,
+        2924.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Storin_Cut"
+    },
+    {
+      "name": "Storin Reef",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5844.5,
+        2889.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Storin_Reef"
+    },
+    {
+      "name": "Stratem",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5931.5,
+        3905.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Stratem"
+    },
+    {
+      "name": "Pine Fort",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        5462,
+        3780
+      ],
+      "link": "https://malazan.fandom.com/wiki/Pine_Fort"
+    },
+    {
+      "name": "Canton's Landing",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5465,
+        3895
+      ],
+      "link": "https://malazan.fandom.com/wiki/Canton's_Landing"
+    },
+    {
+      "name": "North Bastion",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5661,
+        3958
+      ],
+      "link": "https://malazan.fandom.com/wiki/North_Bastion"
+    },
+    {
+      "name": "Haven Provice (Crimson Guard Territory)",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5852.0,
+        4278.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Haven_Province"
+    },
+    {
+      "name": "Iron Citadel",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5943,
+        4412
+      ],
+      "link": "https://malazan.fandom.com/wiki/Iron_Citadel"
+    },
+    {
+      "name": "Thickton",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5906,
+        4048
+      ],
+      "link": "https://malazan.fandom.com/wiki/Thickton"
+    },
+    {
+      "name": "Quillon",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5855,
+        4058
+      ],
+      "link": "https://malazan.fandom.com/wiki/Quillon"
+    },
+    {
+      "name": "Sea of Chimes",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6106.0,
+        4108.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sea_of_Chimes"
+    },
+    {
+      "name": "Toll's City",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        6519,
+        3825
+      ],
+      "link": "https://malazan.fandom.com/wiki/Toll's_City"
+    },
+    {
+      "name": "Toll's Landing",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6550,
+        3845
+      ],
+      "link": "https://malazan.fandom.com/wiki/Toll's_Landing"
+    },
+    {
+      "name": "Thick",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6350,
+        4120
+      ],
+      "link": "https://malazan.fandom.com/wiki/Thick"
+    },
+    {
+      "name": "Cape of the Stone Army",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6532.0,
+        4122.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cape_of_the_Stone_Army"
+    },
+    {
+      "name": "Ice Island Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6664.5,
+        3661.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ice_Island_Sea"
+    },
+    {
+      "name": "Assail",
+      "kind": "region",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        8045.0,
+        2645.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Assail"
+    },
+    {
+      "name": "Barren Coast",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7253.0,
+        2572.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Barren_Coast"
+    },
+    {
+      "name": "Plain of Ghosts",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        7327.5,
+        2681.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Plain_of_Ghosts"
+    },
+    {
+      "name": "Fallen (Taken)",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7436,
+        2623
+      ],
+      "link": "https://malazan.fandom.com/wiki/Fallen"
+    },
+    {
+      "name": "Plain of Visions",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        7508.5,
+        2595.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Plain_of_Visions"
+    },
+    {
+      "name": "Blood Range",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        7551.5,
+        2698.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Blood_Range"
+    },
+    {
+      "name": "Salt Mountains",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        7614.5,
+        2629.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Salt_Mountains"
+    },
+    {
+      "name": "Reach",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7627,
+        2731
+      ],
+      "link": "https://malazan.fandom.com/wiki/Reach"
+    },
+    {
+      "name": "Mantle",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7653,
+        2696
+      ],
+      "link": "https://malazan.fandom.com/wiki/Mantle"
+    },
+    {
+      "name": "Plain of Sighs",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        7668.0,
+        2592.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Plain_of_Sighs"
+    },
+    {
+      "name": "Wrack Coast",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7754.5,
+        2510.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Wrack_Coast"
+    },
+    {
+      "name": "Dreaming Range",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        7813.5,
+        2588.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dreaming_Range"
+    },
+    {
+      "name": "Plain of Longing",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        7834.0,
+        2637.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Plain_of_Longing"
+    },
+    {
+      "name": "First Landing",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7711,
+        2704
+      ],
+      "link": "https://malazan.fandom.com/wiki/First_Landing"
+    },
+    {
+      "name": "Sea of Gold",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        7667.5,
+        2729.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sea_of_Gold"
+    },
+    {
+      "name": "City of Many Saints",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        7669,
+        2769
+      ],
+      "link": "https://malazan.fandom.com/wiki/City_of_Many_Saints"
+    },
+    {
+      "name": "Plain of Chance",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        7783.0,
+        2811.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Plain_of_Chance"
+    },
+    {
+      "name": "Holly",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7714,
+        2849
+      ],
+      "link": "https://malazan.fandom.com/wiki/Holly"
+    },
+    {
+      "name": "Bone Range",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        7664.5,
+        2844.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bone_Range"
+    },
+    {
+      "name": "Rough Landing",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7684,
+        2915
+      ],
+      "link": "https://malazan.fandom.com/wiki/Rough_Landing"
+    },
+    {
+      "name": "Bones",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7732,
+        2977
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bones"
+    },
+    {
+      "name": "Old Ruse",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7713,
+        3077
+      ],
+      "link": "https://malazan.fandom.com/wiki/Old_Ruse"
+    },
+    {
+      "name": "North",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7641,
+        2989
+      ],
+      "link": "https://malazan.fandom.com/wiki/North"
+    },
+    {
+      "name": "Vanishing Wastes",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7449.0,
+        2791.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Vanishing_Wastes"
+    },
+    {
+      "name": "Mist",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7586,
+        2855
+      ],
+      "link": "https://malazan.fandom.com/wiki/Mist"
+    },
+    {
+      "name": "Range of the Saints",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        7351.0,
+        2975.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Range_of_the_Saints"
+    },
+    {
+      "name": "Mist",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7586,
+        2855
+      ],
+      "link": "https://malazan.fandom.com/wiki/Mist"
+    },
+    {
+      "name": "Anguish Coast",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7503.0,
+        2976.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Anguish_Coast"
+    },
+    {
+      "name": "Dread Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        7576.5,
+        3039.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dread_Sea"
+    },
+    {
+      "name": "Exile Keep",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        7553,
+        3102
+      ],
+      "link": "https://malazan.fandom.com/wiki/Exile_Keep"
+    },
+    {
+      "name": "Lake Fort",
+      "kind": "point",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        7481,
+        3161
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lake_Fort"
+    },
+    {
+      "name": "Lake Blessing",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        7493.0,
+        3199.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lake_Blessing"
+    },
+    {
+      "name": "Shifting Wastes",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7618.0,
+        3188.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Shifting_Wastes"
+    },
+    {
+      "name": "Coast of Dust",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7641.5,
+        3115.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Coast_of_Dust"
+    },
+    {
+      "name": "Fear Narrows",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7767.0,
+        3087.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Fear_Narrows"
+    },
+    {
+      "name": "Run",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7845,
+        3032
+      ],
+      "link": "https://malazan.fandom.com/wiki/Run"
+    },
+    {
+      "name": "Burnt",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7874,
+        3016
+      ],
+      "link": "https://malazan.fandom.com/wiki/Burnt"
+    },
+    {
+      "name": "Deep Root",
+      "kind": "point",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        7866,
+        3046
+      ],
+      "link": "https://malazan.fandom.com/wiki/Deep_Root"
+    },
+    {
+      "name": "Wrecker's Coast",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7909.5,
+        2948.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Wrecker's_Coast"
+    },
+    {
+      "name": "Pillar",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7901,
+        2962
+      ],
+      "link": "https://malazan.fandom.com/wiki/Pillar"
+    },
+    {
+      "name": "Widden",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7960,
+        3000
+      ],
+      "link": "https://malazan.fandom.com/wiki/Widden"
+    },
+    {
+      "name": "Talon Forest",
+      "kind": "region",
+      "category": "forest",
+      "importance": 2,
+      "center": [
+        7905.0,
+        3101.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Talon_Forest"
+    },
+    {
+      "name": "Listell",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7877,
+        3140
+      ],
+      "link": "https://malazan.fandom.com/wiki/Listell"
+    },
+    {
+      "name": "Shore of Sand",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7558.5,
+        3268.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Shore_of_Sand"
+    },
+    {
+      "name": "Black Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        7571.5,
+        3306.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Black_Sea"
+    },
+    {
+      "name": "Shore of Stone",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7611.0,
+        3346.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Shore_of_Stone"
+    },
+    {
+      "name": "Yag'quarall (Silent Tribes)",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7369.0,
+        3264.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Silent_People"
+    },
+    {
+      "name": "Bael",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7529.0,
+        3762.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bael"
+    },
+    {
+      "name": "Weeping Plains",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        7482.5,
+        3472.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Weeping_Plains"
+    },
+    {
+      "name": "Yaguran (Sons of Wind)",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7402.5,
+        3578.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Yaguran"
+    },
+    {
+      "name": "Nabraji",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7662,
+        3446
+      ],
+      "link": "https://malazan.fandom.com/wiki/Nabraji"
+    },
+    {
+      "name": "Kurzan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7753,
+        3437
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kurzan"
+    },
+    {
+      "name": "White Cliffs",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7823.0,
+        3435.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/White_Cliffs"
+    },
+    {
+      "name": "Towerpoint",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        7885,
+        3316
+      ],
+      "link": "https://malazan.fandom.com/wiki/Towerpoint"
+    },
+    {
+      "name": "Quon Tali",
+      "kind": "region",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        4849.5,
+        2317.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Quon_Tali"
+    },
+    {
+      "name": "Falar",
+      "kind": "region",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        5641.5,
+        1835.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Falar"
+    },
+    {
+      "name": "Bantra",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5474,
+        1770
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bantra"
+    },
+    {
+      "name": "Walk Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5490.0,
+        1958.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Walk_Sea"
+    },
+    {
+      "name": "Walk",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5416,
+        2023
+      ],
+      "link": "https://malazan.fandom.com/wiki/Walk"
+    },
+    {
+      "name": "Strom Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5352.0,
+        2130.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Strom_Sea"
+    },
+    {
+      "name": "Falari Isles",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5212.0,
+        1938.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Falari_Isles"
+    },
+    {
+      "name": "Cragg Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5149.5,
+        1854.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cragg_Sea"
+    },
+    {
+      "name": "Cabil",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5172,
+        2065
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cabil"
+    },
+    {
+      "name": "Falair",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5120,
+        2074
+      ],
+      "link": "https://malazan.fandom.com/wiki/Falair"
+    },
+    {
+      "name": "Belade",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5197,
+        2111
+      ],
+      "link": "https://malazan.fandom.com/wiki/Belade"
+    },
+    {
+      "name": "Falar Peninsula",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4957.5,
+        2116.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Falar"
+    },
+    {
+      "name": "Walk Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5488.5,
+        1958.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Walk_Sea"
+    },
+    {
+      "name": "Belid",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5573,
+        2098
+      ],
+      "link": "https://malazan.fandom.com/wiki/Belid"
+    },
+    {
+      "name": "Strike Island",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5738.0,
+        2076.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Strike_Island"
+    },
+    {
+      "name": "Strike",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5628,
+        2109
+      ],
+      "link": "https://malazan.fandom.com/wiki/Strike"
+    },
+    {
+      "name": "Delanss",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5467,
+        2203
+      ],
+      "link": "https://malazan.fandom.com/wiki/Delanss"
+    },
+    {
+      "name": "Delanss Island",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5582.5,
+        2269.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Delanss_Island"
+    },
+    {
+      "name": "Falari Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5632.0,
+        2211.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Falari_Sea"
+    },
+    {
+      "name": "Colonnus Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5431.0,
+        2325.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Colonnus_Sea"
+    },
+    {
+      "name": "Great Fenn Range",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        5151.0,
+        2373.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Great_Fenn_Range"
+    },
+    {
+      "name": "The Citadel",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5321,
+        2395
+      ],
+      "link": "https://malazan.fandom.com/wiki/Red_Fort"
+    },
+    {
+      "name": "Voron",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5423,
+        2418
+      ],
+      "link": "https://malazan.fandom.com/wiki/Voron"
+    },
+    {
+      "name": "Wickan Plains",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        5546.0,
+        2355.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Wickan_Plains"
+    },
+    {
+      "name": "Baran",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5576,
+        2430
+      ],
+      "link": "https://malazan.fandom.com/wiki/Baran_(city)"
+    },
+    {
+      "name": "D'avig",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5507,
+        2452
+      ],
+      "link": "https://malazan.fandom.com/wiki/D'Avig"
+    },
+    {
+      "name": "Athrans",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5456,
+        2491
+      ],
+      "link": "https://malazan.fandom.com/wiki/Athrans"
+    },
+    {
+      "name": "Thades",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5439,
+        2516
+      ],
+      "link": "https://malazan.fandom.com/wiki/Thades"
+    },
+    {
+      "name": "Rath",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5382,
+        2521
+      ],
+      "link": "https://malazan.fandom.com/wiki/Rath"
+    },
+    {
+      "name": "Thade",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5432,
+        2548
+      ],
+      "link": "https://malazan.fandom.com/wiki/Thade"
+    },
+    {
+      "name": "Bloor",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5416,
+        2583
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bloor"
+    },
+    {
+      "name": "Gris",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5616,
+        2539
+      ],
+      "link": "https://malazan.fandom.com/wiki/Gris"
+    },
+    {
+      "name": "Unta",
+      "kind": "point",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        5572,
+        2580
+      ],
+      "link": "https://malazan.fandom.com/wiki/Unta"
+    },
+    {
+      "name": "Kartool Island",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5765.0,
+        2627.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kartool_Island"
+    },
+    {
+      "name": "Kartool",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5713,
+        2660
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kartool"
+    },
+    {
+      "name": "Bloor Sea",
+      "kind": "point",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5416,
+        2581
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bloor_Sea"
+    },
+    {
+      "name": "Malaz Isle",
+      "kind": "region",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        5564.5,
+        2888.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Malaz_Isle"
+    },
+    {
+      "name": "Jakata",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5574,
+        2846
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jakata"
+    },
+    {
+      "name": "Malaz City",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        5616,
+        2835
+      ],
+      "link": "https://malazan.fandom.com/wiki/Malaz_City"
+    },
+    {
+      "name": "Aythan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5493,
+        2683
+      ],
+      "link": "https://malazan.fandom.com/wiki/Aythan"
+    },
+    {
+      "name": "Carasin",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5479,
+        2706
+      ],
+      "link": "https://malazan.fandom.com/wiki/Carasin"
+    },
+    {
+      "name": "Vor",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5446,
+        2704
+      ],
+      "link": "https://malazan.fandom.com/wiki/Vor"
+    },
+    {
+      "name": "Marl",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5375,
+        2682
+      ],
+      "link": "https://malazan.fandom.com/wiki/Marl"
+    },
+    {
+      "name": "Nap Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5378.0,
+        2718.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Nap_Sea"
+    },
+    {
+      "name": "Napan Isles",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5456.5,
+        2761.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Napan_Isles"
+    },
+    {
+      "name": "Dariyal",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5392,
+        2771
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dariyal"
+    },
+    {
+      "name": "Forest Fenn",
+      "kind": "region",
+      "category": "forest",
+      "importance": 2,
+      "center": [
+        5229.0,
+        2444.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Forest_Fenn"
+    },
+    {
+      "name": "Purage",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4982,
+        2511
+      ],
+      "link": "https://malazan.fandom.com/wiki/Purage"
+    },
+    {
+      "name": "Tellick",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4989,
+        2537
+      ],
+      "link": "https://malazan.fandom.com/wiki/Tellick"
+    },
+    {
+      "name": "Quon & Tali",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4988,
+        2559
+      ],
+      "link": "https://malazan.fandom.com/wiki/Quon_Tali"
+    },
+    {
+      "name": "Attic",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4963,
+        2586
+      ],
+      "link": "https://malazan.fandom.com/wiki/Attic"
+    },
+    {
+      "name": "Panys",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4941,
+        2603
+      ],
+      "link": "https://malazan.fandom.com/wiki/Panys"
+    },
+    {
+      "name": "Ebond",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4943,
+        2553
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ebond"
+    },
+    {
+      "name": "Valan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4937,
+        2527
+      ],
+      "link": "https://malazan.fandom.com/wiki/Valan"
+    },
+    {
+      "name": "Korn",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4915,
+        2587
+      ],
+      "link": "https://malazan.fandom.com/wiki/Korn"
+    },
+    {
+      "name": "Arath",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4914,
+        2655
+      ],
+      "link": "https://malazan.fandom.com/wiki/Arath"
+    },
+    {
+      "name": "Garal",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4988,
+        2658
+      ],
+      "link": "https://malazan.fandom.com/wiki/Garal"
+    },
+    {
+      "name": "Aireck",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5010,
+        2628
+      ],
+      "link": "https://malazan.fandom.com/wiki/Aireck"
+    },
+    {
+      "name": "Bastial",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5049,
+        2639
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bastial"
+    },
+    {
+      "name": "Nadir",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5049,
+        2608
+      ],
+      "link": "https://malazan.fandom.com/wiki/Nadir"
+    },
+    {
+      "name": "Seti",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5106,
+        2583
+      ],
+      "link": "https://malazan.fandom.com/wiki/Seti"
+    },
+    {
+      "name": "New Seti",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5200,
+        2535
+      ],
+      "link": "https://malazan.fandom.com/wiki/New_Seti"
+    },
+    {
+      "name": "Idryb",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5263,
+        2637
+      ],
+      "link": "https://malazan.fandom.com/wiki/Idryb"
+    },
+    {
+      "name": "Cawn",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5311,
+        2630
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cawn"
+    },
+    {
+      "name": "Aska",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5322,
+        2664
+      ],
+      "link": "https://malazan.fandom.com/wiki/Aska"
+    },
+    {
+      "name": "Li Heng",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5211,
+        2666
+      ],
+      "link": "https://malazan.fandom.com/wiki/Li_Heng"
+    },
+    {
+      "name": "Ijor",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5255,
+        2735
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ijor"
+    },
+    {
+      "name": "Nex",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5227,
+        2757
+      ],
+      "link": "https://malazan.fandom.com/wiki/Nex"
+    },
+    {
+      "name": "Dal Hon Plains",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        5110.0,
+        2717.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dal_Hon_Plains"
+    },
+    {
+      "name": "Itko Kan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5292,
+        2761
+      ],
+      "link": "https://malazan.fandom.com/wiki/Itko_Kan"
+    },
+    {
+      "name": "Wal Fend",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5257,
+        2839
+      ],
+      "link": "https://malazan.fandom.com/wiki/Wal_Fend"
+    },
+    {
+      "name": "Horan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5203,
+        2816
+      ],
+      "link": "https://malazan.fandom.com/wiki/Horan"
+    },
+    {
+      "name": "Forest Horn",
+      "kind": "region",
+      "category": "forest",
+      "importance": 2,
+      "center": [
+        5042.0,
+        2818.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Forest_Horn"
+    },
+    {
+      "name": "Genii",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5277.0,
+        2952.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Genii_Straits"
+    },
+    {
+      "name": "Drift Avalii",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4804.0,
+        2957.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Drift_Avalii"
+    },
+    {
+      "name": "Genabackis",
+      "kind": "region",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        7314.5,
+        1427.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Genabackis"
+    },
+    {
+      "name": "Hudd Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        7011.0,
+        627.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Hudd_Sea"
+    },
+    {
+      "name": "Tobla Tundra",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6802.5,
+        764.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Toblai_Tundra"
+    },
+    {
+      "name": "Laederon Plateau",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6837.5,
+        799.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Laederon_Plateau"
+    },
+    {
+      "name": "Northwind Tundra",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6988.5,
+        822.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Northwind_Tundra"
+    },
+    {
+      "name": "Ganiss",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7097,
+        810
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ganiss"
+    },
+    {
+      "name": "Hoop",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7212,
+        797
+      ],
+      "link": "https://malazan.fandom.com/wiki/Hoop"
+    },
+    {
+      "name": "Horan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7321,
+        788
+      ],
+      "link": "https://malazan.fandom.com/wiki/Horan"
+    },
+    {
+      "name": "Genabaris",
+      "kind": "point",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        6721,
+        877
+      ],
+      "link": "https://malazan.fandom.com/wiki/Genabaris"
+    },
+    {
+      "name": "Prospect",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6719,
+        940
+      ],
+      "link": "https://malazan.fandom.com/wiki/Prospect"
+    },
+    {
+      "name": "Grinning Face Range",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        6891.5,
+        960.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Grinning_Face_Range"
+    },
+    {
+      "name": "Bettrys",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6829,
+        916
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bettrys"
+    },
+    {
+      "name": "Blued",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6901,
+        913
+      ],
+      "link": "https://malazan.fandom.com/wiki/Blued"
+    },
+    {
+      "name": "Prospect",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6718,
+        941
+      ],
+      "link": "https://malazan.fandom.com/wiki/Prospect"
+    },
+    {
+      "name": "Mott",
+      "kind": "point",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        6770,
+        973
+      ],
+      "link": "https://malazan.fandom.com/wiki/Mott"
+    },
+    {
+      "name": "Greydog",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6826,
+        966
+      ],
+      "link": "https://malazan.fandom.com/wiki/Greydog"
+    },
+    {
+      "name": "Owndos Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6914.5,
+        935.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Owndos_Sea"
+    },
+    {
+      "name": "Culvern",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6910,
+        853
+      ],
+      "link": "https://malazan.fandom.com/wiki/Culvern"
+    },
+    {
+      "name": "Owndos",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6955,
+        939
+      ],
+      "link": "https://malazan.fandom.com/wiki/Owndos"
+    },
+    {
+      "name": "Tarthen Range",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        7010.0,
+        906.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Tarthen_Range"
+    },
+    {
+      "name": "Genalle",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7089,
+        900
+      ],
+      "link": "https://malazan.fandom.com/wiki/Genalle"
+    },
+    {
+      "name": "Free City Plain",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        7176.5,
+        871.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Free_City_Plain"
+    },
+    {
+      "name": "Apple",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7267,
+        958
+      ],
+      "link": "https://malazan.fandom.com/wiki/Apple"
+    },
+    {
+      "name": "Nathilog",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6669,
+        967
+      ],
+      "link": "https://malazan.fandom.com/wiki/Nathilog"
+    },
+    {
+      "name": "Ayjhan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6651,
+        1001
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ayjhan"
+    },
+    {
+      "name": "Tulips",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6629,
+        1042
+      ],
+      "link": "https://malazan.fandom.com/wiki/Tulips"
+    },
+    {
+      "name": "Blackdog Forest",
+      "kind": "region",
+      "category": "forest",
+      "importance": 3,
+      "center": [
+        6723.0,
+        1047.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Blackdog_Forest"
+    },
+    {
+      "name": "Bodd",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6920,
+        1010
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bodd"
+    },
+    {
+      "name": "Bear",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6898,
+        1115
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bear"
+    },
+    {
+      "name": "Patch",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6883,
+        1167
+      ],
+      "link": "https://malazan.fandom.com/wiki/Patch"
+    },
+    {
+      "name": "One Eye Cat",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6951,
+        1044
+      ],
+      "link": "https://malazan.fandom.com/wiki/One_Eye_Cat"
+    },
+    {
+      "name": "One Eye Range",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        7083.0,
+        1065.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/One_Eye_Range"
+    },
+    {
+      "name": "Abor",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7017,
+        1009
+      ],
+      "link": "https://malazan.fandom.com/wiki/Abor_(Genabackis)"
+    },
+    {
+      "name": "Sogena",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7067,
+        991
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sogena"
+    },
+    {
+      "name": "Old King Plateau",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7005.0,
+        1114.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Old_King_Plateau"
+    },
+    {
+      "name": "Cat",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6948,
+        1128
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cat"
+    },
+    {
+      "name": "Lead",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6965,
+        1165
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lead"
+    },
+    {
+      "name": "Lead Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6996.5,
+        1191.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lead_Sea"
+    },
+    {
+      "name": "Cruk",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7056,
+        1144
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cruk"
+    },
+    {
+      "name": "Stannis Plain",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        7190.0,
+        1043.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Stannis_Plain"
+    },
+    {
+      "name": "Anklos",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7146,
+        1176
+      ],
+      "link": "https://malazan.fandom.com/wiki/Anklos"
+    },
+    {
+      "name": "Shand",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7291,
+        1144
+      ],
+      "link": "https://malazan.fandom.com/wiki/Shand_(city)"
+    },
+    {
+      "name": "Crest",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7283,
+        1057
+      ],
+      "link": "https://malazan.fandom.com/wiki/Crest"
+    },
+    {
+      "name": "Harbinger Peninsula",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7424.0,
+        1064.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Harbinger_Peninsula"
+    },
+    {
+      "name": "Oach",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6579,
+        1182
+      ],
+      "link": "https://malazan.fandom.com/wiki/Oach"
+    },
+    {
+      "name": "Mistral Plateau",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6619.0,
+        1217.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Mistral_Plateau"
+    },
+    {
+      "name": "Rhivi Plain",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 3,
+      "center": [
+        6811.5,
+        1227.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Rhivi_Plain"
+    },
+    {
+      "name": "Greenwater Lake",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6737.5,
+        1264.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Greenwater_Lake"
+    },
+    {
+      "name": "Lead Steppes",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6953.5,
+        1265.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lead_Steppes"
+    },
+    {
+      "name": "Bhederin Plateau",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6921.0,
+        1331.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bhederin_Plateau"
+    },
+    {
+      "name": "Sephal Mountains",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        7079.5,
+        1227.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sephal_Mountains"
+    },
+    {
+      "name": "Taph",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7129,
+        1265
+      ],
+      "link": "https://malazan.fandom.com/wiki/Taph"
+    },
+    {
+      "name": "Fall Isle",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7303.5,
+        1261.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Fall_Isle"
+    },
+    {
+      "name": "Mengal",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6520,
+        1399
+      ],
+      "link": "https://malazan.fandom.com/wiki/Mengal"
+    },
+    {
+      "name": "Moranth Mountains",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 3,
+      "center": [
+        6605.0,
+        1345.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Moranth_Mountains"
+    },
+    {
+      "name": "Cloud Forest",
+      "kind": "region",
+      "category": "forest",
+      "importance": 3,
+      "center": [
+        6629.0,
+        1377.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cloud_Forest"
+    },
+    {
+      "name": "Pale",
+      "kind": "point",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        6749,
+        1391
+      ],
+      "link": "https://malazan.fandom.com/wiki/Pale"
+    },
+    {
+      "name": "Tahlyn Mountains",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        6749.5,
+        1433.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Tahlyn_Mountains"
+    },
+    {
+      "name": "The Divide",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6886.5,
+        1444.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/The_Divide"
+    },
+    {
+      "name": "Barghast Range",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        7045.0,
+        1373.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Barghast_Range"
+    },
+    {
+      "name": "Dhavran",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6677,
+        1466
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dhavran"
+    },
+    {
+      "name": "Kurl",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6664,
+        1527
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kurl"
+    },
+    {
+      "name": "Gredfallen",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6719,
+        1510
+      ],
+      "link": "https://malazan.fandom.com/wiki/Gredfallan"
+    },
+    {
+      "name": "Lake Azur",
+      "kind": "region",
+      "category": "water",
+      "importance": 3,
+      "center": [
+        6772.0,
+        1483.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lake_Azur"
+    },
+    {
+      "name": "Gadrobi Hills",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 3,
+      "center": [
+        6867.5,
+        1524.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Gadrobi_Hills"
+    },
+    {
+      "name": "Darujhistan",
+      "kind": "point",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        6782,
+        1527
+      ],
+      "link": "https://malazan.fandom.com/wiki/Darujhistan"
+    },
+    {
+      "name": "Saltoan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6974,
+        1505
+      ],
+      "link": "https://malazan.fandom.com/wiki/Saltoan"
+    },
+    {
+      "name": "Vision Mountains",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        6998.0,
+        1543.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Vision_Mountains"
+    },
+    {
+      "name": "Capustan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7101,
+        1546
+      ],
+      "link": "https://malazan.fandom.com/wiki/Capustan"
+    },
+    {
+      "name": "Lest",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7082,
+        1561
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lest"
+    },
+    {
+      "name": "Settar",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7046,
+        1569
+      ],
+      "link": "https://malazan.fandom.com/wiki/Setta"
+    },
+    {
+      "name": "Maurik",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7066,
+        1617
+      ],
+      "link": "https://malazan.fandom.com/wiki/Maurik"
+    },
+    {
+      "name": "Coral",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7065,
+        1652
+      ],
+      "link": "https://malazan.fandom.com/wiki/Coral_(city)"
+    },
+    {
+      "name": "Dwelling Plain",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        6747.0,
+        1614.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dwelling_Plain"
+    },
+    {
+      "name": "Cinnamon Wastes",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6894.0,
+        1640.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cinnamon_Wastes"
+    },
+    {
+      "name": "Gods Walk Mountains",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        6894.5,
+        1684.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Godswalk_Mountains"
+    },
+    {
+      "name": "Bastion",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6869,
+        1746
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bastion"
+    },
+    {
+      "name": "Sarn",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6920,
+        1750
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sarn"
+    },
+    {
+      "name": "Pilgrim Lake",
+      "kind": "point",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        6971,
+        1741
+      ],
+      "link": "https://malazan.fandom.com/wiki/Pilgrim_Lake"
+    },
+    {
+      "name": "Heath",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7031,
+        1767
+      ],
+      "link": "https://malazan.fandom.com/wiki/Heath_(location)"
+    },
+    {
+      "name": "Outlook",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7041,
+        1773
+      ],
+      "link": "https://malazan.fandom.com/wiki/Outlook"
+    },
+    {
+      "name": "Palat Forest",
+      "kind": "region",
+      "category": "forest",
+      "importance": 2,
+      "center": [
+        7081.0,
+        1850.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Palat_Forest"
+    },
+    {
+      "name": "The Twins",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6542.5,
+        1956.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/The_Twins"
+    },
+    {
+      "name": "Callows",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6638,
+        1930
+      ],
+      "link": "https://malazan.fandom.com/wiki/Callows"
+    },
+    {
+      "name": "Plain of Lamatath",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        6871.0,
+        2011.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Plain_of_Lamatath"
+    },
+    {
+      "name": "Root Forest",
+      "kind": "region",
+      "category": "forest",
+      "importance": 2,
+      "center": [
+        6734.0,
+        2100.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Root_Forest"
+    },
+    {
+      "name": "Morn",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6759,
+        2186
+      ],
+      "link": "https://malazan.fandom.com/wiki/Morn_(location)"
+    },
+    {
+      "name": "Cant",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6610,
+        2211
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cant"
+    },
+    {
+      "name": "Isle of the Seguleh",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        6601.5,
+        2303.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Isle_of_the_Seguleh"
+    },
+    {
+      "name": "Bay of No Harbour",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        7203.0,
+        2083.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bay_of_No_Harbour"
+    },
+    {
+      "name": "Ilem",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7067,
+        2326
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ilem"
+    },
+    {
+      "name": "March",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7135,
+        2325
+      ],
+      "link": "https://malazan.fandom.com/wiki/March"
+    },
+    {
+      "name": "North March",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7138,
+        2224
+      ],
+      "link": "https://malazan.fandom.com/wiki/North_March"
+    },
+    {
+      "name": "Hurly",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7215,
+        2310
+      ],
+      "link": "https://malazan.fandom.com/wiki/Hurly"
+    },
+    {
+      "name": "Torn",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7258,
+        2302
+      ],
+      "link": "https://malazan.fandom.com/wiki/Torn"
+    },
+    {
+      "name": "Spendrugle",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7331,
+        2285
+      ],
+      "link": "https://malazan.fandom.com/wiki/Spendrugle"
+    },
+    {
+      "name": "Trygalle",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7376,
+        2270
+      ],
+      "link": "https://malazan.fandom.com/wiki/Trygalle"
+    },
+    {
+      "name": "Cyral",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7316,
+        2172
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cyral"
+    },
+    {
+      "name": "Elingarth",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7405,
+        2244
+      ],
+      "link": "https://malazan.fandom.com/wiki/Elingarth"
+    },
+    {
+      "name": "Rivan Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        7563.0,
+        2382.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Rivan_Sea"
+    },
+    {
+      "name": "Seven Ruins Island",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7472.5,
+        2429.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Seven_Ruins_Island"
+    },
+    {
+      "name": "Erin",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7455,
+        2222
+      ],
+      "link": "https://malazan.fandom.com/wiki/Erin"
+    },
+    {
+      "name": "Kepler's Spite",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7472,
+        2056
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kepler's_Spite"
+    },
+    {
+      "name": "Exile",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7518,
+        2145
+      ],
+      "link": "https://malazan.fandom.com/wiki/Exile"
+    },
+    {
+      "name": "Amat El",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7536,
+        2202
+      ],
+      "link": "https://malazan.fandom.com/wiki/Amat_El"
+    },
+    {
+      "name": "Bluff Point",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7624.0,
+        2172.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bluff_Point"
+    },
+    {
+      "name": "Bounty",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7576,
+        2095
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bounty"
+    },
+    {
+      "name": "Golden",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7641,
+        2067
+      ],
+      "link": "https://malazan.fandom.com/wiki/Golden"
+    },
+    {
+      "name": "Cape Castle",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7694.0,
+        2132.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cape_Castle"
+    },
+    {
+      "name": "Refuge",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7691,
+        2032
+      ],
+      "link": "https://malazan.fandom.com/wiki/Refuge"
+    },
+    {
+      "name": "The Groan",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7816.5,
+        2058.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/The_Groan"
+    },
+    {
+      "name": "King Call's Isle",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7868.5,
+        2020.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/King_Call's_Isle"
+    },
+    {
+      "name": "Bad Luck Isle",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7919.5,
+        1958.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bad_Luck_Isle"
+    },
+    {
+      "name": "Wreck Isle",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        8006.0,
+        1921.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Wreck_Isle"
+    },
+    {
+      "name": "Corpse Isle",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        8105.5,
+        1867.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Corpse_Isle"
+    },
+    {
+      "name": "Night Ship Islands",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7928.0,
+        1865.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Night_Ship_Islands"
+    },
+    {
+      "name": "Galatan Sweep",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7987.5,
+        2085.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Galatan_Sweep"
+    },
+    {
+      "name": "Galatan Island",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7687.5,
+        2302.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Galatan_Island"
+    },
+    {
+      "name": "New Landing",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        7636,
+        2264
+      ],
+      "link": "https://malazan.fandom.com/wiki/New_Landing"
+    },
+    {
+      "name": "Four Towers Ruins",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        7743,
+        2247
+      ],
+      "link": "https://malazan.fandom.com/wiki/Four_Towers_Ruins"
+    },
+    {
+      "name": "Seven Cities",
+      "kind": "region",
+      "category": "place",
+      "importance": 3,
+      "center": [
+        4922.0,
+        780.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Seven_Cities"
+    },
+    {
+      "name": "Otataral Island",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5446.0,
+        590.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Otataral_Island"
+    },
+    {
+      "name": "Bandiko Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5894.0,
+        621.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bandiko_Sea"
+    },
+    {
+      "name": "Sea of Kaltepe Kadesh",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5327.0,
+        767.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sea_of_Kaltepe_Kadesh"
+    },
+    {
+      "name": "Bandiko Desert",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        5524.5,
+        728.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bandiko_Desert"
+    },
+    {
+      "name": "Talgai Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5626.0,
+        801.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Talgai_Sea"
+    },
+    {
+      "name": "Karakarang",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5695,
+        767
+      ],
+      "link": "https://malazan.fandom.com/wiki/Karakarang"
+    },
+    {
+      "name": "Rutu Jelba",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5660,
+        875
+      ],
+      "link": "https://malazan.fandom.com/wiki/Rutu_Jelba"
+    },
+    {
+      "name": "Sea of Gallada",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5856.0,
+        859.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sea_of_Gallada"
+    },
+    {
+      "name": "Galladi",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5883,
+        811
+      ],
+      "link": "https://malazan.fandom.com/wiki/Galladi"
+    },
+    {
+      "name": "Otataral Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5579.5,
+        963.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Otataral_Sea"
+    },
+    {
+      "name": "Otataral Desert",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        5785.5,
+        1018.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Otataral_Desert"
+    },
+    {
+      "name": "Tano Hills",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        5843.5,
+        961.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Tanno_(tribe)"
+    },
+    {
+      "name": "Skullcup",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5766,
+        1091
+      ],
+      "link": "https://malazan.fandom.com/wiki/Skullcup"
+    },
+    {
+      "name": "Dosin Pali",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5726,
+        1156
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dosin_Pali"
+    },
+    {
+      "name": "Sahul Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5742.5,
+        1248.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sahul_Sea"
+    },
+    {
+      "name": "Ehrlitan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5492,
+        1067
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ehrlitan"
+    },
+    {
+      "name": "Arifal Hills",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        5535.5,
+        1091.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Arifal"
+    },
+    {
+      "name": "Ehrlitan Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5431.0,
+        1057.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ehrlitan_Sea"
+    },
+    {
+      "name": "Karas Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5476.5,
+        1194.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Karas_Sea"
+    },
+    {
+      "name": "Halaf",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5439,
+        1212
+      ],
+      "link": "https://malazan.fandom.com/wiki/Halaf"
+    },
+    {
+      "name": "Melm",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5430,
+        1243
+      ],
+      "link": "https://malazan.fandom.com/wiki/Melm"
+    },
+    {
+      "name": "Asmar",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5417,
+        1272
+      ],
+      "link": "https://malazan.fandom.com/wiki/Asmar"
+    },
+    {
+      "name": "Teppes",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5474,
+        1298
+      ],
+      "link": "https://malazan.fandom.com/wiki/Teppes"
+    },
+    {
+      "name": "Ahol Tapur",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5609,
+        1088
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ahol_Tapur"
+    },
+    {
+      "name": "T'nal",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5544,
+        1123
+      ],
+      "link": "https://malazan.fandom.com/wiki/T'nal"
+    },
+    {
+      "name": "Karashimesh",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5515,
+        1172
+      ],
+      "link": "https://malazan.fandom.com/wiki/Karashimesh"
+    },
+    {
+      "name": "Sialk Odhan",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5589.5,
+        1178.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sialk_Odhan"
+    },
+    {
+      "name": "Hissar",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5670,
+        1175
+      ],
+      "link": "https://malazan.fandom.com/wiki/Hissar"
+    },
+    {
+      "name": "Sialk",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5637,
+        1196
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sialk"
+    },
+    {
+      "name": "Caron Tepasi",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5554,
+        1209
+      ],
+      "link": "https://malazan.fandom.com/wiki/Caron_Tepasi"
+    },
+    {
+      "name": "Caron Mountains",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        5574.0,
+        1267.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Caron_Mountains"
+    },
+    {
+      "name": "Venj",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5633,
+        1298
+      ],
+      "link": "https://malazan.fandom.com/wiki/Venj"
+    },
+    {
+      "name": "Bakun",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5601,
+        1338
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bakun"
+    },
+    {
+      "name": "Jamdat",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5595,
+        1378
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jamdat"
+    },
+    {
+      "name": "Dhebel",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5626,
+        1472
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dhebel"
+    },
+    {
+      "name": "Dhebel Island",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5756.0,
+        1499.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dhebel"
+    },
+    {
+      "name": "Dojal Hading Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5471.0,
+        1419.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dojal_Hading_Sea"
+    },
+    {
+      "name": "Kansu",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5379,
+        1027
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kansu"
+    },
+    {
+      "name": "Raraku",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5385.0,
+        1109.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Raraku"
+    },
+    {
+      "name": "G'danisban",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5426,
+        1142
+      ],
+      "link": "https://malazan.fandom.com/wiki/G'danisban"
+    },
+    {
+      "name": "Ubaryd Odhan",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5347.5,
+        1225.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ubaryd_Odhan"
+    },
+    {
+      "name": "Ubaryd",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5377,
+        1284
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ubaryd"
+    },
+    {
+      "name": "Mersin",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5235,
+        1193
+      ],
+      "link": "https://malazan.fandom.com/wiki/Mersin"
+    },
+    {
+      "name": "Enjo Estarb",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5166,
+        1068
+      ],
+      "link": "https://malazan.fandom.com/wiki/Enjo_Estarb"
+    },
+    {
+      "name": "Nevasa",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5201,
+        1007
+      ],
+      "link": "https://malazan.fandom.com/wiki/Nevasa"
+    },
+    {
+      "name": "Noh",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5251,
+        987
+      ],
+      "link": "https://malazan.fandom.com/wiki/Noh"
+    },
+    {
+      "name": "Longshan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5298,
+        1069
+      ],
+      "link": "https://malazan.fandom.com/wiki/Longshan"
+    },
+    {
+      "name": "Lato Revae",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5309,
+        1097
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lato_Revae"
+    },
+    {
+      "name": "Karokitch",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5249,
+        912
+      ],
+      "link": "https://malazan.fandom.com/wiki/Karokitch"
+    },
+    {
+      "name": "Belbasi",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5160,
+        853
+      ],
+      "link": "https://malazan.fandom.com/wiki/Belbasi"
+    },
+    {
+      "name": "Canhasan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5145,
+        810
+      ],
+      "link": "https://malazan.fandom.com/wiki/Canhasan"
+    },
+    {
+      "name": "Maadil Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5137.0,
+        925.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Maadil_Sea"
+    },
+    {
+      "name": "Kaliban",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5092,
+        872
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kaliban"
+    },
+    {
+      "name": "Rang",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5021,
+        883
+      ],
+      "link": "https://malazan.fandom.com/wiki/Rang"
+    },
+    {
+      "name": "Taxila",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5004,
+        933
+      ],
+      "link": "https://malazan.fandom.com/wiki/Taxila"
+    },
+    {
+      "name": "Ashok",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5018,
+        990
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ashok"
+    },
+    {
+      "name": "Lothal",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5004,
+        1091
+      ],
+      "link": "https://malazan.fandom.com/wiki/Lothal"
+    },
+    {
+      "name": "Sotka",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4956,
+        1160
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sotka"
+    },
+    {
+      "name": "Yath Alban",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4912,
+        1134
+      ],
+      "link": "https://malazan.fandom.com/wiki/Yath_Alban"
+    },
+    {
+      "name": "Kokakal Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        4910.0,
+        1027.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kokakal_Sea"
+    },
+    {
+      "name": "Olphara Mountains",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        4781.0,
+        1124.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Olphara_Mountains"
+    },
+    {
+      "name": "Olphara Forest",
+      "kind": "region",
+      "category": "forest",
+      "importance": 2,
+      "center": [
+        4734.0,
+        1225.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Olphara_Forest"
+    },
+    {
+      "name": "Jhag Odhan",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4764.0,
+        1384.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jhag_Odhan"
+    },
+    {
+      "name": "Y'Ghatan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5044,
+        1112
+      ],
+      "link": "https://malazan.fandom.com/wiki/Y'Ghatan_(city)"
+    },
+    {
+      "name": "Kot Ghul",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5102,
+        1024
+      ],
+      "link": "https://malazan.fandom.com/wiki/Kot_Ghul"
+    },
+    {
+      "name": "Hatra",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5073,
+        1057
+      ],
+      "link": "https://malazan.fandom.com/wiki/Hatra"
+    },
+    {
+      "name": "Thalas Mountains",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        5108.0,
+        1094.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Thalas_Mountains"
+    },
+    {
+      "name": "Ugarat",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5041,
+        1210
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ugarat"
+    },
+    {
+      "name": "Ugarat Odhan",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5136.5,
+        1210.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Ugarat_Odhan"
+    },
+    {
+      "name": "Omari",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5216,
+        1261
+      ],
+      "link": "https://malazan.fandom.com/wiki/Omari"
+    },
+    {
+      "name": "Jhena Mountains",
+      "kind": "region",
+      "category": "mountain",
+      "importance": 2,
+      "center": [
+        5123.5,
+        1290.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jhena_Mountains"
+    },
+    {
+      "name": "Sarpachiya",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5009,
+        1268
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sarpachiya"
+    },
+    {
+      "name": "T'sarech",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5011,
+        1291
+      ],
+      "link": "https://malazan.fandom.com/wiki/T'sarech"
+    },
+    {
+      "name": "Nahal",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5008,
+        1321
+      ],
+      "link": "https://malazan.fandom.com/wiki/Nahal"
+    },
+    {
+      "name": "Denard",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5057,
+        1350
+      ],
+      "link": "https://malazan.fandom.com/wiki/Denard"
+    },
+    {
+      "name": "Dobre",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5086,
+        1390
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dobre"
+    },
+    {
+      "name": "Geleen",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5180,
+        1391
+      ],
+      "link": "https://malazan.fandom.com/wiki/Geleen"
+    },
+    {
+      "name": "Sarsa",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5166,
+        1489
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sarsa"
+    },
+    {
+      "name": "South Jhag Odhan",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5051.5,
+        1563.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jhag_Odhan"
+    },
+    {
+      "name": "Rhegh Forest",
+      "kind": "region",
+      "category": "forest",
+      "importance": 2,
+      "center": [
+        5227.5,
+        1561.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Rhegh_Forest"
+    },
+    {
+      "name": "Aren",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5288,
+        1540
+      ],
+      "link": "https://malazan.fandom.com/wiki/Aren"
+    },
+    {
+      "name": "Dojal Odhan",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5325.0,
+        1483.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Dojal_Odhan"
+    },
+    {
+      "name": "Tarxian",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5281,
+        1434
+      ],
+      "link": "https://malazan.fandom.com/wiki/Tarxian"
+    },
+    {
+      "name": "Bay of Bylan",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        5322.5,
+        1395.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Bylan"
+    },
+    {
+      "name": "Tathimon",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5232,
+        1461
+      ],
+      "link": "https://malazan.fandom.com/wiki/Tathimon"
+    },
+    {
+      "name": "Geleen Plain",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        5225.0,
+        1423.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Geleen_Plain"
+    },
+    {
+      "name": "Sanimon",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5228,
+        1371
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sanimon"
+    },
+    {
+      "name": "Khundryl Odhan",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        5220.5,
+        1343.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Khundryl_Odhan"
+    },
+    {
+      "name": "Vathar Forest",
+      "kind": "region",
+      "category": "forest",
+      "importance": 2,
+      "center": [
+        5269.0,
+        1294.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Vathar_Forest"
+    },
+    {
+      "name": "Clatar Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        4987.5,
+        1443.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Clatar_Sea"
+    },
+    {
+      "name": "Sepik Island",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4343.0,
+        943.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sepik"
+    },
+    {
+      "name": "Monkan",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4570,
+        934
+      ],
+      "link": "https://malazan.fandom.com/wiki/Monkan"
+    },
+    {
+      "name": "Sepik",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4468,
+        1002
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sepik"
+    },
+    {
+      "name": "Sepik Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        4522.0,
+        1159.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Sepik_Sea"
+    },
+    {
+      "name": "Western Jhag Odhan",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        4236.0,
+        1576.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Jhag_Odhan"
+    },
+    {
+      "name": "Reliant City",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        4093,
+        1848
+      ],
+      "link": "https://malazan.fandom.com/wiki/Reliant_City"
+    },
+    {
+      "name": "The Great Dry",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3924.5,
+        1926.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Great_Dry"
+    },
+    {
+      "name": "Kingdom of Nemil",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3383.5,
+        1495.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Nemil"
+    },
+    {
+      "name": "Nemil City",
+      "kind": "point",
+      "category": "settlement",
+      "importance": 2,
+      "center": [
+        3244,
+        1607
+      ],
+      "link": "https://malazan.fandom.com/wiki/Nemil"
+    },
+    {
+      "name": "Catal Sea",
+      "kind": "region",
+      "category": "water",
+      "importance": 2,
+      "center": [
+        3148.0,
+        1450.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Catal_Sea"
+    },
+    {
+      "name": "Kingdom of Perish",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        2970.0,
+        1535.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Perish"
+    },
+    {
+      "name": "Cabal",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3215.5,
+        2164.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cabal_Archipelago"
+    },
+    {
+      "name": "Red Spires",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3587,
+        2363
+      ],
+      "link": "https://malazan.fandom.com/wiki/Red_Spires"
+    },
+    {
+      "name": "Shal-Morzinn Empire",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3438.0,
+        2451.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Shal-Morzinn"
+    },
+    {
+      "name": "Demon Plain",
+      "kind": "region",
+      "category": "terrain",
+      "importance": 2,
+      "center": [
+        3381.0,
+        2609.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Demon_Plain"
+    },
+    {
+      "name": "Cabal Archipelago",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3126.0,
+        2652.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Cabal_Archipelago"
+    },
+    {
+      "name": "Piety",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3358,
+        2711
+      ],
+      "link": "https://malazan.fandom.com/wiki/Piety"
+    },
+    {
+      "name": "Glory",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3334,
+        2727
+      ],
+      "link": "https://malazan.fandom.com/wiki/Glory"
+    },
+    {
+      "name": "Farrog",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3764.0,
+        2090.5
+      ],
+      "link": "https://malazan.fandom.com/wiki/Farrog"
+    },
+    {
+      "name": "Nightmaria",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        3981.0,
+        2169.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Nightmaria"
+    },
+    {
+      "name": "Genostel",
+      "kind": "region",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        9175.0,
+        650.0
+      ],
+      "link": "https://malazan.fandom.com/wiki/Genostel_Archipelago"
+    },
+    {
+      "name": "Umyrg",
+      "kind": "point",
+      "category": "place",
+      "importance": 1,
+      "center": [
+        9432,
+        1332
+      ],
+      "link": "https://malazan.fandom.com/wiki/Umryg"
+    }
+  ]
+}
