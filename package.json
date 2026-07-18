@@ -12,7 +12,8 @@
     "test:e2e": "playwright test",
     "test": "vitest run",
     "tiles:relief": "node scripts/generate-relief-tiles.mjs",
-    "tiles:all": "npm run tiles:source && npm run tiles:relief"
+    "tiles:all": "npm run tiles:source && npm run tiles:relief",
+    "tiles:premium": "node scripts/generate-premium-relief-tiles.mjs"
   },
   "dependencies": {
     "@react-three/drei": "latest",
