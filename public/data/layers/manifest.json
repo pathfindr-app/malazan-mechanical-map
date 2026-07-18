@@ -31,6 +31,13 @@
       "note": "Forest, desert, ice, and mountain polygons extracted from existing terrain-data mask rasters."
     },
     {
+      "id": "coastline-features",
+      "url": "data/coastline-features.json",
+      "type": "multipoint",
+      "status": "source-mask-derived",
+      "note": "Sampled shoreline boundary points extracted from terrain-data/land_mask.png; avoids false chord lines until robust contour stitching is implemented."
+    },
+    {
       "id": "source-raster",
       "url": "tiles/source/manifest.json",
       "type": "rasterTilePyramid",

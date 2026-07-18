@@ -15,6 +15,7 @@ import TileGrid from 'ol/tilegrid/TileGrid';
 import Point from 'ol/geom/Point';
 import LineString from 'ol/geom/LineString';
 import Polygon from 'ol/geom/Polygon';
+import MultiPoint from 'ol/geom/MultiPoint';
 import { Fill, Stroke, Style, Circle as CircleStyle, Text } from 'ol/style';
 import { defaults as defaultControls, ScaleLine, MousePosition } from 'ol/control';
 import { Search, MapPin, Waves, Mountain, Trees, Layers, Crosshair, Route } from 'lucide-react';
@@ -33,7 +34,9 @@ type WaterFeature = { id: string; name: string; type: string; status: string; so
 type WaterPayload = { coordinateSpace: string; sourcePixels: [number, number]; sourceMask: string; maskPixels: [number, number]; status: string; features: WaterFeature[]; featureCount: number };
 type TerrainFeature = { id: string; name: string; type: 'forest' | 'desert' | 'ice' | 'mountain'; status: string; source: string; threshold: number; maskPixels: number; sourceAreaApproxPx: number; bbox_px: SourcePoint[]; center_px: SourcePoint; points_px: SourcePoint[] };
 type TerrainPayload = { coordinateSpace: string; sourcePixels: [number, number]; maskPixels: [number, number]; status: string; features: TerrainFeature[]; featureCount: number; countsByType: Record<string, number> };
-type AtlasData = { locations: LocationsPayload; features: FeaturesPayload; water: WaterPayload; terrain: TerrainPayload };
+type CoastlineFeature = { id: string; name: string; type: string; status: string; source: string; threshold: number; maskPixels: number; boundaryPixels: number; pointCount: number; touchesMaskEdge: boolean; bbox_px: SourcePoint[]; center_px: SourcePoint; points_px: SourcePoint[] };
+type CoastlinePayload = { coordinateSpace: string; sourcePixels: [number, number]; sourceMask: string; maskPixels: [number, number]; status: string; features: CoastlineFeature[]; featureCount: number };
+type AtlasData = { locations: LocationsPayload; features: FeaturesPayload; water: WaterPayload; terrain: TerrainPayload; coastlines: CoastlinePayload };
 type Selected = { name: string; category: string; detail: string; center?: SourcePoint };
 
 const CATEGORIES: { id: Category; label: string }[] = [
@@ -60,7 +63,8 @@ function useAtlasData() {
       fetch(`${BASE}data/prototype-features.json`).then((r) => r.json()),
       fetch(`${BASE}data/water-features.json`).then((r) => r.json()),
       fetch(`${BASE}data/terrain-features.json`).then((r) => r.json()),
-    ]).then(([locations, features, water, terrain]) => setData({ locations, features, water, terrain })).catch((err) => setError(String(err)));
+      fetch(`${BASE}data/coastline-features.json`).then((r) => r.json()),
+    ]).then(([locations, features, water, terrain, coastlines]) => setData({ locations, features, water, terrain, coastlines })).catch((err) => setError(String(err)));
   }, []);
   return { data, error };
 }
@@ -98,6 +102,8 @@ function createVectorLayers(data: AtlasData, getSelectedName: () => string | und
   for (const water of data.water.features) waterSource.addFeature(new Feature({ geometry: new Polygon([water.points_px.map(sourceToMap)]), water, kind: 'water' }));
   const terrainSource = new VectorSource();
   for (const terrain of data.terrain.features) terrainSource.addFeature(new Feature({ geometry: new Polygon([terrain.points_px.map(sourceToMap)]), terrain, kind: 'terrainFeature' }));
+  const coastlineSource = new VectorSource();
+  for (const coastline of data.coastlines.features) coastlineSource.addFeature(new Feature({ geometry: new MultiPoint(coastline.points_px.map(sourceToMap)), coastline, kind: 'coastline' }));
   const locationSource = new VectorSource();
   for (const loc of data.locations.locations) locationSource.addFeature(new Feature({ geometry: new Point(sourceToMap(loc.center)), location: loc, kind: 'location' }));
   const riverSource = new VectorSource();
@@ -123,6 +129,13 @@ function createVectorLayers(data: AtlasData, getSelectedName: () => string | und
       return new Style({ fill: new Fill({ color: fill }), stroke: new Stroke({ color: stroke, width: t.maskPixels > 4000 ? 1.3 : .9 }) });
     },
   });
+  const coastlineLayer = new VectorLayer({
+    source: coastlineSource, className: 'coastline-derived-layer',
+    style: (feature) => {
+      const c = feature.get('coastline') as CoastlineFeature;
+      return new Style({ image: new CircleStyle({ radius: c.maskPixels > 40000 ? 1.45 : 1.05, fill: new Fill({ color: c.touchesMaskEdge ? 'rgba(233,220,172,.32)' : 'rgba(246,226,162,.50)' }) }) });
+    },
+  });
   const locationLayer = new VectorLayer({ source: locationSource, className: 'locations-layer', style: (feature) => makeLocationStyle(feature as Feature, getSelectedName(), getSearchActive()) });
   const riverLayer = new VectorLayer({
     source: riverSource, className: 'rivers-layer',
@@ -140,10 +153,10 @@ function createVectorLayers(data: AtlasData, getSelectedName: () => string | und
       return new Style({ fill: new Fill({ color: fill }), stroke: new Stroke({ color: stroke, width: 2, lineDash: [8, 8] }) });
     },
   });
-  return { locationLayer, waterLayer, terrainLayer, riverLayer, areaLayer };
+  return { locationLayer, waterLayer, terrainLayer, coastlineLayer, riverLayer, areaLayer };
 }
 
-function AtlasMap({ data, selected, setSelected, search, category, layers, cleanMode, styleMode }: { data: AtlasData; selected: Selected | null; setSelected: (s: Selected) => void; search: string; category: Category; layers: { locations: boolean; water: boolean; terrain: boolean; rivers: boolean; areas: boolean }; cleanMode: boolean; styleMode: 'v2' | 'premium' | 'relief' | 'source' | 'blend' }) {
+function AtlasMap({ data, selected, setSelected, search, category, layers, cleanMode, styleMode }: { data: AtlasData; selected: Selected | null; setSelected: (s: Selected) => void; search: string; category: Category; layers: { locations: boolean; water: boolean; terrain: boolean; coasts: boolean; rivers: boolean; areas: boolean }; cleanMode: boolean; styleMode: 'v2' | 'premium' | 'relief' | 'source' | 'blend' }) {
   const mapEl = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<Map | null>(null);
   const layerRefs = useRef<(ReturnType<typeof createVectorLayers> & { sourceLayer: TileLayer<XYZ>; reliefLayer: TileLayer<XYZ>; premiumLayer: TileLayer<XYZ>; v2Layer: TileLayer<XYZ> }) | null>(null);
@@ -168,7 +181,7 @@ function AtlasMap({ data, selected, setSelected, search, category, layers, clean
     const map = new Map({
       target: mapEl.current,
       controls: defaultControls({ attribution: false, rotate: false }).extend([new ScaleLine({ units: 'metric', bar: true, text: true, minWidth: 120 }), mousePosition]),
-      layers: [sourceLayer, reliefLayer, premiumLayer, v2Layer, vectors.areaLayer, vectors.terrainLayer, vectors.waterLayer, vectors.riverLayer, vectors.locationLayer],
+      layers: [sourceLayer, reliefLayer, premiumLayer, v2Layer, vectors.areaLayer, vectors.terrainLayer, vectors.coastlineLayer, vectors.waterLayer, vectors.riverLayer, vectors.locationLayer],
       view: new View({
         projection,
         extent: EXTENT,
@@ -188,6 +201,7 @@ function AtlasMap({ data, selected, setSelected, search, category, layers, clean
       if (kind === 'location') { const loc = hit.get('location') as Location; setSelected({ name: loc.name, category: loc.category, detail: `${loc.kind} • exact source coordinate ${formatSource(loc.center)}`, center: loc.center }); }
       if (kind === 'water') { const water = hit.get('water') as WaterFeature; setSelected({ name: water.name, category: 'verified water', detail: `${water.status}; ${water.sourceAreaApproxPx.toLocaleString()} approximate source pixels from ${water.source}.`, center: water.center_px }); }
       if (kind === 'terrainFeature') { const terrain = hit.get('terrain') as TerrainFeature; setSelected({ name: terrain.name, category: `verified ${terrain.type}`, detail: `${terrain.status}; ${terrain.sourceAreaApproxPx.toLocaleString()} approximate source pixels from ${terrain.source}.`, center: terrain.center_px }); }
+      if (kind === 'coastline') { const coastline = hit.get('coastline') as CoastlineFeature; setSelected({ name: coastline.name, category: 'verified coastline', detail: `${coastline.status}; ${coastline.pointCount.toLocaleString()} sampled shoreline points from ${coastline.source}.`, center: coastline.center_px }); }
       if (kind === 'river') { const river = hit.get('river') as RiverFeature; setSelected({ name: river.name, category: 'river', detail: `${river.certainty}; ${river.points_px.length} source points. Rank ${river.rank}.`, center: river.points_px[Math.floor(river.points_px.length / 2)] }); }
       if (kind === 'area') { const area = hit.get('area') as AreaFeature; setSelected({ name: area.name, category: hit.get('areaKind'), detail: `${area.certainty}; ${area.points_px.length} source points.`, center: area.points_px[0] }); }
     });
@@ -209,6 +223,7 @@ function AtlasMap({ data, selected, setSelected, search, category, layers, clean
     vectors.locationLayer.setVisible(layers.locations);
     vectors.waterLayer.setVisible(layers.water);
     vectors.terrainLayer.setVisible(layers.terrain);
+    vectors.coastlineLayer.setVisible(layers.coasts);
     vectors.riverLayer.setVisible(layers.rivers);
     vectors.areaLayer.setVisible(layers.areas);
     const q = search.trim().toLowerCase();
@@ -221,7 +236,7 @@ function AtlasMap({ data, selected, setSelected, search, category, layers, clean
       return makeLocationStyle(feature as Feature, selected?.name, Boolean(q));
     });
     vectors.locationLayer.changed();
-  }, [search, category, selected?.name, layers.locations, layers.water, layers.terrain, layers.rivers, layers.areas, styleMode]);
+  }, [search, category, selected?.name, layers.locations, layers.water, layers.terrain, layers.coasts, layers.rivers, layers.areas, styleMode]);
 
   useEffect(() => {
     if (!mapRef.current) return;
@@ -244,7 +259,7 @@ function App() {
   const [category, setCategory] = useState<Category>('all');
   const [selected, setSelected] = useState<Selected | null>(null);
   const [cleanMode, setCleanMode] = useState(false);
-  const [layers, setLayers] = useState({ locations: true, water: true, terrain: false, rivers: false, areas: false });
+  const [layers, setLayers] = useState({ locations: true, water: true, terrain: false, coasts: false, rivers: false, areas: false });
   const [styleMode, setStyleMode] = useState<'v2' | 'premium' | 'relief' | 'source' | 'blend'>('v2');
   const toggleLayer = (key: keyof typeof layers) => setLayers((value) => ({ ...value, [key]: !value[key] }));
 
@@ -276,7 +291,7 @@ function App() {
         <button onClick={() => fly('Pale', [6749, 1391], 'Exact source coordinate [6749, 1391].')}>Pale</button>
       </div>
     </section>
-    <section className="panel top-right layers-panel"><h2><Layers size={16}/> Atlas layers</h2><p>Explore a source-derived stylized relief atlas with biome shading, protected labels, mask-based terrain, and source-map comparison.</p><ul><li><b>Source:</b> z6 mosaic + terrain masks</li><li><b>Pixels:</b> 10,000 × 5,571</li><li><b>Tiles:</b> 512px, native z5 + overzoom</li><li><b>CRS:</b> source-pixel, top-left origin</li><li><b>POI:</b> {data.locations.locations.length} exact-coordinate locations</li><li><b>Water:</b> {data.water.featureCount} source-mask-derived inland features</li><li><b>Terrain:</b> {data.terrain.featureCount} source-mask-derived biome features</li></ul><div className="style-switcher"><button className={styleMode === 'v2' ? 'active' : ''} onClick={() => setStyleMode('v2')}>Stylized v2</button><button className={styleMode === 'premium' ? 'active' : ''} onClick={() => setStyleMode('premium')}>Premium v1</button><button className={styleMode === 'source' ? 'active' : ''} onClick={() => setStyleMode('source')}>Source map</button><button className={styleMode === 'blend' ? 'active' : ''} onClick={() => setStyleMode('blend')}>Blend</button><button className={styleMode === 'relief' ? 'active' : ''} onClick={() => setStyleMode('relief')}>Old relief</button></div><div className="layer-toggle-row"><button className={layers.locations ? 'active' : ''} onClick={() => toggleLayer('locations')}>Locations</button><button className={layers.water ? 'active' : ''} onClick={() => toggleLayer('water')}>Verified water</button><button className={layers.terrain ? 'active' : ''} onClick={() => toggleLayer('terrain')}>Verified terrain</button><button className="disabled" disabled title="No verified river vectors are shipped yet. The incorrect Lake Azur draft traces were removed.">Rivers pending verification</button><button className={layers.areas ? 'active' : ''} onClick={() => toggleLayer('areas')}>Draft regions</button></div></section>
+    <section className="panel top-right layers-panel"><h2><Layers size={16}/> Atlas layers</h2><p>Explore a source-derived stylized relief atlas with biome shading, protected labels, mask-based terrain, and source-map comparison.</p><ul><li><b>Source:</b> z6 mosaic + terrain masks</li><li><b>Pixels:</b> 10,000 × 5,571</li><li><b>Tiles:</b> 512px, native z5 + overzoom</li><li><b>CRS:</b> source-pixel, top-left origin</li><li><b>POI:</b> {data.locations.locations.length} exact-coordinate locations</li><li><b>Water:</b> {data.water.featureCount} source-mask-derived inland features</li><li><b>Terrain:</b> {data.terrain.featureCount} source-mask-derived biome features</li><li><b>Coasts:</b> {data.coastlines.featureCount} source-mask-derived shoreline samples</li></ul><div className="style-switcher"><button className={styleMode === 'v2' ? 'active' : ''} onClick={() => setStyleMode('v2')}>Stylized v2</button><button className={styleMode === 'premium' ? 'active' : ''} onClick={() => setStyleMode('premium')}>Premium v1</button><button className={styleMode === 'source' ? 'active' : ''} onClick={() => setStyleMode('source')}>Source map</button><button className={styleMode === 'blend' ? 'active' : ''} onClick={() => setStyleMode('blend')}>Blend</button><button className={styleMode === 'relief' ? 'active' : ''} onClick={() => setStyleMode('relief')}>Old relief</button></div><div className="layer-toggle-row"><button className={layers.locations ? 'active' : ''} onClick={() => toggleLayer('locations')}>Locations</button><button className={layers.water ? 'active' : ''} onClick={() => toggleLayer('water')}>Verified water</button><button className={layers.terrain ? 'active' : ''} onClick={() => toggleLayer('terrain')}>Verified terrain</button><button className={layers.coasts ? 'active' : ''} onClick={() => toggleLayer('coasts')}>Verified coasts</button><button className="disabled" disabled title="No verified river vectors are shipped yet. The incorrect Lake Azur draft traces were removed.">Rivers pending verification</button><button className={layers.areas ? 'active' : ''} onClick={() => toggleLayer('areas')}>Draft regions</button></div></section>
     {selected && <section className="panel bottom-right selected-panel"><div className="pill">{selected.category}</div><h2>{selected.name}</h2><p>{selected.detail}</p><div className="selected-icons"><MapPin/><Waves/><Mountain/><Trees/><Route/></div></section>}
   </main>;
 }

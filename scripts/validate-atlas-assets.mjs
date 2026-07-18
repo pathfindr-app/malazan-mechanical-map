@@ -62,6 +62,12 @@ for (const kind of ['forest', 'desert', 'ice', 'mountain']) {
   ok(`terrain has ${kind} features`, terrainFeatures.countsByType?.[kind] > 0);
 }
 ok('terrain feature polygons have points', terrainFeatures.features.every((feature) => feature.points_px?.length >= 4 && feature.center_px?.length === 2));
+const coastlineFeatures = JSON.parse(await fs.readFile(path.join(root, 'public/data/coastline-features.json'), 'utf8'));
+ok('coastline features coordinate space', coastlineFeatures.coordinateSpace === 'malazan.source-pixel');
+ok('coastline features source pixels', coastlineFeatures.sourcePixels?.[0] === 10000 && coastlineFeatures.sourcePixels?.[1] === 5571);
+ok('coastline features extracted', coastlineFeatures.featureCount > 0 && coastlineFeatures.features?.length === coastlineFeatures.featureCount);
+ok('coastline polygons have points', coastlineFeatures.features.every((feature) => feature.points_px?.length >= 4 && feature.center_px?.length === 2));
+ok('major landmass coastline present', coastlineFeatures.features.some((feature) => feature.maskPixels > 90000));
 ok('no provisional Lake Azur/Darujhistan rivers remain', (prototypeFeatures.rivers ?? []).every((river) => {
   const pts = river.points_px ?? [];
   return !pts.some(([x, y]) => x >= 6200 && x <= 7200 && y >= 1200 && y <= 1900);
