@@ -231,6 +231,27 @@ for (let y = 0; y < H; y++) {
       const material = 0.962 + (paper - 0.5) * 0.060 + forestStipple + desertGrain + plainPaper + iceEtch + ridgeRough - ridgeHatch * 0.070 - topoEngrave * 0.105 - valleyWash;
       const shade = Math.pow(shadeFine, 0.32 + reliefEnergy * 0.46) * Math.pow(shadeMed, 0.50 + mb * 0.32 + reliefEnergy * 0.22) * Math.pow(shadeBroad, 0.32) * ao;
       col = col.map(c => c * clamp(shade * material, 0.38, 1.68));
+
+      // Subtle source-height-derived cartographic linework. These are not vector
+      // geography; they are low-opacity terrain engravings from the height stack,
+      // suppressed beneath labels/halos and inside dense forests/ice so they don't
+      // read as fake rivers or clutter.
+      const contourBase = clamp(bh * 0.44 + h * 0.34 + mh * 0.24 + (rhd - 0.5) * 0.08 + (rhm - 0.5) * 0.05, 0, 1);
+      const contourLevel = contourBase * (20 + reliefEnergy * 11 + d * 3);
+      const contourPhase = contourLevel - Math.floor(contourLevel);
+      const contourDist = Math.min(contourPhase, 1 - contourPhase);
+      const majorPhase = (contourLevel / 4) - Math.floor(contourLevel / 4);
+      const majorDist = Math.min(majorPhase, 1 - majorPhase);
+      const fWidth = clamp(0.012 + slope * 0.030 + reliefEnergy * 0.010, 0.012, 0.060);
+      const minorContour = 1 - smoothstep(fWidth, fWidth * 2.35, contourDist);
+      const majorContour = 1 - smoothstep(fWidth * 1.25, fWidth * 3.15, majorDist);
+      const contourMask = (1 - Math.max(f * 0.72, ic * 0.85)) * (0.34 + d * 0.23 + nonSpecial * 0.16 + reliefEnergy * 0.18);
+      const labelSafe = ink[i] || halo[i] ? 0 : 1;
+      const contourStrength = labelSafe * contourMask * (minorContour * 0.075 + majorContour * 0.080) * smoothstep(0.10, 0.86, l);
+      if (contourStrength > 0.006) {
+        const contourInk = d > 0.18 ? [111, 74, 46] : reliefEnergy > 0.34 ? [64, 43, 32] : [76, 65, 42];
+        col = mix3(col, contourInk, Math.min(0.105, contourStrength));
+      }
       if (topoEngrave > 0.10) {
         col = mix3(col, [54, 38, 30], Math.min(0.18, topoEngrave * 0.20));
       }
