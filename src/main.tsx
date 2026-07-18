@@ -29,11 +29,12 @@ type FeaturePayload = { rivers: LineFeature[]; basins: PolyFeature[]; biomes: Po
 
 type Selected = { name: string; category: string; detail: string; center?: [number, number] };
 
-type AtlasData = { locations: LocationsPayload; features: FeaturePayload };
+type TerrainPayload = { sourceImage: string; sourcePixels: [number, number]; sampleSize: [number, number]; heights: number[][] };
+type AtlasData = { locations: LocationsPayload; features: FeaturePayload; terrain: TerrainPayload };
 type FocusBookmark = { id: string; label: string; center: [number, number]; distance: number; height: number; yaw: number; note: string };
 
 const BOOKMARKS: FocusBookmark[] = [
-  { id: 'slice', label: 'Whole slice', center: [6782, 1527], distance: 6.2, height: 5.0, yaw: 0.78, note: 'Balanced view of Darujhistan, Pale, Lake Azur, and the first basin/rivers.' },
+  { id: 'slice', label: 'Whole world', center: [5000, 2785], distance: 1.2, height: 20.0, yaw: 0.78, note: 'Full source-map fidelity view. The image texture is the ground truth.' },
   { id: 'darujhistan', label: 'Darujhistan', center: [6782, 1527], distance: 2.65, height: 2.05, yaw: 0.78, note: 'Gaslit city miniature and Lake Azur basin anchor.' },
   { id: 'pale', label: 'Pale', center: [6749, 1391], distance: 2.9, height: 2.2, yaw: 0.55, note: 'Siege city miniature and northern campaign-map focus.' },
   { id: 'rivers', label: 'Rivers', center: [6860, 1490], distance: 3.5, height: 2.55, yaw: 0.98, note: 'Close enough to inspect provisional river tubes and drainage vectors.' },
@@ -72,7 +73,8 @@ function useAtlasData() {
     Promise.all([
       fetch(`${BASE}data/locations.json`).then((r) => r.json()),
       fetch(`${BASE}data/prototype-features.json`).then((r) => r.json()),
-    ]).then(([locations, features]) => setData({ locations, features }));
+      fetch(`${BASE}data/terrain-heightmap.json`).then((r) => r.json()),
+    ]).then(([locations, features, terrain]) => setData({ locations, features, terrain }));
   }, []);
   return data;
 }
@@ -91,47 +93,47 @@ function SourceMapPlate({ ghost }: { ghost: boolean }) {
   );
 }
 
-function TerrainTiles({ showBiomes }: { showBiomes: boolean }) {
-  const tiles = useMemo(() => {
-    const out: Array<{ pos: [number, number, number]; scale: [number, number, number]; color: string; type: string }> = [];
-    const nx = 66;
-    const nz = Math.round(nx * BOARD_H / BOARD_W);
-    for (let ix = 0; ix < nx; ix++) {
-      for (let iz = 0; iz < nz; iz++) {
-        const x = -BOARD_W / 2 + (ix + 0.5) * (BOARD_W / nx);
-        const z = -BOARD_H / 2 + (iz + 0.5) * (BOARD_H / nz);
-        const u = ix / nx;
-        const v = iz / nz;
-        const edge = Math.min(u, v, 1 - u, 1 - v);
-        const wave = Math.sin(ix * 0.34) + Math.cos(iz * 0.47) + Math.sin((ix + iz) * 0.18);
-        const n = hashNoise(ix, iz);
-        let h = 0.035 + Math.max(0, wave * 0.018 + n * 0.045);
-        let color = '#b8c885';
-        let type = 'plains';
-        // Broad painterly zones: enough to read as world-scale terrain without claiming canon precision.
-        if (edge < 0.075 || (u < 0.20 && v > 0.58) || (u > 0.82 && v < 0.18)) { h = 0.012; color = '#235f78'; type = 'sea'; }
-        else if (u > 0.63 && v < 0.34) { h += 0.11 + n * 0.12; color = '#8d826a'; type = 'mountains'; }
-        else if (u > 0.56 && v > 0.57) { h += 0.02; color = '#caa15c'; type = 'desert'; }
-        else if (u > 0.48 && v < 0.52 && u < 0.78) { h += 0.05; color = '#5e9258'; type = 'forest'; }
-        else if (u < 0.38 && v < 0.46) { h += 0.035; color = '#7aa96b'; type = 'greenlands'; }
-        else if (u < 0.22 && v < 0.22) { h += 0.025; color = '#d7e5d9'; type = 'ice'; }
-        if (type === 'sea') {
-          out.push({ pos: [x, 0.005, z], scale: [BOARD_W / nx * 0.92, 0.018, BOARD_H / nz * 0.92], color, type });
-        } else if (showBiomes || (ix + iz) % 2 === 0) {
-          out.push({ pos: [x, h / 2, z], scale: [BOARD_W / nx * 0.88, h, BOARD_H / nz * 0.88], color, type });
-        }
+function SourceTerrainSurface({ terrain, ghost }: { terrain: TerrainPayload; ghost: boolean }) {
+  const texture = useLoader(THREE.TextureLoader, `${BASE}assets/worldofmalazan-z3-mosaic.png`);
+  useMemo(() => {
+    texture.colorSpace = THREE.SRGBColorSpace;
+    texture.anisotropy = 12;
+  }, [texture]);
+  const geometry = useMemo(() => {
+    const [cols, rows] = terrain.sampleSize;
+    const positions: number[] = [];
+    const uvs: number[] = [];
+    const indices: number[] = [];
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const u = x / (cols - 1);
+        const v = y / (rows - 1);
+        positions.push((u - 0.5) * BOARD_W, (terrain.heights[y]?.[x] ?? 0) * 0.12, (0.5 - v) * BOARD_H);
+        uvs.push(u, 1 - v);
       }
     }
-    return out;
-  }, [showBiomes]);
+    for (let y = 0; y < rows - 1; y++) {
+      for (let x = 0; x < cols - 1; x++) {
+        const a = y * cols + x, b = a + 1, c = a + cols, d = c + 1;
+        indices.push(a, c, b, b, c, d);
+      }
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+    g.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+    g.setIndex(indices);
+    g.computeVertexNormals();
+    return g;
+  }, [terrain]);
   return (
-    <group name="voxel-terrain">
-      {tiles.map((t, i) => (
-        <mesh key={i} position={t.pos} castShadow receiveShadow>
-          <boxGeometry args={t.scale} />
-          <meshStandardMaterial color={t.color} transparent opacity={t.type === 'sea' ? 0.58 : 0.74} roughness={0.92} metalness={t.type === 'sea' ? 0.2 : 0.03} emissive={t.type === 'sea' ? '#063647' : '#000'} emissiveIntensity={t.type === 'sea' ? 0.18 : 0} />
-        </mesh>
-      ))}
+    <group name="source-faithful-terrain">
+      <mesh geometry={geometry} receiveShadow castShadow>
+        <meshBasicMaterial map={texture} color="#ffffff" transparent opacity={ghost ? 1 : 0.92} />
+      </mesh>
+      <mesh position={[0, -0.21, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+        <planeGeometry args={[BOARD_W * 1.025, BOARD_H * 1.025, 1, 1]} />
+        <meshStandardMaterial color="#123948" roughness={0.72} metalness={0.04} transparent opacity={0.72} />
+      </mesh>
     </group>
   );
 }
@@ -415,23 +417,24 @@ function AtlasScene({ data, selected, setSelected, search, categoryFilter, layer
       <pointLight position={[-4, 1.8, 2.5]} intensity={1.4} color="#ffb85c" />
       <Sky sunPosition={[-4, 3, 1]} turbidity={6} rayleigh={0.7} mieCoefficient={0.012} mieDirectionalG={0.8} />
       <BoardBase />
-      <SourceMapPlate ghost={layers.source} />
-      <TerrainTiles showBiomes={layers.biomes} />
+      <SourceTerrainSurface terrain={data.terrain} ghost={layers.source} />
       {layers.boundaries && data.features.basins.map((b) => <BasinPolygon key={b.id} feature={b} visible selected={selectedName === b.name} onSelect={setSelected} />)}
       {layers.boundaries && data.features.biomes.map((b) => <BasinPolygon key={b.id} feature={b} visible selected={selectedName === b.name} onSelect={setSelected} />)}
       {layers.rivers && data.features.rivers.map((r) => <RiverLine key={r.id} feature={r} selected={selectedName === r.name} onSelect={setSelected} />)}
-      <MountainRange center={[6867, 1524]} />
-      <ForestCluster center={[6640, 1210]} />
+      {layers.landmarks && <>
+        <MountainRange center={[6867, 1524]} />
+        <ForestCluster center={[6640, 1210]} />
+        <CityMiniature name="Darujhistan" center={[6782, 1527]} tone="gas" onSelect={setSelected} />
+        <CityMiniature name="Pale" center={[6749, 1391]} tone="siege" onSelect={setSelected} />
+        <LandmarkToken name="Gadrobi Hills" center={[6861, 1558]} kind="mountain" onSelect={setSelected} />
+        <LandmarkToken name="Blackdog Forest" center={[6623, 1195]} kind="forest" onSelect={setSelected} />
+        <LandmarkToken name="Lake Azur" center={[6802, 1518]} kind="lake" onSelect={setSelected} />
+        <LandmarkToken name="Old Road Ruins" center={[6905, 1468]} kind="ruin" onSelect={setSelected} />
+      </>}
       {layers.clouds && <CloudShadowPlane />}
-      <CityMiniature name="Darujhistan" center={[6782, 1527]} tone="gas" onSelect={setSelected} />
-      <CityMiniature name="Pale" center={[6749, 1391]} tone="siege" onSelect={setSelected} />
-      <LandmarkToken name="Gadrobi Hills" center={[6861, 1558]} kind="mountain" onSelect={setSelected} />
-      <LandmarkToken name="Blackdog Forest" center={[6623, 1195]} kind="forest" onSelect={setSelected} />
-      <LandmarkToken name="Lake Azur" center={[6802, 1518]} kind="lake" onSelect={setSelected} />
-      <LandmarkToken name="Old Road Ruins" center={[6905, 1468]} kind="ruin" onSelect={setSelected} />
       <SelectedFocusAura selected={selected} />
       {layers.pins && <LocationPins locations={data.locations.locations} filter={search} categoryFilter={categoryFilter} selectedName={selectedName} onSelect={setSelected} />}
-      {layers.clouds && <CloudsLayer />}
+      {layers.clouds && layers.landmarks && <CloudsLayer />}
       {showCallout && <Html position={pxToWorld([6782, 1527], 0.78)} center className="atlas-callout">Genabackis slice<br/><b>Darujhistan / Pale</b></Html>}
       <CameraBookmarkRig bookmark={focus} />
       <OrbitControls makeDefault enableDamping dampingFactor={0.08} minDistance={1.8} maxDistance={21} maxPolarAngle={Math.PI * 0.48} target={[3.55, 0.18, 2.55]} />
@@ -441,6 +444,33 @@ function AtlasScene({ data, selected, setSelected, search, categoryFilter, layer
         <Vignette eskil={false} offset={0.18} darkness={0.55} />
       </EffectComposer>
     </>
+  );
+}
+
+
+function SourceAtlas2D({ data, selected, setSelected, search, categoryFilter, layers }: { data: AtlasData; selected: Selected | null; setSelected: (s: Selected) => void; search: string; categoryFilter: CategoryFilter; layers: Record<string, boolean> }) {
+  const q = search.trim().toLowerCase();
+  const visiblePins = useMemo(() => data.locations.locations
+    .filter((l) => categoryFilter === 'all' || l.category === categoryFilter)
+    .filter((l) => !q || l.name.toLowerCase().includes(q) || l.category.includes(q) || l.kind.includes(q))
+    .filter((l) => q || l.importance >= 3)
+    .slice(0, q ? 140 : 95), [data, q, categoryFilter]);
+  const selectLocation = (l: Location) => setSelected({ name: l.name, category: l.category, detail: `${l.kind} • exact source coordinate [${Math.round(l.center[0])}, ${Math.round(l.center[1])}]`, center: l.center });
+  return (
+    <div className="source-map-2d">
+      <img src={`${BASE}assets/worldofmalazan-z3-mosaic.png`} alt="World of Malazan source map" />
+      <svg viewBox={`0 0 ${MAP_W} ${MAP_H}`} preserveAspectRatio="xMidYMid meet" className="source-overlay">
+        {layers.boundaries && data.features.basins.map((b) => <polygon key={b.id} points={b.points_px.map((p) => p.join(',')).join(' ')} fill="rgba(27, 184, 118, .16)" stroke="rgba(0, 112, 80, .75)" strokeWidth="18" />)}
+        {layers.boundaries && data.features.biomes.map((b) => <polygon key={b.id} points={b.points_px.map((p) => p.join(',')).join(' ')} fill={b.type === 'lake' ? 'rgba(40, 160, 220, .24)' : b.type === 'forest' ? 'rgba(0, 126, 52, .18)' : 'rgba(175, 104, 36, .18)'} stroke="rgba(30, 55, 32, .65)" strokeWidth="14" />)}
+        {layers.rivers && data.features.rivers.map((r) => <polyline key={r.id} points={r.points_px.map((p) => p.join(',')).join(' ')} fill="none" stroke={r.rank === 1 ? '#00a8df' : '#2677d9'} strokeWidth={r.rank === 1 ? 22 : 14} strokeLinecap="round" strokeLinejoin="round" opacity="0.86" />)}
+        {selected?.center && <g pointerEvents="none"><circle cx={selected.center[0]} cy={selected.center[1]} r="95" fill="none" stroke="#ff5f3b" strokeWidth="18"/><circle cx={selected.center[0]} cy={selected.center[1]} r="42" fill="rgba(255,95,59,.22)" stroke="#fff2a8" strokeWidth="10"/></g>}
+        {layers.pins && visiblePins.map((l) => <g key={l.name} className="source-pin" onClick={() => selectLocation(l)}>
+          <circle cx={l.center[0]} cy={l.center[1]} r={selected?.name === l.name ? 42 : l.importance >= 4 ? 30 : 22} fill={selected?.name === l.name ? '#ff5f3b' : '#fff4a6'} stroke="#1d1408" strokeWidth="9" />
+          {(selected?.name === l.name || q || l.importance >= 4) && <text x={l.center[0] + 52} y={l.center[1] - 24} fontSize="72" fontWeight="800" fill="#15100a" stroke="#fff8de" strokeWidth="16" paintOrder="stroke">{l.name}</text>}
+        </g>)}
+      </svg>
+      <div className="source-map-badge">Exact source map view • 10,000 × 5,571 coordinate space • stylization disabled until traced</div>
+    </div>
   );
 }
 
@@ -704,7 +734,7 @@ function AtlasLegend({ onSelect }: { onSelect: (s: Selected) => void }) {
 
 function App() {
   const data = useAtlasData();
-  const [selected, setSelected] = useState<Selected | null>({ name: 'Darujhistan', category: 'settlement', detail: 'Anchor city for the first Genabackis vertical slice. Exact source coordinate [6782, 1527].', center: [6782, 1527] });
+  const [selected, setSelected] = useState<Selected | null>({ name: 'Source Map Fidelity Mode', category: 'atlas', detail: 'Default view now prioritizes the exact World of Malazan source map. Stylized landmarks are off until they can be traced and placed correctly.', center: [5000, 2785] });
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<CategoryFilter>('all');
   const [traceMode, setTraceMode] = useState(false);
@@ -712,7 +742,7 @@ function App() {
   const [tourMode, setTourMode] = useState(false);
   const [tourIndex, setTourIndex] = useState(0);
   const [focus, setFocus] = useState<FocusBookmark>(BOOKMARKS[0]);
-  const [layers, setLayers] = useState({ source: true, pins: true, rivers: true, boundaries: true, clouds: true, cinematic: false, biomes: true });
+  const [layers, setLayers] = useState({ source: true, pins: true, rivers: true, boundaries: true, landmarks: false, clouds: false, cinematic: false });
   const toggle = (key: keyof typeof layers) => setLayers((l) => ({ ...l, [key]: !l[key] }));
   const sceneLayers = presentationMode ? { ...layers, pins: false } : layers;
   const stats = useMemo(() => data ? [
@@ -751,11 +781,11 @@ function App() {
       <button className="presentation-toggle" onClick={() => setPresentationMode((v) => !v)}>{presentationMode ? 'Exit presentation' : 'Presentation mode'}</button>
       <button className={`tour-toggle ${tourMode ? 'on' : ''}`} onClick={() => { setTourMode((v) => !v); setPresentationMode(true); }}>{tourMode ? 'Stop tour' : 'Guided tour'}</button>
       <section className="viewport">
-        {data ? <Canvas shadows camera={{ position: [6.8, 8.7, 8.6], fov: 43 }} dpr={[1, 1.8]} gl={{ antialias: true, powerPreference: 'high-performance' }}>
+        {data ? (layers.landmarks ? <Canvas shadows camera={{ position: [6.8, 8.7, 8.6], fov: 43 }} dpr={[1, 1.8]} gl={{ antialias: true, powerPreference: 'high-performance' }}>
           <Suspense fallback={null}>
             <AtlasScene data={data} selected={selected} setSelected={setSelected} search={search} categoryFilter={categoryFilter} layers={sceneLayers} focus={focus} showCallout={!traceMode} />
           </Suspense>
-        </Canvas> : <div className="loading">Raising the world board…</div>}
+        </Canvas> : <SourceAtlas2D data={data} selected={selected} setSelected={setSelected} search={search} categoryFilter={categoryFilter} layers={sceneLayers} />) : <div className="loading">Loading exact source atlas…</div>}
       </section>
       <aside className="hud top-left">
         <div className="brand"><Sparkles size={18}/><div><b>The Atlas</b><span>Malazan world-board prototype</span></div></div>
@@ -775,7 +805,7 @@ function App() {
       <aside className="hud top-right layers">
         <h3><Layers size={16}/> Layers</h3>
         {([
-          ['source','Source ghost'], ['pins','Location pins'], ['rivers','Rivers'], ['boundaries','Basins/biomes'], ['clouds','Clouds'], ['cinematic','DOF/Bloom'], ['biomes','Voxel biomes']
+          ['source','Source map fidelity'], ['pins','Location pins'], ['rivers','Traced rivers'], ['boundaries','Biomes/basins'], ['landmarks','Stylized landmarks'], ['clouds','Clouds'], ['cinematic','DOF/Bloom']
         ] as Array<[keyof typeof layers,string]>).map(([k,label]) => <button key={k} className={layers[k] ? 'on' : ''} onClick={() => toggle(k)}>{label}</button>)}
       </aside>
       <aside className="hud bottom-left">
