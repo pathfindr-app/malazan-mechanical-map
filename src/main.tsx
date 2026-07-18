@@ -260,6 +260,7 @@ function App() {
   const [selected, setSelected] = useState<Selected | null>(null);
   const [cleanMode, setCleanMode] = useState(false);
   const [controlsOpen, setControlsOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [layers, setLayers] = useState({ locations: true, water: false, terrain: false, coasts: false, rivers: false, areas: false });
   const [styleMode, setStyleMode] = useState<'v2' | 'premium' | 'relief' | 'source' | 'blend'>('v2');
   const toggleLayer = (key: keyof typeof layers) => setLayers((value) => ({ ...value, [key]: !value[key] }));
@@ -281,16 +282,20 @@ function App() {
     <AtlasMap data={data} selected={selected} setSelected={setSelected} search={search} category={category} layers={layers} cleanMode={cleanMode} styleMode={styleMode} />
     <div className="atmosphere-layer" aria-hidden="true" />
     <button className="clean-toggle" onClick={() => setCleanMode((v) => !v)}>{cleanMode ? 'Exit clean map' : 'Clean map'}</button>
-    <section className="panel top-left command-panel">
-      <div className="brand"><span>Malazan Atlas</span><b>Living relief atlas</b></div>
-      <label className="search-box"><Search size={16}/><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search 602 exact-coordinate locations…" /></label>
-      <div className="category-row">{CATEGORIES.map((c) => <button key={c.id} className={category === c.id ? 'active' : ''} onClick={() => setCategory(c.id)}>{c.label}</button>)}</div>
-      {results.length > 0 && <div className="results-list">{results.map((loc) => <button key={`${loc.name}-${loc.center.join('-')}`} onClick={() => chooseLocation(loc)}><b>{loc.name}</b><span>{loc.category} · {formatSource(loc.center)}</span></button>)}</div>}
-      <div className="bookmark-row">
-        <button onClick={() => fly('Whole world', [5000, 2785], 'Full 10k map, tiled into z0-z5 source-pixel pyramid.')}>Whole world</button>
-        <button onClick={() => fly('Darujhistan', [6782, 1527], 'Exact source coordinate [6782, 1527].')}>Darujhistan</button>
-        <button onClick={() => fly('Pale', [6749, 1391], 'Exact source coordinate [6749, 1391].')}>Pale</button>
-      </div>
+    <section className={`panel top-left command-panel ${searchOpen ? 'open' : 'collapsed'}`}>
+      <button className="search-drawer-toggle" onClick={() => setSearchOpen((v) => !v)} aria-expanded={searchOpen}>
+        <span className="mini-brand"><b>Malazan Atlas</b><small>Living relief map</small></span><span>{searchOpen ? 'Hide search' : 'Search atlas'}</span>
+      </button>
+      {searchOpen && <>
+        <label className="search-box"><Search size={16}/><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search 602 exact-coordinate locations…" autoFocus /></label>
+        <div className="category-row">{CATEGORIES.map((c) => <button key={c.id} className={category === c.id ? 'active' : ''} onClick={() => setCategory(c.id)}>{c.label}</button>)}</div>
+        {results.length > 0 && <div className="results-list">{results.map((loc) => <button key={`${loc.name}-${loc.center.join('-')}`} onClick={() => chooseLocation(loc)}><b>{loc.name}</b><span>{loc.category} · {formatSource(loc.center)}</span></button>)}</div>}
+        <div className="bookmark-row">
+          <button onClick={() => fly('Whole world', [5000, 2785], 'Full 10k map, tiled into native z6 source-pixel pyramid.')}>Whole world</button>
+          <button onClick={() => fly('Darujhistan', [6782, 1527], 'Exact source coordinate [6782, 1527].')}>Darujhistan</button>
+          <button onClick={() => fly('Pale', [6749, 1391], 'Exact source coordinate [6749, 1391].')}>Pale</button>
+        </div>
+      </>}
     </section>
     <section className={`panel top-right layers-panel ${controlsOpen ? 'open' : 'collapsed'}`}>
       <button className="drawer-toggle" onClick={() => setControlsOpen((v) => !v)} aria-expanded={controlsOpen}>
