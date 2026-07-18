@@ -7,7 +7,7 @@ const input = path.join(root, 'public/assets/worldofmalazan-z6-mosaic.png');
 const reliefPng = path.join(root, 'work/cartography/generated/stylized-relief.png');
 const tileRoot = path.join(root, 'public/tiles/relief');
 const tileSize = 512;
-const maxZoom = 5;
+const maxZoom = 6;
 const sourceWidth = 10000;
 const sourceHeight = 5571;
 

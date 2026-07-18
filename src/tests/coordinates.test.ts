@@ -18,10 +18,11 @@ describe('source-pixel coordinate transforms', () => {
     expect(inSourceBounds([10001, 0])).toBe(false);
   });
 
-  it('computes the 512px tile grid used by the generated z5 pyramid', () => {
-    expect(MAX_ZOOM).toBe(5);
-    expect(tileGridSize(5)).toEqual([20, 11]);
+  it('computes the 512px tile grid used by the generated native z6 pyramid', () => {
+    expect(MAX_ZOOM).toBe(6);
+    expect(tileGridSize(6)).toEqual([20, 11]);
+    expect(tileGridSize(5)).toEqual([10, 6]);
     expect(tileGridSize(0)).toEqual([1, 1]);
-    expect(sourceToTile([6782, 1527], 5)).toEqual([13, 2]);
+    expect(sourceToTile([6782, 1527], 6)).toEqual([13, 2]);
   });
 });

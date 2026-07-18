@@ -16,24 +16,24 @@ const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'));
 ok('manifest coordinate space', manifest.coordinateSpace === 'malazan.source-pixel');
 ok('manifest source pixels', manifest.sourcePixels?.[0] === 10000 && manifest.sourcePixels?.[1] === 5571);
 ok('manifest tile size 512', manifest.tileSize === 512);
-ok('manifest max zoom 5', manifest.maxZoom === 5);
+ok('manifest max zoom 6', manifest.maxZoom === 6);
 const tileCount = manifest.levels.reduce((sum, level) => sum + level.cols * level.rows, 0);
-ok('source tile count is 304', tileCount === 304);
+ok('source tile count is 305', tileCount === 305);
 const reliefManifest = JSON.parse(await fs.readFile(path.join(root, 'public/tiles/relief/manifest.json'), 'utf8'));
 ok('relief manifest coordinate space', reliefManifest.coordinateSpace === 'malazan.source-pixel');
 ok('relief manifest source pixels', reliefManifest.sourcePixels?.[0] === 10000 && reliefManifest.sourcePixels?.[1] === 5571);
 const reliefTileCount = reliefManifest.levels.reduce((sum, level) => sum + level.cols * level.rows, 0);
-ok('relief tile count is 304', reliefTileCount === 304);
+ok('relief tile count is 305', reliefTileCount === 305);
 const premiumManifest = JSON.parse(await fs.readFile(path.join(root, 'public/tiles/premium-relief/manifest.json'), 'utf8'));
 ok('premium manifest coordinate space', premiumManifest.coordinateSpace === 'malazan.source-pixel');
 ok('premium manifest source pixels', premiumManifest.sourcePixels?.[0] === 10000 && premiumManifest.sourcePixels?.[1] === 5571);
 const premiumTileCount = premiumManifest.levels.reduce((sum, level) => sum + level.cols * level.rows, 0);
-ok('premium tile count is 304', premiumTileCount === 304);
+ok('premium tile count is 305', premiumTileCount === 305);
 const v2Manifest = JSON.parse(await fs.readFile(path.join(root, 'public/tiles/stylized-v2/manifest.json'), 'utf8'));
 ok('stylized v2 manifest coordinate space', v2Manifest.coordinateSpace === 'malazan.source-pixel');
 ok('stylized v2 manifest source pixels', v2Manifest.sourcePixels?.[0] === 10000 && v2Manifest.sourcePixels?.[1] === 5571);
 const v2TileCount = v2Manifest.levels.reduce((sum, level) => sum + level.cols * level.rows, 0);
-ok('stylized v2 tile count is 304', v2TileCount === 304);
+ok('stylized v2 tile count is 305', v2TileCount === 305);
 
 for (const level of manifest.levels) {
   for (let x = 0; x < level.cols; x += 1) {

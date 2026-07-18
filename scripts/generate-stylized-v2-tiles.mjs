@@ -6,7 +6,7 @@ const root = process.cwd();
 const sourceImage = path.join(root, 'work/cartography/v2/stylized-relief-v2-preview.png');
 const tileRoot = path.join(root, 'public/tiles/stylized-v2');
 const tileSize = 512;
-const maxZoom = 5;
+const maxZoom = 6;
 const W = 10000;
 const H = 5571;
 

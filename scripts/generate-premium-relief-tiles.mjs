@@ -9,7 +9,7 @@ const sourcePath = path.join(root, 'public/assets/worldofmalazan-z6-mosaic.png')
 const outFull = path.join(root, 'work/cartography/generated/premium-relief-atlas.png');
 const tileRoot = path.join(root, 'public/tiles/premium-relief');
 const tileSize = 512;
-const maxZoom = 5;
+const maxZoom = 6;
 const W = 10000;
 const H = 5571;
 
