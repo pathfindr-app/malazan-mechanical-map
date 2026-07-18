@@ -52,9 +52,13 @@ async function rgb(file) {
 await fs.mkdir(outDir, { recursive: true });
 
 console.log(`v2 preview size ${W}x${H} (scale ${SCALE})`);
-const [{ data: source, info }, height, land, water, mountain, mountainBroad, forest, desert, ice, coastal, micro] = await Promise.all([
+const [{ data: source, info }, height, mountainHeight, baseHeight, regionalDelta, regionalMult, land, water, mountain, mountainBroad, forest, desert, ice, coastal, micro] = await Promise.all([
   rgb(sourcePath),
   gray('world_height_controlled_16bit.png'),
+  gray('world_mountain_height_16bit.png'),
+  gray('world_base_height_16bit.png'),
+  gray('regional_height_delta_16bit.png'),
+  gray('regional_height_multiplier_16bit.png'),
   gray('land_mask.png'),
   gray('water_mask.png'),
   gray('mountain_mask.png'),
@@ -78,8 +82,10 @@ for (let i = 0; i < W * H; i++) {
   const x = i % W;
   const y = Math.floor(i / W);
   const inSourceLegendBox = x < Math.round(1700 * SCALE) && y < Math.round(1120 * SCALE);
-  const redGuideLine = redLine && Math.abs(y - Math.round(2785 * SCALE)) < Math.max(3, Math.round(10 * SCALE));
-  if (!inSourceLegendBox && !redGuideLine && (dark || blueLine)) ink[i] = blueLine ? 180 : 220;
+  const guideBandWidth = Math.max(20, Math.round(45 * SCALE));
+  const redGuideLine = redLine && Math.abs(y - Math.round(2785 * SCALE)) < guideBandWidth;
+  const sourceGuideArtifact = Math.abs(y - Math.round(2785 * SCALE)) < guideBandWidth && x < Math.round(780 * SCALE);
+  if (!inSourceLegendBox && !redGuideLine && !sourceGuideArtifact && (dark || blueLine)) ink[i] = blueLine ? 180 : 220;
 }
 const halo = new Uint8Array(W * H);
 for (let y = 0; y < H; y++) {
@@ -118,9 +124,14 @@ for (let y = 0; y < H; y++) {
     const si = i * info.channels;
     const sr = source[si], sg = source[si + 1], sb = source[si + 2];
     const inSourceLegendBox = x < Math.round(1700 * SCALE) && y < Math.round(1120 * SCALE);
-    const sourceGuideBand = Math.abs(y - Math.round(2785 * SCALE)) < Math.max(3, Math.round(12 * SCALE));
+    const sourceGuideBand = Math.abs(y - Math.round(2785 * SCALE)) < Math.max(20, Math.round(45 * SCALE));
     const sourceRedGuide = sourceGuideBand && sr > 95 && sg < 155 && sb < 155 && lum(sr, sg, sb) < 200;
+    const sourceGuideArtifact = sourceGuideBand && (sourceRedGuide || x < Math.round(780 * SCALE));
     const h = height[i] / 255;
+    const mh = mountainHeight[i] / 255;
+    const bh = baseHeight[i] / 255;
+    const rhd = regionalDelta[i] / 255;
+    const rhm = regionalMult[i] / 255;
     let l = land[i] / 255;
     let w = water[i] / 255;
     const m = mountain[i] / 255;
@@ -133,7 +144,7 @@ for (let y = 0; y < H; y++) {
 
     // Known non-map source artifacts live in open ocean; render them as authored ocean,
     // not as source-derived mask/ink/height. This avoids pasted/inpainted repair scars.
-    if (inSourceLegendBox || sourceGuideBand) {
+    if (inSourceLegendBox || sourceGuideArtifact) {
       l = 0;
       w = 1;
       co = 0;
@@ -146,10 +157,17 @@ for (let y = 0; y < H; y++) {
     const dy2 = at(height, x, y + 14) - at(height, x, y - 14);
     const dx3 = at(height, x + 42, y) - at(height, x - 42, y);
     const dy3 = at(height, x, y + 42) - at(height, x, y - 42);
-    const shadeFine = clamp(0.98 + (-dx1 * 4.4) + (-dy1 * 3.0), 0.48, 1.62);
-    const shadeMed = clamp(1.00 + (-dx2 * 3.2) + (-dy2 * 2.3), 0.54, 1.52);
-    const shadeBroad = clamp(1.00 + (-dx3 * 2.1) + (-dy3 * 1.45), 0.64, 1.38);
-    const slope = Math.min(1, Math.hypot(dx1, dy1) * 10.5 + Math.hypot(dx2, dy2) * 3.8);
+    const mdx1 = at(mountainHeight, x + 4, y) - at(mountainHeight, x - 4, y);
+    const mdy1 = at(mountainHeight, x, y + 4) - at(mountainHeight, x, y - 4);
+    const mdx2 = at(mountainHeight, x + 18, y) - at(mountainHeight, x - 18, y);
+    const mdy2 = at(mountainHeight, x, y + 18) - at(mountainHeight, x, y - 18);
+    const curvature = Math.abs(at(mountainHeight, x + 5, y) + at(mountainHeight, x - 5, y) + at(mountainHeight, x, y + 5) + at(mountainHeight, x, y - 5) - mh * 4);
+    const baseSlope = Math.hypot(at(baseHeight, x + 18, y) - at(baseHeight, x - 18, y), at(baseHeight, x, y + 18) - at(baseHeight, x, y - 18));
+    const reliefEnergy = Math.min(1, mh * 0.74 + mb * 0.34 + Math.max(0, rhd - 0.48) * 0.80 + Math.max(0, rhm - 0.44) * 0.42);
+    const shadeFine = clamp(0.98 + (-dx1 * 3.9) + (-dy1 * 2.7) + (-mdx1 * 2.5) + (-mdy1 * 1.8), 0.42, 1.74);
+    const shadeMed = clamp(1.00 + (-dx2 * 2.9) + (-dy2 * 2.1) + (-mdx2 * 2.6) + (-mdy2 * 1.85), 0.48, 1.66);
+    const shadeBroad = clamp(1.00 + (-dx3 * 1.8) + (-dy3 * 1.25), 0.62, 1.42);
+    const slope = Math.min(1, Math.hypot(dx1, dy1) * 9.2 + Math.hypot(dx2, dy2) * 3.2 + Math.hypot(mdx1, mdy1) * 5.5 + baseSlope * 2.0);
     const ao = 1 - slope * (0.12 + mb * 0.13 + m * 0.24);
 
     const paper = fbm(x / 310, y / 310, 5);
@@ -175,21 +193,26 @@ for (let y = 0; y < H; y++) {
       col = mix3(col, forestLight, f * 0.48);
       col = mix3(col, forestDark, f * (0.48 + terrainNoise * 0.24));
       col = mix3(col, desertWarm, d * 0.88);
-      col = mix3(col, ridgeOchre, Math.min(0.88, mb * 0.42 + m * 0.76));
-      col = mix3(col, ridgeLight, m * smoothstep(0.20, 0.78, slope) * Math.max(0, -dx2 - dy2) * 0.90);
-      col = mix3(col, ridgeShadow, m * slope * 0.36);
-      col = mix3(col, snow, Math.min(0.96, ic * 0.95 + m * smoothstep(0.56, 0.92, h) * 0.48));
+      col = mix3(col, ridgeOchre, Math.min(0.92, mb * 0.36 + m * 0.62 + reliefEnergy * 0.24));
+      col = mix3(col, ridgeLight, reliefEnergy * smoothstep(0.16, 0.76, slope) * Math.max(0, -mdx2 - mdy2 - dx2 * 0.45 - dy2 * 0.45) * 1.08);
+      col = mix3(col, ridgeShadow, (m * 0.34 + reliefEnergy * 0.22) * slope);
+      col = mix3(col, snow, Math.min(0.96, ic * 0.95 + reliefEnergy * smoothstep(0.56, 0.92, Math.max(h, mh)) * 0.44));
       col = mix3(col, [224, 207, 143], co * 0.16);
 
       // Biome texture language: forest stipple, desert grain, ridge roughness, plains paper.
       const forestStipple = f * (hash(Math.floor(x / 3), Math.floor(y / 3)) - 0.5) * 0.17;
       const desertGrain = d * (fbm(x / 34, y / 34, 3) - 0.5) * 0.20;
       const plainPaper = (1 - Math.max(f, d, m, ic)) * (fbm(x / 95, y / 95, 3) - 0.5) * 0.07;
-      const ridgeRough = (m * 0.30 + mb * 0.11) * (mic - 0.5 + terrainNoise - 0.5);
-      const ridgeHatch = m * smoothstep(0.16, 0.65, slope) * (0.5 + 0.5 * Math.sin(x * 0.045 + y * 0.071 + h * 8.0));
-      const material = 0.965 + (paper - 0.5) * 0.065 + forestStipple + desertGrain + plainPaper + ridgeRough - ridgeHatch * 0.055;
-      const shade = Math.pow(shadeFine, 0.34 + m * 0.38) * Math.pow(shadeMed, 0.52 + mb * 0.40) * Math.pow(shadeBroad, 0.32) * ao;
+      const ridgeRough = (reliefEnergy * 0.40 + mb * 0.08) * (mic - 0.5 + terrainNoise - 0.5);
+      const ridgeHatch = reliefEnergy * smoothstep(0.12, 0.62, slope) * (0.5 + 0.5 * Math.sin(x * 0.058 + y * 0.083 + mh * 11.0));
+      const topoEngrave = smoothstep(0.030, 0.145, curvature) * reliefEnergy * (0.68 + 0.32 * hash(Math.floor(x / 5), Math.floor(y / 5)));
+      const valleyWash = smoothstep(0.10, 0.72, baseSlope) * (1 - reliefEnergy) * (1 - Math.max(f, d, ic)) * 0.075;
+      const material = 0.962 + (paper - 0.5) * 0.060 + forestStipple + desertGrain + plainPaper + ridgeRough - ridgeHatch * 0.070 - topoEngrave * 0.105 - valleyWash;
+      const shade = Math.pow(shadeFine, 0.32 + reliefEnergy * 0.46) * Math.pow(shadeMed, 0.50 + mb * 0.32 + reliefEnergy * 0.22) * Math.pow(shadeBroad, 0.32) * ao;
       col = col.map(c => c * clamp(shade * material, 0.38, 1.68));
+      if (topoEngrave > 0.10) {
+        col = mix3(col, [54, 38, 30], Math.min(0.18, topoEngrave * 0.20));
+      }
     }
 
     // Halo first, then original protected ink/labels. This is the important readability layer.
@@ -206,7 +229,7 @@ for (let y = 0; y < H; y++) {
       col = mix3(col, inkCol, blueInk ? 0.76 : redInk ? 0.68 : 0.82);
       // Preserve some original anti-aliasing / type character.
       col = mix3(col, [sr, sg, sb], blueInk ? 0.16 : 0.10);
-    } else if (!inSourceLegendBox && !sourceRedGuide && !sourceGuideBand && !(w > 0.52 && l < 0.42)) {
+    } else if (!inSourceLegendBox && !sourceGuideArtifact && !(w > 0.52 && l < 0.42)) {
       // Very light source blend only on land, to keep exact coast/labels context without source-map look.
       // Open water is generated from masks/procedural texture so source artifacts cannot leak through.
       col = mix3(col, [sr, sg, sb], 0.018);
