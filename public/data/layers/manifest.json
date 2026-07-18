@@ -14,7 +14,14 @@
       "url": "data/prototype-features.json",
       "type": "mixed",
       "status": "draft",
-      "note": "Temporary traced rivers/basins/biomes. Will be replaced by normalized source-pixel GeoJSON layers."
+      "note": "Temporary basins/biomes only; incorrect provisional Lake Azur river traces were removed. Verified water lives in data/water-features.json."
+    },
+    {
+      "id": "water-features",
+      "url": "data/water-features.json",
+      "type": "polygon",
+      "status": "source-mask-derived",
+      "note": "Inland water polygons extracted from terrain-data/water_mask.png; ocean/edge-connected water excluded."
     },
     {
       "id": "source-raster",

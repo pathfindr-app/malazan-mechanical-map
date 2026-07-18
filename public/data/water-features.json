@@ -1,0 +1,1575 @@
+{
+  "coordinateSpace": "malazan.source-pixel",
+  "sourcePixels": [
+    10000,
+    5571
+  ],
+  "sourceMask": "terrain-data/water_mask.png",
+  "maskPixels": [
+    2048,
+    1141
+  ],
+  "status": "source-mask-derived",
+  "features": [
+    {
+      "id": "water_lake_azur",
+      "name": "Lake Azur",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 168,
+      "sourceAreaApproxPx": 4011,
+      "bbox_px": [
+        [
+          6712,
+          1461
+        ],
+        [
+          6830,
+          1505
+        ]
+      ],
+      "center_px": [
+        6774,
+        1480
+      ],
+      "points_px": [
+        [
+          6712,
+          1471
+        ],
+        [
+          6717,
+          1466
+        ],
+        [
+          6786,
+          1461
+        ],
+        [
+          6810,
+          1461
+        ],
+        [
+          6820,
+          1466
+        ],
+        [
+          6825,
+          1471
+        ],
+        [
+          6830,
+          1481
+        ],
+        [
+          6830,
+          1486
+        ],
+        [
+          6825,
+          1490
+        ],
+        [
+          6810,
+          1500
+        ],
+        [
+          6800,
+          1505
+        ],
+        [
+          6737,
+          1495
+        ],
+        [
+          6727,
+          1490
+        ],
+        [
+          6712,
+          1476
+        ],
+        [
+          6712,
+          1471
+        ]
+      ]
+    },
+    {
+      "id": "water_component_020",
+      "name": "Inland water component 20",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 2045,
+      "sourceAreaApproxPx": 48821,
+      "bbox_px": [
+        [
+          5926,
+          4012
+        ],
+        [
+          6341,
+          4212
+        ]
+      ],
+      "center_px": [
+        6112,
+        4115
+      ],
+      "points_px": [
+        [
+          5926,
+          4115
+        ],
+        [
+          5945,
+          4051
+        ],
+        [
+          6023,
+          4012
+        ],
+        [
+          6033,
+          4012
+        ],
+        [
+          6185,
+          4046
+        ],
+        [
+          6199,
+          4051
+        ],
+        [
+          6331,
+          4105
+        ],
+        [
+          6341,
+          4139
+        ],
+        [
+          6331,
+          4149
+        ],
+        [
+          6317,
+          4159
+        ],
+        [
+          6160,
+          4198
+        ],
+        [
+          6087,
+          4212
+        ],
+        [
+          6082,
+          4212
+        ],
+        [
+          6014,
+          4188
+        ],
+        [
+          6004,
+          4183
+        ],
+        [
+          5931,
+          4129
+        ],
+        [
+          5926,
+          4124
+        ],
+        [
+          5926,
+          4115
+        ]
+      ]
+    },
+    {
+      "id": "water_component_005",
+      "name": "Inland water component 5",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 1078,
+      "sourceAreaApproxPx": 25735,
+      "bbox_px": [
+        [
+          4895,
+          1349
+        ],
+        [
+          5149,
+          1510
+        ]
+      ],
+      "center_px": [
+        5000,
+        1438
+      ],
+      "points_px": [
+        [
+          4895,
+          1442
+        ],
+        [
+          4905,
+          1383
+        ],
+        [
+          4915,
+          1378
+        ],
+        [
+          4949,
+          1363
+        ],
+        [
+          4998,
+          1349
+        ],
+        [
+          5002,
+          1349
+        ],
+        [
+          5012,
+          1354
+        ],
+        [
+          5037,
+          1368
+        ],
+        [
+          5149,
+          1456
+        ],
+        [
+          5149,
+          1486
+        ],
+        [
+          5139,
+          1490
+        ],
+        [
+          5125,
+          1495
+        ],
+        [
+          4949,
+          1510
+        ],
+        [
+          4924,
+          1510
+        ],
+        [
+          4915,
+          1490
+        ],
+        [
+          4895,
+          1447
+        ],
+        [
+          4895,
+          1442
+        ]
+      ]
+    },
+    {
+      "id": "water_component_011",
+      "name": "Inland water component 11",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 670,
+      "sourceAreaApproxPx": 15995,
+      "bbox_px": [
+        [
+          7523,
+          2903
+        ],
+        [
+          7684,
+          3098
+        ]
+      ],
+      "center_px": [
+        7584,
+        3022
+      ],
+      "points_px": [
+        [
+          7523,
+          3054
+        ],
+        [
+          7528,
+          2932
+        ],
+        [
+          7548,
+          2913
+        ],
+        [
+          7562,
+          2903
+        ],
+        [
+          7572,
+          2903
+        ],
+        [
+          7577,
+          2908
+        ],
+        [
+          7684,
+          3074
+        ],
+        [
+          7684,
+          3084
+        ],
+        [
+          7660,
+          3088
+        ],
+        [
+          7626,
+          3093
+        ],
+        [
+          7587,
+          3098
+        ],
+        [
+          7572,
+          3098
+        ],
+        [
+          7533,
+          3069
+        ],
+        [
+          7523,
+          3059
+        ],
+        [
+          7523,
+          3054
+        ]
+      ]
+    },
+    {
+      "id": "water_component_010",
+      "name": "Inland water component 10",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 523,
+      "sourceAreaApproxPx": 12486,
+      "bbox_px": [
+        [
+          6326,
+          2883
+        ],
+        [
+          6468,
+          3001
+        ]
+      ],
+      "center_px": [
+        6398,
+        2943
+      ],
+      "points_px": [
+        [
+          6326,
+          2922
+        ],
+        [
+          6356,
+          2893
+        ],
+        [
+          6375,
+          2883
+        ],
+        [
+          6395,
+          2883
+        ],
+        [
+          6404,
+          2888
+        ],
+        [
+          6453,
+          2917
+        ],
+        [
+          6463,
+          2927
+        ],
+        [
+          6468,
+          2937
+        ],
+        [
+          6468,
+          2952
+        ],
+        [
+          6463,
+          2966
+        ],
+        [
+          6458,
+          2976
+        ],
+        [
+          6444,
+          2991
+        ],
+        [
+          6424,
+          3001
+        ],
+        [
+          6390,
+          3001
+        ],
+        [
+          6365,
+          2986
+        ],
+        [
+          6351,
+          2976
+        ],
+        [
+          6341,
+          2966
+        ],
+        [
+          6336,
+          2957
+        ],
+        [
+          6326,
+          2927
+        ],
+        [
+          6326,
+          2922
+        ]
+      ]
+    },
+    {
+      "id": "water_component_007",
+      "name": "Inland water component 7",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 374,
+      "sourceAreaApproxPx": 8929,
+      "bbox_px": [
+        [
+          3293,
+          1759
+        ],
+        [
+          3434,
+          2004
+        ]
+      ],
+      "center_px": [
+        3368,
+        1872
+      ],
+      "points_px": [
+        [
+          3293,
+          1774
+        ],
+        [
+          3298,
+          1759
+        ],
+        [
+          3307,
+          1759
+        ],
+        [
+          3317,
+          1764
+        ],
+        [
+          3420,
+          1891
+        ],
+        [
+          3429,
+          1940
+        ],
+        [
+          3434,
+          1999
+        ],
+        [
+          3429,
+          2004
+        ],
+        [
+          3425,
+          2004
+        ],
+        [
+          3420,
+          1999
+        ],
+        [
+          3293,
+          1798
+        ],
+        [
+          3293,
+          1774
+        ]
+      ]
+    },
+    {
+      "id": "water_component_018",
+      "name": "Inland water component 18",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 348,
+      "sourceAreaApproxPx": 8308,
+      "bbox_px": [
+        [
+          5686,
+          3577
+        ],
+        [
+          5823,
+          3719
+        ]
+      ],
+      "center_px": [
+        5752,
+        3647
+      ],
+      "points_px": [
+        [
+          5686,
+          3587
+        ],
+        [
+          5735,
+          3577
+        ],
+        [
+          5755,
+          3577
+        ],
+        [
+          5823,
+          3675
+        ],
+        [
+          5823,
+          3680
+        ],
+        [
+          5799,
+          3704
+        ],
+        [
+          5774,
+          3719
+        ],
+        [
+          5755,
+          3719
+        ],
+        [
+          5750,
+          3714
+        ],
+        [
+          5686,
+          3597
+        ],
+        [
+          5686,
+          3587
+        ]
+      ]
+    },
+    {
+      "id": "water_component_017",
+      "name": "Inland water component 17",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 279,
+      "sourceAreaApproxPx": 6661,
+      "bbox_px": [
+        [
+          2794,
+          3528
+        ],
+        [
+          2902,
+          3621
+        ]
+      ],
+      "center_px": [
+        2841,
+        3582
+      ],
+      "points_px": [
+        [
+          2794,
+          3592
+        ],
+        [
+          2804,
+          3548
+        ],
+        [
+          2829,
+          3528
+        ],
+        [
+          2838,
+          3533
+        ],
+        [
+          2892,
+          3572
+        ],
+        [
+          2902,
+          3582
+        ],
+        [
+          2892,
+          3602
+        ],
+        [
+          2887,
+          3606
+        ],
+        [
+          2877,
+          3611
+        ],
+        [
+          2809,
+          3621
+        ],
+        [
+          2794,
+          3621
+        ],
+        [
+          2794,
+          3592
+        ]
+      ]
+    },
+    {
+      "id": "water_component_013",
+      "name": "Inland water component 13",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 263,
+      "sourceAreaApproxPx": 6279,
+      "bbox_px": [
+        [
+          5638,
+          3167
+        ],
+        [
+          5809,
+          3304
+        ]
+      ],
+      "center_px": [
+        5729,
+        3239
+      ],
+      "points_px": [
+        [
+          5638,
+          3294
+        ],
+        [
+          5667,
+          3260
+        ],
+        [
+          5735,
+          3206
+        ],
+        [
+          5804,
+          3167
+        ],
+        [
+          5809,
+          3167
+        ],
+        [
+          5809,
+          3181
+        ],
+        [
+          5804,
+          3196
+        ],
+        [
+          5794,
+          3216
+        ],
+        [
+          5779,
+          3230
+        ],
+        [
+          5686,
+          3299
+        ],
+        [
+          5677,
+          3304
+        ],
+        [
+          5647,
+          3304
+        ],
+        [
+          5638,
+          3299
+        ],
+        [
+          5638,
+          3294
+        ]
+      ]
+    },
+    {
+      "id": "water_component_022",
+      "name": "Inland water component 22",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 253,
+      "sourceAreaApproxPx": 6040,
+      "bbox_px": [
+        [
+          5564,
+          4989
+        ],
+        [
+          5677,
+          5107
+        ]
+      ],
+      "center_px": [
+        5627,
+        5053
+      ],
+      "points_px": [
+        [
+          5564,
+          5087
+        ],
+        [
+          5628,
+          4999
+        ],
+        [
+          5638,
+          4989
+        ],
+        [
+          5647,
+          4989
+        ],
+        [
+          5672,
+          5024
+        ],
+        [
+          5677,
+          5038
+        ],
+        [
+          5672,
+          5048
+        ],
+        [
+          5657,
+          5068
+        ],
+        [
+          5652,
+          5073
+        ],
+        [
+          5638,
+          5082
+        ],
+        [
+          5603,
+          5102
+        ],
+        [
+          5594,
+          5107
+        ],
+        [
+          5579,
+          5107
+        ],
+        [
+          5564,
+          5092
+        ],
+        [
+          5564,
+          5087
+        ]
+      ]
+    },
+    {
+      "id": "water_component_014",
+      "name": "Inland water component 14",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 176,
+      "sourceAreaApproxPx": 4202,
+      "bbox_px": [
+        [
+          7640,
+          3274
+        ],
+        [
+          7836,
+          3328
+        ]
+      ],
+      "center_px": [
+        7743,
+        3302
+      ],
+      "points_px": [
+        [
+          7640,
+          3289
+        ],
+        [
+          7645,
+          3284
+        ],
+        [
+          7670,
+          3274
+        ],
+        [
+          7680,
+          3274
+        ],
+        [
+          7777,
+          3289
+        ],
+        [
+          7836,
+          3318
+        ],
+        [
+          7826,
+          3328
+        ],
+        [
+          7807,
+          3328
+        ],
+        [
+          7743,
+          3323
+        ],
+        [
+          7640,
+          3289
+        ]
+      ]
+    },
+    {
+      "id": "water_component_016",
+      "name": "Inland water component 16",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 146,
+      "sourceAreaApproxPx": 3485,
+      "bbox_px": [
+        [
+          5652,
+          3465
+        ],
+        [
+          5725,
+          3553
+        ]
+      ],
+      "center_px": [
+        5684,
+        3499
+      ],
+      "points_px": [
+        [
+          5652,
+          3509
+        ],
+        [
+          5667,
+          3484
+        ],
+        [
+          5686,
+          3465
+        ],
+        [
+          5721,
+          3465
+        ],
+        [
+          5725,
+          3470
+        ],
+        [
+          5716,
+          3504
+        ],
+        [
+          5667,
+          3553
+        ],
+        [
+          5662,
+          3553
+        ],
+        [
+          5657,
+          3548
+        ],
+        [
+          5652,
+          3538
+        ],
+        [
+          5652,
+          3509
+        ]
+      ]
+    },
+    {
+      "id": "water_component_015",
+      "name": "Inland water component 15",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 139,
+      "sourceAreaApproxPx": 3318,
+      "bbox_px": [
+        [
+          7523,
+          3294
+        ],
+        [
+          7631,
+          3338
+        ]
+      ],
+      "center_px": [
+        7570,
+        3308
+      ],
+      "points_px": [
+        [
+          7523,
+          3294
+        ],
+        [
+          7631,
+          3294
+        ],
+        [
+          7631,
+          3299
+        ],
+        [
+          7626,
+          3304
+        ],
+        [
+          7596,
+          3318
+        ],
+        [
+          7548,
+          3338
+        ],
+        [
+          7538,
+          3338
+        ],
+        [
+          7523,
+          3304
+        ],
+        [
+          7523,
+          3294
+        ]
+      ]
+    },
+    {
+      "id": "water_component_004",
+      "name": "Inland water component 4",
+      "type": "lake",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 134,
+      "sourceAreaApproxPx": 3199,
+      "bbox_px": [
+        [
+          6966,
+          1153
+        ],
+        [
+          7035,
+          1212
+        ]
+      ],
+      "center_px": [
+        7000,
+        1186
+      ],
+      "points_px": [
+        [
+          6966,
+          1197
+        ],
+        [
+          6971,
+          1188
+        ],
+        [
+          6986,
+          1163
+        ],
+        [
+          6991,
+          1158
+        ],
+        [
+          7015,
+          1153
+        ],
+        [
+          7020,
+          1153
+        ],
+        [
+          7025,
+          1158
+        ],
+        [
+          7035,
+          1183
+        ],
+        [
+          7035,
+          1188
+        ],
+        [
+          7010,
+          1212
+        ],
+        [
+          6966,
+          1212
+        ],
+        [
+          6966,
+          1197
+        ]
+      ]
+    },
+    {
+      "id": "water_component_012",
+      "name": "Inland water component 12",
+      "type": "pond",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 69,
+      "sourceAreaApproxPx": 1647,
+      "bbox_px": [
+        [
+          5848,
+          3108
+        ],
+        [
+          5892,
+          3137
+        ]
+      ],
+      "center_px": [
+        5869,
+        3122
+      ],
+      "points_px": [
+        [
+          5848,
+          3108
+        ],
+        [
+          5892,
+          3108
+        ],
+        [
+          5892,
+          3132
+        ],
+        [
+          5887,
+          3137
+        ],
+        [
+          5848,
+          3137
+        ],
+        [
+          5848,
+          3108
+        ]
+      ]
+    },
+    {
+      "id": "water_component_009",
+      "name": "Inland water component 9",
+      "type": "pond",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 67,
+      "sourceAreaApproxPx": 1600,
+      "bbox_px": [
+        [
+          7640,
+          2707
+        ],
+        [
+          7684,
+          2795
+        ]
+      ],
+      "center_px": [
+        7656,
+        2746
+      ],
+      "points_px": [
+        [
+          7640,
+          2751
+        ],
+        [
+          7650,
+          2732
+        ],
+        [
+          7660,
+          2717
+        ],
+        [
+          7665,
+          2712
+        ],
+        [
+          7675,
+          2707
+        ],
+        [
+          7684,
+          2707
+        ],
+        [
+          7655,
+          2771
+        ],
+        [
+          7645,
+          2790
+        ],
+        [
+          7640,
+          2795
+        ],
+        [
+          7640,
+          2751
+        ]
+      ]
+    },
+    {
+      "id": "water_component_008",
+      "name": "Inland water component 8",
+      "type": "pond",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 54,
+      "sourceAreaApproxPx": 1289,
+      "bbox_px": [
+        [
+          3552,
+          2184
+        ],
+        [
+          3566,
+          2248
+        ]
+      ],
+      "center_px": [
+        3559,
+        2217
+      ],
+      "points_px": [
+        [
+          3552,
+          2184
+        ],
+        [
+          3561,
+          2184
+        ],
+        [
+          3566,
+          2194
+        ],
+        [
+          3566,
+          2248
+        ],
+        [
+          3552,
+          2248
+        ],
+        [
+          3552,
+          2184
+        ]
+      ]
+    },
+    {
+      "id": "water_component_003",
+      "name": "Inland water component 3",
+      "type": "pond",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 40,
+      "sourceAreaApproxPx": 955,
+      "bbox_px": [
+        [
+          7235,
+          1021
+        ],
+        [
+          7274,
+          1065
+        ]
+      ],
+      "center_px": [
+        7255,
+        1044
+      ],
+      "points_px": [
+        [
+          7235,
+          1056
+        ],
+        [
+          7250,
+          1036
+        ],
+        [
+          7259,
+          1026
+        ],
+        [
+          7269,
+          1021
+        ],
+        [
+          7274,
+          1021
+        ],
+        [
+          7274,
+          1026
+        ],
+        [
+          7264,
+          1046
+        ],
+        [
+          7245,
+          1065
+        ],
+        [
+          7240,
+          1065
+        ],
+        [
+          7235,
+          1060
+        ],
+        [
+          7235,
+          1056
+        ]
+      ]
+    },
+    {
+      "id": "water_component_021",
+      "name": "Inland water component 21",
+      "type": "pond",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 22,
+      "sourceAreaApproxPx": 525,
+      "bbox_px": [
+        [
+          9218,
+          4662
+        ],
+        [
+          9248,
+          4686
+        ]
+      ],
+      "center_px": [
+        9235,
+        4674
+      ],
+      "points_px": [
+        [
+          9218,
+          4682
+        ],
+        [
+          9233,
+          4667
+        ],
+        [
+          9243,
+          4662
+        ],
+        [
+          9248,
+          4662
+        ],
+        [
+          9248,
+          4672
+        ],
+        [
+          9243,
+          4677
+        ],
+        [
+          9228,
+          4686
+        ],
+        [
+          9223,
+          4686
+        ],
+        [
+          9218,
+          4682
+        ]
+      ]
+    },
+    {
+      "id": "water_component_001",
+      "name": "Inland water component 1",
+      "type": "pond",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 18,
+      "sourceAreaApproxPx": 430,
+      "bbox_px": [
+        [
+          5691,
+          577
+        ],
+        [
+          5716,
+          591
+        ]
+      ],
+      "center_px": [
+        5705,
+        582
+      ],
+      "points_px": [
+        [
+          5691,
+          577
+        ],
+        [
+          5716,
+          577
+        ],
+        [
+          5716,
+          591
+        ],
+        [
+          5696,
+          586
+        ],
+        [
+          5691,
+          582
+        ],
+        [
+          5691,
+          577
+        ]
+      ]
+    },
+    {
+      "id": "water_component_002",
+      "name": "Inland water component 2",
+      "type": "pond",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 15,
+      "sourceAreaApproxPx": 358,
+      "bbox_px": [
+        [
+          6781,
+          870
+        ],
+        [
+          6800,
+          885
+        ]
+      ],
+      "center_px": [
+        6792,
+        876
+      ],
+      "points_px": [
+        [
+          6781,
+          875
+        ],
+        [
+          6786,
+          870
+        ],
+        [
+          6800,
+          870
+        ],
+        [
+          6800,
+          880
+        ],
+        [
+          6795,
+          885
+        ],
+        [
+          6790,
+          885
+        ],
+        [
+          6781,
+          875
+        ]
+      ]
+    },
+    {
+      "id": "water_component_019",
+      "name": "Inland water component 19",
+      "type": "pond",
+      "status": "source-mask-derived",
+      "source": "terrain-data/water_mask.png",
+      "maskPixels": 14,
+      "sourceAreaApproxPx": 334,
+      "bbox_px": [
+        [
+          1456,
+          3826
+        ],
+        [
+          1470,
+          3841
+        ]
+      ],
+      "center_px": [
+        1462,
+        3834
+      ],
+      "points_px": [
+        [
+          1456,
+          3826
+        ],
+        [
+          1466,
+          3826
+        ],
+        [
+          1470,
+          3836
+        ],
+        [
+          1470,
+          3841
+        ],
+        [
+          1456,
+          3841
+        ],
+        [
+          1456,
+          3826
+        ]
+      ]
+    }
+  ],
+  "featureCount": 22,
+  "notes": "Inland water polygons extracted from the existing water mask. Ocean/edge-connected water excluded; polygons are generalized from component boundaries for atlas overlays/QA."
+}

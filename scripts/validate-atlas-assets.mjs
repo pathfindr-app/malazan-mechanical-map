@@ -46,6 +46,14 @@ for (const level of manifest.levels) {
 
 const locations = JSON.parse(await fs.readFile(path.join(root, 'public/data/locations.json'), 'utf8'));
 const prototypeFeatures = JSON.parse(await fs.readFile(path.join(root, 'public/data/prototype-features.json'), 'utf8'));
+const waterFeatures = JSON.parse(await fs.readFile(path.join(root, 'public/data/water-features.json'), 'utf8'));
+ok('water features coordinate space', waterFeatures.coordinateSpace === 'malazan.source-pixel');
+ok('water features source pixels', waterFeatures.sourcePixels?.[0] === 10000 && waterFeatures.sourcePixels?.[1] === 5571);
+ok('water features extracted', waterFeatures.featureCount > 0 && waterFeatures.features?.length === waterFeatures.featureCount);
+const lakeAzur = waterFeatures.features.find((feature) => feature.id === 'water_lake_azur');
+ok('Lake Azur source-derived water feature exists', lakeAzur);
+ok('Lake Azur bbox near Darujhistan source coordinate', lakeAzur?.bbox_px?.[0]?.[0] >= 6600 && lakeAzur?.bbox_px?.[1]?.[0] <= 6900 && lakeAzur?.bbox_px?.[0]?.[1] >= 1400 && lakeAzur?.bbox_px?.[1]?.[1] <= 1550);
+ok('Lake Azur polygon has enough points', lakeAzur?.points_px?.length >= 6);
 ok('no provisional Lake Azur/Darujhistan rivers remain', (prototypeFeatures.rivers ?? []).every((river) => {
   const pts = river.points_px ?? [];
   return !pts.some(([x, y]) => x >= 6200 && x <= 7200 && y >= 1200 && y <= 1900);
