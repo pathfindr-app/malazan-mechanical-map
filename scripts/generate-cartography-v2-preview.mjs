@@ -37,6 +37,10 @@ function fbm(x, y, oct = 5) {
   for (let i = 0; i < oct; i++) { v += amp * valueNoise(x * f, y * f); norm += amp; amp *= 0.52; f *= 2.03; }
   return v / norm;
 }
+function ridgeWave(x, y, angle, freq, warp = 0) {
+  const ca = Math.cos(angle), sa = Math.sin(angle);
+  return 0.5 + 0.5 * Math.sin((x * ca + y * sa) * freq + warp);
+}
 function at(buf, x, y) {
   return buf[Math.max(0, Math.min(H - 1, y)) * W + Math.max(0, Math.min(W - 1, x))] / 255;
 }
@@ -189,25 +193,42 @@ for (let y = 0; y < H; y++) {
       col = mix3(col, iceBlue, ic * 0.86);
       col = col.map(c => c * (0.94 + (grain - 0.5) * 0.018));
     } else {
-      col = mix3(plain, grass, 0.28 + h * 0.18 + terrainNoise * 0.12);
-      col = mix3(col, forestLight, f * 0.48);
-      col = mix3(col, forestDark, f * (0.48 + terrainNoise * 0.24));
-      col = mix3(col, desertWarm, d * 0.88);
+      const nonSpecial = 1 - Math.max(f, d, m, ic);
+      const canopy = fbm(x / 18, y / 18, 4);
+      const canopyClumps = smoothstep(0.42, 0.74, canopy + hash(Math.floor(x / 9), Math.floor(y / 9)) * 0.18);
+      const duneWarp = fbm(x / 180, y / 180, 4) * 4.5 + h * 3.0;
+      const duneA = ridgeWave(x, y, -0.48, 0.034, duneWarp);
+      const duneB = ridgeWave(x, y, 0.82, 0.020, duneWarp * 0.7);
+      const dune = d * (duneA * 0.68 + duneB * 0.32);
+      const iceFacet = ic * (0.5 + 0.5 * Math.sin(x * 0.018 - y * 0.024 + fbm(x / 230, y / 230, 3) * 5.2));
+      const plainMottle = nonSpecial * (fbm(x / 140, y / 140, 4) - 0.5);
+
+      col = mix3(plain, grass, 0.28 + h * 0.18 + terrainNoise * 0.12 + plainMottle * 0.14);
+      col = mix3(col, [151, 166, 93], nonSpecial * smoothstep(0.48, 0.82, fbm(x / 260, y / 260, 4)) * 0.18);
+      col = mix3(col, forestLight, f * (0.34 + canopyClumps * 0.20));
+      col = mix3(col, forestDark, f * (0.44 + terrainNoise * 0.18 + canopyClumps * 0.24));
+      col = mix3(col, [11, 54, 31], f * canopyClumps * 0.22);
+      col = mix3(col, desertWarm, d * 0.78);
+      col = mix3(col, [244, 197, 111], dune * 0.20);
+      col = mix3(col, [167, 103, 55], d * (1 - duneA) * 0.12);
       col = mix3(col, ridgeOchre, Math.min(0.92, mb * 0.36 + m * 0.62 + reliefEnergy * 0.24));
       col = mix3(col, ridgeLight, reliefEnergy * smoothstep(0.16, 0.76, slope) * Math.max(0, -mdx2 - mdy2 - dx2 * 0.45 - dy2 * 0.45) * 1.08);
       col = mix3(col, ridgeShadow, (m * 0.34 + reliefEnergy * 0.22) * slope);
-      col = mix3(col, snow, Math.min(0.96, ic * 0.95 + reliefEnergy * smoothstep(0.56, 0.92, Math.max(h, mh)) * 0.44));
+      col = mix3(col, iceBlue, ic * 0.28);
+      col = mix3(col, [247, 247, 232], iceFacet * 0.16);
+      col = mix3(col, snow, Math.min(0.96, ic * 0.78 + reliefEnergy * smoothstep(0.56, 0.92, Math.max(h, mh)) * 0.44));
       col = mix3(col, [224, 207, 143], co * 0.16);
 
       // Biome texture language: forest stipple, desert grain, ridge roughness, plains paper.
-      const forestStipple = f * (hash(Math.floor(x / 3), Math.floor(y / 3)) - 0.5) * 0.17;
-      const desertGrain = d * (fbm(x / 34, y / 34, 3) - 0.5) * 0.20;
-      const plainPaper = (1 - Math.max(f, d, m, ic)) * (fbm(x / 95, y / 95, 3) - 0.5) * 0.07;
+      const forestStipple = f * ((hash(Math.floor(x / 3), Math.floor(y / 3)) - 0.5) * 0.13 - canopyClumps * 0.045);
+      const desertGrain = d * ((fbm(x / 34, y / 34, 3) - 0.5) * 0.15 + (dune - 0.5) * 0.10);
+      const plainPaper = nonSpecial * (fbm(x / 95, y / 95, 3) - 0.5) * 0.075;
+      const iceEtch = ic * (iceFacet - 0.5) * 0.055;
       const ridgeRough = (reliefEnergy * 0.40 + mb * 0.08) * (mic - 0.5 + terrainNoise - 0.5);
       const ridgeHatch = reliefEnergy * smoothstep(0.12, 0.62, slope) * (0.5 + 0.5 * Math.sin(x * 0.058 + y * 0.083 + mh * 11.0));
       const topoEngrave = smoothstep(0.030, 0.145, curvature) * reliefEnergy * (0.68 + 0.32 * hash(Math.floor(x / 5), Math.floor(y / 5)));
       const valleyWash = smoothstep(0.10, 0.72, baseSlope) * (1 - reliefEnergy) * (1 - Math.max(f, d, ic)) * 0.075;
-      const material = 0.962 + (paper - 0.5) * 0.060 + forestStipple + desertGrain + plainPaper + ridgeRough - ridgeHatch * 0.070 - topoEngrave * 0.105 - valleyWash;
+      const material = 0.962 + (paper - 0.5) * 0.060 + forestStipple + desertGrain + plainPaper + iceEtch + ridgeRough - ridgeHatch * 0.070 - topoEngrave * 0.105 - valleyWash;
       const shade = Math.pow(shadeFine, 0.32 + reliefEnergy * 0.46) * Math.pow(shadeMed, 0.50 + mb * 0.32 + reliefEnergy * 0.22) * Math.pow(shadeBroad, 0.32) * ao;
       col = col.map(c => c * clamp(shade * material, 0.38, 1.68));
       if (topoEngrave > 0.10) {
