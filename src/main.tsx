@@ -259,7 +259,7 @@ function App() {
   const [category, setCategory] = useState<Category>('all');
   const [selected, setSelected] = useState<Selected | null>(null);
   const [cleanMode, setCleanMode] = useState(false);
-  const [layers, setLayers] = useState({ locations: true, water: true, terrain: false, coasts: false, rivers: false, areas: false });
+  const [layers, setLayers] = useState({ locations: true, water: false, terrain: false, coasts: false, rivers: false, areas: false });
   const [styleMode, setStyleMode] = useState<'v2' | 'premium' | 'relief' | 'source' | 'blend'>('v2');
   const toggleLayer = (key: keyof typeof layers) => setLayers((value) => ({ ...value, [key]: !value[key] }));
 

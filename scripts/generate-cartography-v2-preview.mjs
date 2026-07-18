@@ -86,27 +86,28 @@ for (let y = 0; y < H; y++) {
   for (let x = 0; x < W; x++) {
     const i = y * W + x;
     if (!ink[i]) continue;
-    for (let yy = -2; yy <= 2; yy++) for (let xx = -2; xx <= 2; xx++) {
+    for (let yy = -3; yy <= 3; yy++) for (let xx = -3; xx <= 3; xx++) {
       const d = xx * xx + yy * yy;
-      if (d > 5) continue;
+      if (d > 9) continue;
       const nx = x + xx, ny = y + yy;
-      if (nx >= 0 && nx < W && ny >= 0 && ny < H) halo[ny * W + nx] = Math.max(halo[ny * W + nx], 110 - d * 12);
+      if (nx >= 0 && nx < W && ny >= 0 && ny < H) halo[ny * W + nx] = Math.max(halo[ny * W + nx], 132 - d * 11);
     }
   }
 }
 
 const out = Buffer.alloc(W * H * 3);
-const waterDeep = [15, 55, 72];
-const waterMid = [34, 104, 127];
-const waterShallow = [76, 159, 169];
-const shoreFoam = [176, 221, 207];
-const plain = [190, 184, 130];
-const grass = [118, 157, 91];
-const forestDark = [23, 88, 43];
-const forestLight = [52, 123, 54];
-const desertWarm = [214, 162, 82];
-const ridgeOchre = [198, 117, 58];
-const ridgeShadow = [74, 54, 42];
+const waterDeep = [12, 49, 68];
+const waterMid = [30, 100, 124];
+const waterShallow = [82, 164, 166];
+const shoreFoam = [190, 226, 203];
+const plain = [194, 187, 126];
+const grass = [113, 156, 86];
+const forestDark = [18, 76, 38];
+const forestLight = [58, 133, 58];
+const desertWarm = [224, 169, 82];
+const ridgeOchre = [211, 126, 59];
+const ridgeShadow = [65, 45, 35];
+const ridgeLight = [238, 178, 96];
 const snow = [234, 238, 224];
 const iceBlue = [219, 236, 232];
 
@@ -148,8 +149,8 @@ for (let y = 0; y < H; y++) {
     const shadeFine = clamp(0.98 + (-dx1 * 4.4) + (-dy1 * 3.0), 0.48, 1.62);
     const shadeMed = clamp(1.00 + (-dx2 * 3.2) + (-dy2 * 2.3), 0.54, 1.52);
     const shadeBroad = clamp(1.00 + (-dx3 * 2.1) + (-dy3 * 1.45), 0.64, 1.38);
-    const slope = Math.min(1, Math.hypot(dx1, dy1) * 9 + Math.hypot(dx2, dy2) * 3);
-    const ao = 1 - slope * (0.12 + mb * 0.10 + m * 0.18);
+    const slope = Math.min(1, Math.hypot(dx1, dy1) * 10.5 + Math.hypot(dx2, dy2) * 3.8);
+    const ao = 1 - slope * (0.12 + mb * 0.13 + m * 0.24);
 
     const paper = fbm(x / 310, y / 310, 5);
     const grain = hash(x, y);
@@ -159,51 +160,56 @@ for (let y = 0; y < H; y++) {
     if (w > 0.52 && l < 0.42) {
       // Water is authored as water only — no new fake blue river strokes.
       const depth = smoothstep(0.06, 0.92, 1 - co);
-      const current = 0.5 + 0.5 * Math.sin((x * 0.010 + y * 0.006) + fbm(x / 700, y / 700) * 5.5);
-      col = mix3(waterShallow, waterMid, 0.52 + depth * 0.30);
-      col = mix3(col, waterDeep, depth * 0.36);
-      col = mix3(col, [105, 185, 190], current * 0.025 + paper * 0.018);
-      col = mix3(col, shoreFoam, co * 0.20);
+      const current = 0.5 + 0.5 * Math.sin((x * 0.012 + y * 0.007) + fbm(x / 720, y / 720) * 6.2);
+      const bathy = 0.5 + 0.5 * Math.sin((x * 0.004 - y * 0.005) + fbm(x / 1100, y / 1100) * 7.0);
+      col = mix3(waterShallow, waterMid, 0.50 + depth * 0.31);
+      col = mix3(col, waterDeep, depth * 0.42);
+      col = mix3(col, [106, 185, 186], current * 0.034 + paper * 0.020 + bathy * 0.016);
+      col = mix3(col, [7, 42, 60], depth * bathy * 0.045);
+      col = mix3(col, shoreFoam, Math.min(0.36, co * 0.30));
       // keep ice bright but distinct from ocean
       col = mix3(col, iceBlue, ic * 0.86);
       col = col.map(c => c * (0.94 + (grain - 0.5) * 0.018));
     } else {
-      col = mix3(plain, grass, 0.30 + h * 0.20 + terrainNoise * 0.10);
-      col = mix3(col, forestLight, f * 0.44);
-      col = mix3(col, forestDark, f * (0.42 + terrainNoise * 0.18));
-      col = mix3(col, desertWarm, d * 0.82);
-      col = mix3(col, ridgeOchre, Math.min(0.82, mb * 0.38 + m * 0.68));
-      col = mix3(col, ridgeShadow, m * slope * 0.28);
+      col = mix3(plain, grass, 0.28 + h * 0.18 + terrainNoise * 0.12);
+      col = mix3(col, forestLight, f * 0.48);
+      col = mix3(col, forestDark, f * (0.48 + terrainNoise * 0.24));
+      col = mix3(col, desertWarm, d * 0.88);
+      col = mix3(col, ridgeOchre, Math.min(0.88, mb * 0.42 + m * 0.76));
+      col = mix3(col, ridgeLight, m * smoothstep(0.20, 0.78, slope) * Math.max(0, -dx2 - dy2) * 0.90);
+      col = mix3(col, ridgeShadow, m * slope * 0.36);
       col = mix3(col, snow, Math.min(0.96, ic * 0.95 + m * smoothstep(0.56, 0.92, h) * 0.48));
-      col = mix3(col, [219, 202, 139], co * 0.12);
+      col = mix3(col, [224, 207, 143], co * 0.16);
 
       // Biome texture language: forest stipple, desert grain, ridge roughness, plains paper.
-      const forestStipple = f * (hash(Math.floor(x / 3), Math.floor(y / 3)) - 0.5) * 0.12;
-      const desertGrain = d * (fbm(x / 38, y / 38, 3) - 0.5) * 0.16;
-      const ridgeRough = (m * 0.20 + mb * 0.08) * (mic - 0.5 + terrainNoise - 0.5);
-      const material = 0.97 + (paper - 0.5) * 0.055 + forestStipple + desertGrain + ridgeRough;
-      const shade = Math.pow(shadeFine, 0.28 + m * 0.28) * Math.pow(shadeMed, 0.48 + mb * 0.32) * Math.pow(shadeBroad, 0.30) * ao;
-      col = col.map(c => c * clamp(shade * material, 0.42, 1.55));
+      const forestStipple = f * (hash(Math.floor(x / 3), Math.floor(y / 3)) - 0.5) * 0.17;
+      const desertGrain = d * (fbm(x / 34, y / 34, 3) - 0.5) * 0.20;
+      const plainPaper = (1 - Math.max(f, d, m, ic)) * (fbm(x / 95, y / 95, 3) - 0.5) * 0.07;
+      const ridgeRough = (m * 0.30 + mb * 0.11) * (mic - 0.5 + terrainNoise - 0.5);
+      const ridgeHatch = m * smoothstep(0.16, 0.65, slope) * (0.5 + 0.5 * Math.sin(x * 0.045 + y * 0.071 + h * 8.0));
+      const material = 0.965 + (paper - 0.5) * 0.065 + forestStipple + desertGrain + plainPaper + ridgeRough - ridgeHatch * 0.055;
+      const shade = Math.pow(shadeFine, 0.34 + m * 0.38) * Math.pow(shadeMed, 0.52 + mb * 0.40) * Math.pow(shadeBroad, 0.32) * ao;
+      col = col.map(c => c * clamp(shade * material, 0.38, 1.68));
     }
 
     // Halo first, then original protected ink/labels. This is the important readability layer.
     if (halo[i] && !ink[i]) {
       const ht = halo[i] / 255;
       const haloCol = w > 0.52 ? [205, 226, 217] : [239, 229, 194];
-      col = mix3(col, haloCol, ht * 0.32);
+      col = mix3(col, haloCol, ht * 0.42);
     }
     if (ink[i]) {
       const L = lum(sr, sg, sb);
       const blueInk = sb > sr * 1.16 && sb > sg * 0.92 && L < 182;
       const redInk = sr > 132 && sg < 118 && sb < 130 && L < 165;
       const inkCol = blueInk ? [30, 73, 150] : redInk ? [137, 48, 44] : [38, 33, 29];
-      col = mix3(col, inkCol, blueInk ? 0.72 : redInk ? 0.66 : 0.78);
+      col = mix3(col, inkCol, blueInk ? 0.76 : redInk ? 0.68 : 0.82);
       // Preserve some original anti-aliasing / type character.
       col = mix3(col, [sr, sg, sb], blueInk ? 0.16 : 0.10);
     } else if (!inSourceLegendBox && !sourceRedGuide && !sourceGuideBand && !(w > 0.52 && l < 0.42)) {
       // Very light source blend only on land, to keep exact coast/labels context without source-map look.
       // Open water is generated from masks/procedural texture so source artifacts cannot leak through.
-      col = mix3(col, [sr, sg, sb], 0.035);
+      col = mix3(col, [sr, sg, sb], 0.018);
     }
 
     // Warm atlas grade.
