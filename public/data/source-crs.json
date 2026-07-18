@@ -1,0 +1,14 @@
+{
+  "name": "malazan.source-pixel",
+  "source": "https://worldofmalazan.com/",
+  "sourceImage": "worldofmalazan-z6-mosaic.png",
+  "imageWidth": 10000,
+  "imageHeight": 5571,
+  "origin": "top-left",
+  "axis": {
+    "x": "east/right",
+    "y": "south/down"
+  },
+  "runtimeProjection": "MALAZAN_SOURCE_PIXEL",
+  "notes": "All authoritative atlas data is stored as [x,y] source pixels in this coordinate system. Renderers may convert y at the display edge."
+}

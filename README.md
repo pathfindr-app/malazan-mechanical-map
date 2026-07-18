@@ -21,6 +21,8 @@ The current direction is a source-faithful, zoomable map engine foundation that 
 - Tile count: `304`.
 - Locations: 602 exact-coordinate POIs from `public/data/locations.json`.
 - Draft geography: provisional rivers/basins/biomes from `public/data/prototype-features.json`.
+- Styled relief raster: `public/tiles/relief/{z}/{x}/{y}.webp`, generated from the 10k map as a terrain-atlas presentation layer.
+- Layer/style modes: Relief atlas, Source map, Blend; Locations, Draft rivers, Draft areas.
 
 ## What works now
 
@@ -80,7 +82,7 @@ npm run build
 Latest asset validation:
 
 ```text
-validated source=10000x5571, tiles=304, locations=602
+validated source=10000x5571, sourceTiles=304, reliefTiles=304, locations=602
 ```
 
 Browser QA verified:

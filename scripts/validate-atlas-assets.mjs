@@ -18,7 +18,12 @@ ok('manifest source pixels', manifest.sourcePixels?.[0] === 10000 && manifest.so
 ok('manifest tile size 512', manifest.tileSize === 512);
 ok('manifest max zoom 5', manifest.maxZoom === 5);
 const tileCount = manifest.levels.reduce((sum, level) => sum + level.cols * level.rows, 0);
-ok('tile count is 304', tileCount === 304);
+ok('source tile count is 304', tileCount === 304);
+const reliefManifest = JSON.parse(await fs.readFile(path.join(root, 'public/tiles/relief/manifest.json'), 'utf8'));
+ok('relief manifest coordinate space', reliefManifest.coordinateSpace === 'malazan.source-pixel');
+ok('relief manifest source pixels', reliefManifest.sourcePixels?.[0] === 10000 && reliefManifest.sourcePixels?.[1] === 5571);
+const reliefTileCount = reliefManifest.levels.reduce((sum, level) => sum + level.cols * level.rows, 0);
+ok('relief tile count is 304', reliefTileCount === 304);
 
 for (const level of manifest.levels) {
   for (let x = 0; x < level.cols; x += 1) {
@@ -36,4 +41,4 @@ for (const loc of locations.locations) {
   ok(`location in bounds: ${loc.name}`, x >= 0 && x <= 10000 && y >= 0 && y <= 5571);
 }
 
-console.log(`validated source=${meta.width}x${meta.height}, tiles=${tileCount}, locations=${locations.locations.length}`);
+console.log(`validated source=${meta.width}x${meta.height}, sourceTiles=${tileCount}, reliefTiles=${reliefTileCount}, locations=${locations.locations.length}`);

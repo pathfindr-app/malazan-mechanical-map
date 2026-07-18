@@ -10,7 +10,9 @@
     "tiles:source": "node scripts/generate-map-tiles.mjs",
     "assets:validate": "node scripts/validate-atlas-assets.mjs",
     "test:e2e": "playwright test",
-    "test": "vitest run"
+    "test": "vitest run",
+    "tiles:relief": "node scripts/generate-relief-tiles.mjs",
+    "tiles:all": "npm run tiles:source && npm run tiles:relief"
   },
   "dependencies": {
     "@react-three/drei": "latest",

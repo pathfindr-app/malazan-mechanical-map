@@ -39,11 +39,11 @@ button { cursor: pointer; }
 .search-box { display: flex; align-items: center; gap: 9px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: 14px; padding: 9px 11px; }
 .search-box input { width: 100%; background: transparent; border: 0; color: #fff8e5; outline: none; font-size: 13px; }
 .search-box input::placeholder { color: rgba(255,245,220,.58); }
-.category-row, .bookmark-row, .layer-toggle-row { display: flex; gap: 6px; flex-wrap: wrap; }
-.category-row button, .bookmark-row button, .layer-toggle-row button {
+.category-row, .bookmark-row, .layer-toggle-row, .style-switcher { display: flex; gap: 6px; flex-wrap: wrap; }
+.category-row button, .bookmark-row button, .layer-toggle-row button, .style-switcher button {
   border: 1px solid rgba(255,255,255,.14); color: #f8efd9; background: rgba(255,255,255,.07); border-radius: 999px; padding: 6px 9px; font-size: 11px; font-weight: 800;
 }
-.category-row button.active, .bookmark-row button:hover, .layer-toggle-row button.active { background: #f0bd58; color: #21160a; border-color: #ffe0a0; }
+.category-row button.active, .bookmark-row button:hover, .layer-toggle-row button.active, .style-switcher button.active { background: #f0bd58; color: #21160a; border-color: #ffe0a0; }
 .results-list { max-height: 260px; overflow: auto; display: grid; gap: 6px; padding-right: 2px; }
 .results-list button { display: grid; gap: 2px; text-align: left; border: 1px solid rgba(255,255,255,.11); background: rgba(255,255,255,.08); border-radius: 12px; color: #fff8e4; padding: 8px 10px; }
 .results-list button:hover { background: rgba(240,189,88,.22); }

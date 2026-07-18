@@ -1,0 +1,44 @@
+{
+  "coordinateSpace": "malazan.source-pixel",
+  "sourcePixels": [10000, 5571],
+  "layers": [
+    {
+      "id": "locations",
+      "url": "data/locations.json",
+      "type": "points",
+      "status": "extracted",
+      "count": 602
+    },
+    {
+      "id": "prototype-features",
+      "url": "data/prototype-features.json",
+      "type": "mixed",
+      "status": "draft",
+      "note": "Temporary traced rivers/basins/biomes. Will be replaced by normalized source-pixel GeoJSON layers."
+    },
+    {
+      "id": "source-raster",
+      "url": "tiles/source/manifest.json",
+      "type": "rasterTilePyramid",
+      "status": "authoritative-source"
+    },
+    {
+      "id": "relief-raster",
+      "url": "tiles/relief/manifest.json",
+      "type": "rasterTilePyramid",
+      "status": "generated-style",
+      "note": "Stylized relief generated from source imagery. It is not authoritative geography."
+    }
+  ],
+  "plannedAuthoritativeLayers": [
+    "land.geojson",
+    "water.geojson",
+    "coastlines.geojson",
+    "rivers.geojson",
+    "drainage-basins.geojson",
+    "mountains.geojson",
+    "forests.geojson",
+    "biomes.geojson",
+    "political-regions.geojson"
+  ]
+}
