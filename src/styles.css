@@ -63,6 +63,7 @@ button { cursor: pointer; }
   border: 1px solid rgba(255,255,255,.14); color: #f8efd9; background: rgba(255,255,255,.07); border-radius: 999px; padding: 6px 9px; font-size: 11px; font-weight: 800;
 }
 .category-row button.active, .bookmark-row button:hover, .layer-toggle-row button.active, .style-switcher button.active { background: #f0bd58; color: #21160a; border-color: #ffe0a0; }
+.layer-toggle-row button.disabled, .layer-toggle-row button:disabled { opacity: .48; cursor: not-allowed; color: rgba(242,230,195,.62); border-color: rgba(255,255,255,.10); background: rgba(20,25,28,.32); }
 .results-list { max-height: 260px; overflow: auto; display: grid; gap: 6px; padding-right: 2px; }
 .results-list button { display: grid; gap: 2px; text-align: left; border: 1px solid rgba(255,255,255,.11); background: rgba(255,255,255,.08); border-radius: 12px; color: #fff8e4; padding: 8px 10px; }
 .results-list button:hover { background: rgba(240,189,88,.22); }

@@ -45,6 +45,11 @@ for (const level of manifest.levels) {
 }
 
 const locations = JSON.parse(await fs.readFile(path.join(root, 'public/data/locations.json'), 'utf8'));
+const prototypeFeatures = JSON.parse(await fs.readFile(path.join(root, 'public/data/prototype-features.json'), 'utf8'));
+ok('no provisional Lake Azur/Darujhistan rivers remain', (prototypeFeatures.rivers ?? []).every((river) => {
+  const pts = river.points_px ?? [];
+  return !pts.some(([x, y]) => x >= 6200 && x <= 7200 && y >= 1200 && y <= 1900);
+}));
 ok('602 locations', locations.locations?.length === 602);
 for (const loc of locations.locations) {
   const [x, y] = loc.center;
