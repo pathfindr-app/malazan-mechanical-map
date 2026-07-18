@@ -70,6 +70,19 @@ button { cursor: pointer; }
 .results-list span { color: rgba(255,248,226,.66); font-size: 11px; }
 
 .layers-panel, .metrics-panel, .selected-panel { padding: 16px; }
+.layers-panel.collapsed { width: auto; padding: 8px; border-radius: 999px; }
+.layers-panel.open { width: 300px; display: grid; gap: 11px; }
+.drawer-toggle {
+  width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;
+  border: 0; border-radius: 999px; padding: 9px 12px; color: #ffe9aa;
+  background: rgba(15, 21, 20, .55); font-weight: 900; letter-spacing: -.02em;
+}
+.layers-panel.collapsed .drawer-toggle { min-width: 148px; background: rgba(22,27,24,.78); }
+.drawer-toggle:hover { background: #f0bd58; color: #21160a; }
+.panel-kicker { margin: 0 !important; font-size: 12px !important; color: rgba(255,246,222,.72) !important; }
+.atlas-metadata { border-top: 1px solid rgba(255,255,255,.10); padding-top: 8px; }
+.atlas-metadata summary { cursor: pointer; color: #f0bd58; font-size: 12px; font-weight: 900; }
+.atlas-metadata ul { margin-top: 8px !important; }
 .panel h2 { margin: 0 0 10px; display: flex; gap: 8px; align-items: center; font-size: 16px; }
 .panel p { margin: 8px 0 0; color: rgba(255,246,222,.78); line-height: 1.45; font-size: 13px; }
 .layers-panel ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 5px; color: rgba(255,246,222,.82); font-size: 13px; }
