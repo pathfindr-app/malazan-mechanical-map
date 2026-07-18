@@ -24,6 +24,13 @@
       "note": "Inland water polygons extracted from terrain-data/water_mask.png; ocean/edge-connected water excluded."
     },
     {
+      "id": "terrain-features",
+      "url": "data/terrain-features.json",
+      "type": "polygon",
+      "status": "source-mask-derived",
+      "note": "Forest, desert, ice, and mountain polygons extracted from existing terrain-data mask rasters."
+    },
+    {
       "id": "source-raster",
       "url": "tiles/source/manifest.json",
       "type": "rasterTilePyramid",

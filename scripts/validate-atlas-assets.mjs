@@ -54,6 +54,14 @@ const lakeAzur = waterFeatures.features.find((feature) => feature.id === 'water_
 ok('Lake Azur source-derived water feature exists', lakeAzur);
 ok('Lake Azur bbox near Darujhistan source coordinate', lakeAzur?.bbox_px?.[0]?.[0] >= 6600 && lakeAzur?.bbox_px?.[1]?.[0] <= 6900 && lakeAzur?.bbox_px?.[0]?.[1] >= 1400 && lakeAzur?.bbox_px?.[1]?.[1] <= 1550);
 ok('Lake Azur polygon has enough points', lakeAzur?.points_px?.length >= 6);
+const terrainFeatures = JSON.parse(await fs.readFile(path.join(root, 'public/data/terrain-features.json'), 'utf8'));
+ok('terrain features coordinate space', terrainFeatures.coordinateSpace === 'malazan.source-pixel');
+ok('terrain features source pixels', terrainFeatures.sourcePixels?.[0] === 10000 && terrainFeatures.sourcePixels?.[1] === 5571);
+ok('terrain features extracted', terrainFeatures.featureCount > 0 && terrainFeatures.features?.length === terrainFeatures.featureCount);
+for (const kind of ['forest', 'desert', 'ice', 'mountain']) {
+  ok(`terrain has ${kind} features`, terrainFeatures.countsByType?.[kind] > 0);
+}
+ok('terrain feature polygons have points', terrainFeatures.features.every((feature) => feature.points_px?.length >= 4 && feature.center_px?.length === 2));
 ok('no provisional Lake Azur/Darujhistan rivers remain', (prototypeFeatures.rivers ?? []).every((river) => {
   const pts = river.points_px ?? [];
   return !pts.some(([x, y]) => x >= 6200 && x <= 7200 && y >= 1200 && y <= 1900);
