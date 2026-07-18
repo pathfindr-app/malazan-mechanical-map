@@ -129,7 +129,17 @@ function AtlasMap({ data, selected, setSelected, search, category, layers, clean
       target: mapEl.current,
       controls: defaultControls({ attribution: false, rotate: false }).extend([new ScaleLine({ units: 'metric', bar: true, text: true, minWidth: 120 }), mousePosition]),
       layers: [sourceLayer, reliefLayer, vectors.areaLayer, vectors.riverLayer, vectors.locationLayer],
-      view: new View({ projection, extent: EXTENT, center: sourceToMap([5000, 2785]), zoom: 1.25, minZoom: 0, maxZoom: 5.8, constrainOnlyCenter: true, smoothExtentConstraint: true }),
+      view: new View({
+        projection,
+        extent: EXTENT,
+        center: sourceToMap([5000, 2785]),
+        zoom: 1.25,
+        minZoom: 0,
+        maxZoom: 5.8,
+        constrainOnlyCenter: false,
+        showFullExtent: true,
+        smoothExtentConstraint: true,
+      }),
     });
     map.on('singleclick', (evt) => {
       const hit = map.forEachFeatureAtPixel(evt.pixel, (feature) => feature as Feature, { hitTolerance: 8 });
@@ -184,9 +194,9 @@ function App() {
   const { data, error } = useAtlasData();
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState<Category>('all');
-  const [selected, setSelected] = useState<Selected | null>({ name: 'Terrain-first atlas foundation', category: 'foundation', detail: 'OpenLayers pixel-CRS map using 512px tiles generated from the full 10k World of Malazan source. This is the rebuild base for real terrain/vector extraction.', center: [5000, 2785] });
+  const [selected, setSelected] = useState<Selected | null>({ name: 'Malazan world atlas', category: 'foundation', detail: 'OpenLayers pixel-CRS map using 512px tiles generated from the full 10k World of Malazan source. This is the rebuild base for real terrain/vector extraction.', center: [5000, 2785] });
   const [cleanMode, setCleanMode] = useState(false);
-  const [layers, setLayers] = useState({ locations: true, rivers: true, areas: true });
+  const [layers, setLayers] = useState({ locations: true, rivers: true, areas: false });
   const [styleMode, setStyleMode] = useState<'relief' | 'source' | 'blend'>('relief');
   const toggleLayer = (key: keyof typeof layers) => setLayers((value) => ({ ...value, [key]: !value[key] }));
 
@@ -207,7 +217,7 @@ function App() {
     <AtlasMap data={data} selected={selected} setSelected={setSelected} search={search} category={category} layers={layers} cleanMode={cleanMode} styleMode={styleMode} />
     <button className="clean-toggle" onClick={() => setCleanMode((v) => !v)}>{cleanMode ? 'Exit clean map' : 'Clean map'}</button>
     <section className="panel top-left command-panel">
-      <div className="brand"><span>Malazan Atlas</span><b>Terrain-first rebuild</b></div>
+      <div className="brand"><span>Malazan Atlas</span><b>Source-pixel world atlas</b></div>
       <label className="search-box"><Search size={16}/><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search 602 exact-coordinate locations…" /></label>
       <div className="category-row">{CATEGORIES.map((c) => <button key={c.id} className={category === c.id ? 'active' : ''} onClick={() => setCategory(c.id)}>{c.label}</button>)}</div>
       {results.length > 0 && <div className="results-list">{results.map((loc) => <button key={`${loc.name}-${loc.center.join('-')}`} onClick={() => chooseLocation(loc)}><b>{loc.name}</b><span>{loc.category} · {formatSource(loc.center)}</span></button>)}</div>}
@@ -218,8 +228,8 @@ function App() {
         <button onClick={() => fly('Genabackis river slice', [6828, 1536], 'Prototype river vectors are visible here as draft geography controls.')}>Rivers</button>
       </div>
     </section>
-    <section className="panel top-right layers-panel"><h2><Layers size={16}/> Foundation status</h2><p>This is now a map engine foundation, not the cube-board prototype.</p><ul><li><b>Source:</b> z6 full mosaic</li><li><b>Pixels:</b> 10,000 × 5,571</li><li><b>Tiles:</b> 512px, z0-z5, 304 files</li><li><b>CRS:</b> source-pixel, top-left origin</li><li><b>POI:</b> {data.locations.locations.length} exact-coordinate locations</li></ul><div className="style-switcher"><button className={styleMode === 'relief' ? 'active' : ''} onClick={() => setStyleMode('relief')}>Relief atlas</button><button className={styleMode === 'source' ? 'active' : ''} onClick={() => setStyleMode('source')}>Source map</button><button className={styleMode === 'blend' ? 'active' : ''} onClick={() => setStyleMode('blend')}>Blend</button></div><div className="layer-toggle-row"><button className={layers.locations ? 'active' : ''} onClick={() => toggleLayer('locations')}>Locations</button><button className={layers.rivers ? 'active' : ''} onClick={() => toggleLayer('rivers')}>Draft rivers</button><button className={layers.areas ? 'active' : ''} onClick={() => toggleLayer('areas')}>Draft areas</button></div></section>
-    <section className="panel bottom-left metrics-panel"><h2><Crosshair size={16}/> Cartography queue</h2><div className="metric-grid"><div><span>Settlements</span><b>{categoryCounts.settlement ?? 0}</b></div><div><span>Water</span><b>{categoryCounts.water ?? 0}</b></div><div><span>Mountains</span><b>{categoryCounts.mountain ?? 0}</b></div><div><span>Forests</span><b>{categoryCounts.forest ?? 0}</b></div></div><p>Next: trace/vectorize coasts, rivers, mountains, forests, and biomes from this exact source map.</p></section>
+    <section className="panel top-right layers-panel"><h2><Layers size={16}/> Atlas layers</h2><p>Explore the full World of Malazan in exact source-pixel coordinates with styled relief, source-map, and vector layers.</p><ul><li><b>Source:</b> z6 full mosaic</li><li><b>Pixels:</b> 10,000 × 5,571</li><li><b>Tiles:</b> 512px, z0-z5, 304 files</li><li><b>CRS:</b> source-pixel, top-left origin</li><li><b>POI:</b> {data.locations.locations.length} exact-coordinate locations</li></ul><div className="style-switcher"><button className={styleMode === 'relief' ? 'active' : ''} onClick={() => setStyleMode('relief')}>Relief atlas</button><button className={styleMode === 'source' ? 'active' : ''} onClick={() => setStyleMode('source')}>Source map</button><button className={styleMode === 'blend' ? 'active' : ''} onClick={() => setStyleMode('blend')}>Blend</button></div><div className="layer-toggle-row"><button className={layers.locations ? 'active' : ''} onClick={() => toggleLayer('locations')}>Locations</button><button className={layers.rivers ? 'active' : ''} onClick={() => toggleLayer('rivers')}>Draft rivers</button><button className={layers.areas ? 'active' : ''} onClick={() => toggleLayer('areas')}>Draft areas</button></div></section>
+    <section className="panel bottom-left metrics-panel"><h2><Crosshair size={16}/> Cartography layers</h2><div className="metric-grid"><div><span>Settlements</span><b>{categoryCounts.settlement ?? 0}</b></div><div><span>Water</span><b>{categoryCounts.water ?? 0}</b></div><div><span>Mountains</span><b>{categoryCounts.mountain ?? 0}</b></div><div><span>Forests</span><b>{categoryCounts.forest ?? 0}</b></div></div><p>Default view keeps verified geography readable. Toggle draft areas only when inspecting provisional basins/biomes.</p></section>
     <section className="panel bottom-right selected-panel"><div className="pill">{selected?.category ?? 'none'}</div><h2>{selected?.name ?? 'Nothing selected'}</h2><p>{selected?.detail ?? 'Click a place, river, or draft polygon.'}</p><div className="selected-icons"><MapPin/><Waves/><Mountain/><Trees/><Route/></div></section>
   </main>;
 }
