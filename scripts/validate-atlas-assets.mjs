@@ -68,6 +68,14 @@ ok('coastline features source pixels', coastlineFeatures.sourcePixels?.[0] === 1
 ok('coastline features extracted', coastlineFeatures.featureCount > 0 && coastlineFeatures.features?.length === coastlineFeatures.featureCount);
 ok('coastline polygons have points', coastlineFeatures.features.every((feature) => feature.points_px?.length >= 4 && feature.center_px?.length === 2));
 ok('major landmass coastline present', coastlineFeatures.features.some((feature) => feature.maskPixels > 90000));
+const riverCandidates = JSON.parse(await fs.readFile(path.join(root, 'public/data/river-candidates.json'), 'utf8'));
+ok('river candidates are explicitly unverified', riverCandidates.status === 'unverified-candidates-only');
+ok('river candidates coordinate space', riverCandidates.coordinateSpace === 'malazan.source-pixel');
+ok('river candidates source pixels', riverCandidates.sourcePixels?.[0] === 10000 && riverCandidates.sourcePixels?.[1] === 5571);
+ok('river candidates extracted', riverCandidates.featureCount > 0 && riverCandidates.features?.length === riverCandidates.featureCount);
+ok('river candidates are not marked verified', riverCandidates.features.every((feature) => feature.status !== 'verified' && feature.certainty?.includes('candidate-only')));
+ok('Lake Azur guard remains active for river candidates', Array.isArray(riverCandidates.lakeAzurGuardPx) && riverCandidates.lakeAzurGuardPx.join(',') === '6200,1200,7200,1900');
+ok('Lake Azur guard candidates are blocked', riverCandidates.features.filter((feature) => feature.touchesLakeAzurGuard).every((feature) => feature.blockedReason?.includes('Lake Azur')));
 ok('no provisional Lake Azur/Darujhistan rivers remain', (prototypeFeatures.rivers ?? []).every((river) => {
   const pts = river.points_px ?? [];
   return !pts.some(([x, y]) => x >= 6200 && x <= 7200 && y >= 1200 && y <= 1900);

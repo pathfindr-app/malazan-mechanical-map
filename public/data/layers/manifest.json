@@ -1,6 +1,9 @@
 {
   "coordinateSpace": "malazan.source-pixel",
-  "sourcePixels": [10000, 5571],
+  "sourcePixels": [
+    10000,
+    5571
+  ],
   "layers": [
     {
       "id": "locations",
@@ -36,6 +39,13 @@
       "type": "multipoint",
       "status": "source-mask-derived",
       "note": "Sampled shoreline boundary points extracted from terrain-data/land_mask.png; avoids false chord lines until robust contour stitching is implemented."
+    },
+    {
+      "id": "river-candidates",
+      "url": "data/river-candidates.json",
+      "type": "polyline-candidates",
+      "status": "unverified-candidates-only",
+      "note": "Automated source-blue hydrography extraction proof. Not rendered as verified rivers; Lake Azur/Darujhistan guard-zone candidates are blocked from promotion."
     },
     {
       "id": "source-raster",
