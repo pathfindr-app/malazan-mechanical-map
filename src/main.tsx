@@ -87,13 +87,30 @@ function createTileLayer(tileSet: 'source' | 'relief' | 'premium-relief' | 'styl
   return { projection, layer: new TileLayer({ source, className: `${tileSet}-raster-layer`, opacity }) };
 }
 
-function makeLocationStyle(feature: Feature, selectedName?: string, showLabel = false) {
+function zoomFromResolution(resolution?: number) {
+  if (!resolution || resolution <= 0) return 0;
+  return MAX_ZOOM - Math.log2(resolution);
+}
+
+function makeLocationStyle(feature: Feature, selectedName?: string, showLabel = false, resolution?: number) {
   const loc = feature.get('location') as Location;
   const selected = selectedName === loc.name;
+  const zoom = zoomFromResolution(resolution);
   const color = categoryColor(loc.category);
+  const deepReadableLabel = (zoom >= 6.25 && loc.importance >= 2) || zoom >= 7.05;
+  const shouldLabel = showLabel || selected || loc.importance >= 4 || deepReadableLabel;
+  const labelScale = selected ? 13 : zoom >= 7.05 ? 11.5 : 10.5;
   return new Style({
-    image: new CircleStyle({ radius: selected ? 9 : loc.importance >= 4 ? 6 : 4, fill: new Fill({ color: selected ? '#ffffff' : color }), stroke: new Stroke({ color: selected ? '#ff2d00' : '#1b1308', width: selected ? 4 : 2 }) }),
-    text: showLabel || selected || loc.importance >= 4 ? new Text({ text: loc.name, offsetY: -17, font: selected ? '700 13px Inter, sans-serif' : '700 11px Inter, sans-serif', fill: new Fill({ color: '#17110a' }), stroke: new Stroke({ color: 'rgba(255,248,223,.95)', width: 4 }) }) : undefined,
+    image: new CircleStyle({ radius: selected ? 9 : loc.importance >= 4 ? 6 : zoom >= 6.25 ? 3.5 : 4, fill: new Fill({ color: selected ? '#ffffff' : color }), stroke: new Stroke({ color: selected ? '#ff2d00' : '#1b1308', width: selected ? 4 : 2 }) }),
+    text: shouldLabel ? new Text({
+      text: loc.name,
+      offsetY: selected ? -19 : -15,
+      font: `${selected ? 800 : 750} ${labelScale}px Inter, sans-serif`,
+      fill: new Fill({ color: selected ? '#130b05' : '#21170d' }),
+      stroke: new Stroke({ color: selected ? 'rgba(255,252,230,.98)' : 'rgba(255,246,214,.92)', width: selected ? 5 : 3.6 }),
+      backgroundFill: selected ? new Fill({ color: 'rgba(255,229,151,.84)' }) : undefined,
+      padding: selected ? [2, 5, 2, 5] : [1, 2, 1, 2],
+    }) : undefined,
   });
 }
 
@@ -136,7 +153,7 @@ function createVectorLayers(data: AtlasData, getSelectedName: () => string | und
       return new Style({ image: new CircleStyle({ radius: c.maskPixels > 40000 ? 1.45 : 1.05, fill: new Fill({ color: c.touchesMaskEdge ? 'rgba(233,220,172,.32)' : 'rgba(246,226,162,.50)' }) }) });
     },
   });
-  const locationLayer = new VectorLayer({ source: locationSource, className: 'locations-layer', style: (feature) => makeLocationStyle(feature as Feature, getSelectedName(), getSearchActive()) });
+  const locationLayer = new VectorLayer({ source: locationSource, className: 'locations-layer', declutter: true, style: (feature, resolution) => makeLocationStyle(feature as Feature, getSelectedName(), getSearchActive(), resolution) });
   const riverLayer = new VectorLayer({
     source: riverSource, className: 'rivers-layer',
     style: (feature) => {
@@ -227,13 +244,13 @@ function AtlasMap({ data, selected, setSelected, search, category, layers, clean
     vectors.riverLayer.setVisible(layers.rivers);
     vectors.areaLayer.setVisible(layers.areas);
     const q = search.trim().toLowerCase();
-    vectors.locationLayer.setStyle((feature) => {
+    vectors.locationLayer.setStyle((feature, resolution) => {
       const loc = feature.get('location') as Location;
       const matchesCategory = category === 'all' || loc.category === category;
       const matchesSearch = !q || loc.name.toLowerCase().includes(q) || loc.category.toLowerCase().includes(q) || loc.kind.toLowerCase().includes(q);
       if (!matchesCategory || !matchesSearch) return undefined;
       if (!q && loc.importance < 3 && selected?.name !== loc.name) return undefined;
-      return makeLocationStyle(feature as Feature, selected?.name, Boolean(q));
+      return makeLocationStyle(feature as Feature, selected?.name, Boolean(q), resolution);
     });
     vectors.locationLayer.changed();
   }, [search, category, selected?.name, layers.locations, layers.water, layers.terrain, layers.coasts, layers.rivers, layers.areas, styleMode]);
