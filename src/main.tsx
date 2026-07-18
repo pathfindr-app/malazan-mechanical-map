@@ -109,7 +109,7 @@ function createVectorLayers(data: AtlasData, getSelectedName: () => string | und
   return { locationLayer, riverLayer, areaLayer };
 }
 
-function AtlasMap({ data, selected, setSelected, search, category }: { data: AtlasData; selected: Selected | null; setSelected: (s: Selected) => void; search: string; category: Category }) {
+function AtlasMap({ data, selected, setSelected, search, category, layers, cleanMode }: { data: AtlasData; selected: Selected | null; setSelected: (s: Selected) => void; search: string; category: Category; layers: { locations: boolean; rivers: boolean; areas: boolean }; cleanMode: boolean }) {
   const mapEl = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<Map | null>(null);
   const layerRefs = useRef<ReturnType<typeof createVectorLayers> | null>(null);
@@ -145,6 +145,9 @@ function AtlasMap({ data, selected, setSelected, search, category }: { data: Atl
   useEffect(() => {
     const vectors = layerRefs.current;
     if (!vectors) return;
+    vectors.locationLayer.setVisible(layers.locations);
+    vectors.riverLayer.setVisible(layers.rivers);
+    vectors.areaLayer.setVisible(layers.areas);
     const q = search.trim().toLowerCase();
     vectors.locationLayer.setStyle((feature) => {
       const loc = feature.get('location') as Location;
@@ -155,7 +158,13 @@ function AtlasMap({ data, selected, setSelected, search, category }: { data: Atl
       return makeLocationStyle(feature as Feature, selected?.name, Boolean(q));
     });
     vectors.locationLayer.changed();
-  }, [search, category, selected?.name]);
+  }, [search, category, selected?.name, layers.locations, layers.rivers, layers.areas]);
+
+  useEffect(() => {
+    if (!mapRef.current) return;
+    const id = window.setTimeout(() => mapRef.current?.updateSize(), 80);
+    return () => window.clearTimeout(id);
+  }, [cleanMode]);
 
   useEffect(() => {
     if (!selected?.center || !mapRef.current) return;
@@ -171,6 +180,9 @@ function App() {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState<Category>('all');
   const [selected, setSelected] = useState<Selected | null>({ name: 'Terrain-first atlas foundation', category: 'foundation', detail: 'OpenLayers pixel-CRS map using 512px tiles generated from the full 10k World of Malazan source. This is the rebuild base for real terrain/vector extraction.', center: [5000, 2785] });
+  const [cleanMode, setCleanMode] = useState(false);
+  const [layers, setLayers] = useState({ locations: true, rivers: true, areas: true });
+  const toggleLayer = (key: keyof typeof layers) => setLayers((value) => ({ ...value, [key]: !value[key] }));
 
   const results = useMemo(() => {
     if (!data) return [] as Location[];
@@ -185,8 +197,9 @@ function App() {
   if (!data) return <div className="fatal">Loading terrain-first atlas foundation…</div>;
   const categoryCounts = data.locations.locations.reduce<Record<string, number>>((acc, loc) => { acc[loc.category] = (acc[loc.category] ?? 0) + 1; return acc; }, {});
 
-  return <main className="app-shell">
-    <AtlasMap data={data} selected={selected} setSelected={setSelected} search={search} category={category} />
+  return <main className={`app-shell ${cleanMode ? 'clean-mode' : ''}`}>
+    <AtlasMap data={data} selected={selected} setSelected={setSelected} search={search} category={category} layers={layers} cleanMode={cleanMode} />
+    <button className="clean-toggle" onClick={() => setCleanMode((v) => !v)}>{cleanMode ? 'Exit clean map' : 'Clean map'}</button>
     <section className="panel top-left command-panel">
       <div className="brand"><span>Malazan Atlas</span><b>Terrain-first rebuild</b></div>
       <label className="search-box"><Search size={16}/><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search 602 exact-coordinate locations…" /></label>
@@ -199,7 +212,7 @@ function App() {
         <button onClick={() => fly('Genabackis river slice', [6828, 1536], 'Prototype river vectors are visible here as draft geography controls.')}>Rivers</button>
       </div>
     </section>
-    <section className="panel top-right layers-panel"><h2><Layers size={16}/> Foundation status</h2><p>This is now a map engine foundation, not the cube-board prototype.</p><ul><li><b>Source:</b> z6 full mosaic</li><li><b>Pixels:</b> 10,000 × 5,571</li><li><b>Tiles:</b> 512px, z0-z5, 304 files</li><li><b>CRS:</b> source-pixel, top-left origin</li><li><b>POI:</b> {data.locations.locations.length} exact-coordinate locations</li></ul></section>
+    <section className="panel top-right layers-panel"><h2><Layers size={16}/> Foundation status</h2><p>This is now a map engine foundation, not the cube-board prototype.</p><ul><li><b>Source:</b> z6 full mosaic</li><li><b>Pixels:</b> 10,000 × 5,571</li><li><b>Tiles:</b> 512px, z0-z5, 304 files</li><li><b>CRS:</b> source-pixel, top-left origin</li><li><b>POI:</b> {data.locations.locations.length} exact-coordinate locations</li></ul><div className="layer-toggle-row"><button className={layers.locations ? 'active' : ''} onClick={() => toggleLayer('locations')}>Locations</button><button className={layers.rivers ? 'active' : ''} onClick={() => toggleLayer('rivers')}>Draft rivers</button><button className={layers.areas ? 'active' : ''} onClick={() => toggleLayer('areas')}>Draft areas</button></div></section>
     <section className="panel bottom-left metrics-panel"><h2><Crosshair size={16}/> Cartography queue</h2><div className="metric-grid"><div><span>Settlements</span><b>{categoryCounts.settlement ?? 0}</b></div><div><span>Water</span><b>{categoryCounts.water ?? 0}</b></div><div><span>Mountains</span><b>{categoryCounts.mountain ?? 0}</b></div><div><span>Forests</span><b>{categoryCounts.forest ?? 0}</b></div></div><p>Next: trace/vectorize coasts, rivers, mountains, forests, and biomes from this exact source map.</p></section>
     <section className="panel bottom-right selected-panel"><div className="pill">{selected?.category ?? 'none'}</div><h2>{selected?.name ?? 'Nothing selected'}</h2><p>{selected?.detail ?? 'Click a place, river, or draft polygon.'}</p><div className="selected-icons"><MapPin/><Waves/><Mountain/><Trees/><Route/></div></section>
   </main>;
