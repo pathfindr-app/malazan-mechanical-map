@@ -1,8 +1,8 @@
 name: Deploy atlas to GitHub Pages
 
+# Public deploys are manual while the terrain-first rebuild is in progress.
+# Do not auto-publish experiments on push.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

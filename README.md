@@ -1,43 +1,66 @@
-# The Atlas — Interactive Malazan World Map Prototype
+# Malazan Atlas — Terrain-First Rebuild
 
-Static React/Vite prototype for Kyle's scale Malazan world atlas.
+This is the rebuild foundation for a **stylized Google Earth for Malazan**.
 
-## Current correction
+The rejected prototype paths were:
 
-The public default view is now **Source Map Fidelity Mode**. The app opens on the original World of Malazan source map image with exact-coordinate overlays, rather than the experimental cube/miniature board.
+- cube-board / toy rectangle terrain,
+- source PNG as a finished product.
 
-This is intentional: source-map accuracy is the ground truth. Stylized 3D landmarks are disabled by default until they can be traced and placed exactly from the map.
+The current direction is a source-faithful, zoomable map engine foundation that will drive real cartography and terrain generation.
 
-## What it currently does
+## Current foundation
 
-- Shows the original source map directly in the default view.
-- Preserves the source coordinate system: `10000 × 5571 px`.
-- Loads all 602 extracted map locations from `public/data/locations.json`.
-- Shows exact-coordinate pins, search, and category filters.
-- Shows provisional vector overlays for rivers/basins/biomes.
-- Includes a tracing desk for exact-pixel river and boundary authoring:
-  - active river selector,
-  - active basin/biome boundary selector,
-  - append points,
-  - drag handles,
-  - delete selected points,
-  - live cursor source-coordinate readout,
-  - crosshair preview,
-  - localStorage draft autosave,
-  - JSON download/export.
-- Includes an experimental stylized 3D mode behind the `Stylized landmarks` layer toggle, but this is not the approved visual direction yet.
+- Runtime: OpenLayers + React/Vite/TypeScript.
+- Projection: custom source-pixel CRS.
+- Canonical source extent: `10000 × 5571` pixels.
+- Source raster: `public/assets/worldofmalazan-z6-mosaic.png`.
+- Tile pyramid: `public/tiles/source/{z}/{x}/{y}.webp`.
+- Tile size: `512`.
+- Zoom levels: `z0..z5`.
+- Tile count: `304`.
+- Locations: 602 exact-coordinate POIs from `public/data/locations.json`.
+- Draft geography: provisional rivers/basins/biomes from `public/data/prototype-features.json`.
 
-## Run
+## What works now
+
+- Smooth zoom/pan map foundation.
+- Exact source-pixel coordinate transform.
+- Search across 602 locations.
+- Category filters.
+- Fly-to bookmarks:
+  - whole world,
+  - Darujhistan,
+  - Pale,
+  - Genabackis river slice.
+- Exact-coordinate selection cards.
+- Draft river/basin/biome overlays.
+- Asset validation so we do not accidentally regress to the low-res z3 preview.
+
+## Commands
+
+Install:
 
 ```bash
 npm install
-npm run dev -- --host 0.0.0.0 --port 5177
 ```
 
-Open:
+Generate source map tiles:
 
-```text
-http://localhost:5177/
+```bash
+npm run tiles:source
+```
+
+Validate source assets:
+
+```bash
+npm run assets:validate
+```
+
+Run locally:
+
+```bash
+npm run dev -- --port 5177
 ```
 
 Build:
@@ -46,19 +69,56 @@ Build:
 npm run build
 ```
 
-## Source assets
+## Verification performed
 
-- Source atlas image: `public/assets/worldofmalazan-z3-mosaic.png`
-- Extracted locations: `public/data/locations.json`
-- Prototype traces: `public/data/prototype-features.json`
-- Browser-exported draft traces: `prototype-features.draft.json`
+```text
+npm run tiles:source
+npm run assets:validate
+npm run build
+```
 
-## Next required work
+Latest asset validation:
 
-The next real step is not decorative cubes. It is tracing/deriving actual geography from the source map:
+```text
+validated source=10000x5571, tiles=304, locations=602
+```
 
-1. trace real coast/land masks,
-2. trace real rivers from the map,
-3. trace actual mountain ranges and forests,
-4. classify biomes from the source image,
-5. only then generate stylized mountains/rivers/trees from those exact traced layers.
+Browser QA verified:
+
+- map loads as a tiled atlas foundation,
+- no cube grid,
+- no arbitrary stylized assets by default,
+- search for `Darujhistan` returns `[6782, 1527]`,
+- selecting Darujhistan zooms/flys to the correct Genabackis source-map region.
+
+## Public deployment policy
+
+GitHub Pages auto-deploy-on-push is disabled during this rebuild. Deploys are manual only until the build is visually and product-direction approved.
+
+## Research / plans
+
+- `.hermes/plans/terrain-first-rebuild.md`
+- `.hermes/plans/subagent-synthesis-and-phase1.md`
+- `docs/cartography-gis-pipeline-plan.md`
+- `docs/terrain-rendering-research.md`
+- `docs/web-architecture-performance-research.md`
+- `docs/terrain-first-rebuild-plan.md`
+
+## Next real work
+
+1. Add coordinate/tile/search unit tests.
+2. Add layer toggles and clean map mode.
+3. Build `public/data/source-crs.json` and `public/data/layers/` schema.
+4. Start cartographic extraction scripts:
+   - land/water masks,
+   - coastlines,
+   - rivers,
+   - mountain ridges,
+   - forest and biome polygons.
+5. Build terrain synthesis from those layers:
+   - coast gradients,
+   - mountain ridge elevation,
+   - river carving,
+   - water planes,
+   - biome material masks.
+6. Add stylized Three.js terrain only after geography is correct.

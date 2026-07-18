@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc && vite build",
-    "preview": "vite preview --host 0.0.0.0"
+    "preview": "vite preview --host 0.0.0.0",
+    "tiles:source": "node scripts/generate-map-tiles.mjs",
+    "assets:validate": "node scripts/validate-atlas-assets.mjs",
+    "test:e2e": "playwright test",
+    "test": "vitest run"
   },
   "dependencies": {
     "@react-three/drei": "latest",
@@ -14,17 +18,23 @@
     "@react-three/postprocessing": "latest",
     "@vitejs/plugin-react": "latest",
     "lucide-react": "latest",
+    "ol": "^10.9.0",
     "postprocessing": "latest",
+    "rbush": "^4.0.1",
     "react": "latest",
     "react-dom": "latest",
     "three": "latest",
     "typescript": "latest",
     "vite": "latest",
+    "zod": "^4.4.3",
     "zustand": "latest"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "playwright": "^1.61.1"
+    "playwright": "^1.61.1",
+    "sharp": "^0.35.3",
+    "vitest": "^4.1.10"
   }
 }
