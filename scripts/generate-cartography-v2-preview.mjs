@@ -184,14 +184,25 @@ for (let y = 0; y < H; y++) {
       const depth = smoothstep(0.06, 0.92, 1 - co);
       const current = 0.5 + 0.5 * Math.sin((x * 0.012 + y * 0.007) + fbm(x / 720, y / 720) * 6.2);
       const bathy = 0.5 + 0.5 * Math.sin((x * 0.004 - y * 0.005) + fbm(x / 1100, y / 1100) * 7.0);
+      const coastBand = smoothstep(0.09, 0.92, co);
+      const shoal = smoothstep(0.22, 0.84, co) * (1 - smoothstep(0.90, 1.0, co));
+      const bathyWarp = fbm(x / 460, y / 460, 4) * 3.4 + fbm(x / 90, y / 90, 3) * 0.45;
+      const bathyLevel = (1 - co) * 19.0 + bathyWarp;
+      const bathyPhase = bathyLevel - Math.floor(bathyLevel);
+      const bathyDist = Math.min(bathyPhase, 1 - bathyPhase);
+      const bathyLine = shoal * (1 - smoothstep(0.020, 0.070, bathyDist));
+      const innerGlow = smoothstep(0.60, 1.0, co) * (1 - depth);
       col = mix3(waterShallow, waterMid, 0.50 + depth * 0.31);
       col = mix3(col, waterDeep, depth * 0.42);
       col = mix3(col, [106, 185, 186], current * 0.034 + paper * 0.020 + bathy * 0.016);
       col = mix3(col, [7, 42, 60], depth * bathy * 0.045);
-      col = mix3(col, shoreFoam, Math.min(0.36, co * 0.30));
+      col = mix3(col, [122, 197, 185], Math.min(0.13, shoal * 0.11 + innerGlow * 0.05));
+      col = mix3(col, [236, 221, 161], Math.min(0.10, innerGlow * 0.09));
+      col = mix3(col, [18, 62, 79], Math.min(0.070, bathyLine * (0.55 + depth * 0.35)));
+      col = mix3(col, shoreFoam, Math.min(0.42, coastBand * 0.29 + innerGlow * 0.08));
       // keep ice bright but distinct from ocean
       col = mix3(col, iceBlue, ic * 0.86);
-      col = col.map(c => c * (0.94 + (grain - 0.5) * 0.018));
+      col = col.map(c => c * (0.94 + (grain - 0.5) * 0.018 - bathyLine * 0.018));
     } else {
       const nonSpecial = 1 - Math.max(f, d, m, ic);
       const canopy = fbm(x / 18, y / 18, 4);
