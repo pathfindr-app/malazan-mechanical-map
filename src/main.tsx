@@ -99,17 +99,23 @@ function makeLocationStyle(feature: Feature, selectedName?: string, showLabel = 
   const color = categoryColor(loc.category);
   const deepReadableLabel = (zoom >= 6.25 && loc.importance >= 2) || zoom >= 7.05;
   const shouldLabel = showLabel || selected || loc.importance >= 4 || deepReadableLabel;
-  const labelScale = selected ? 13 : zoom >= 7.05 ? 11.5 : 10.5;
+  const isWater = loc.category === 'water';
+  const isMountain = loc.category === 'mountain';
+  const isSettlement = loc.category === 'settlement';
+  const labelScale = selected ? 13 : zoom >= 7.05 ? (isSettlement ? 11.8 : 11.2) : (isSettlement ? 10.8 : 10.2);
+  const fontFamily = 'Georgia, Times New Roman, serif';
+  const labelWeight = selected ? 800 : isSettlement ? 700 : 600;
+  const labelColor = selected ? '#130b05' : isWater ? '#1b5794' : isMountain ? '#332012' : '#25190d';
+  const haloColor = isWater ? 'rgba(231,246,255,.90)' : 'rgba(255,246,214,.90)';
   return new Style({
     image: new CircleStyle({ radius: selected ? 9 : loc.importance >= 4 ? 6 : zoom >= 6.25 ? 3.5 : 4, fill: new Fill({ color: selected ? '#ffffff' : color }), stroke: new Stroke({ color: selected ? '#ff2d00' : '#1b1308', width: selected ? 4 : 2 }) }),
     text: shouldLabel ? new Text({
       text: loc.name,
       offsetY: selected ? -19 : -15,
-      font: `${selected ? 800 : 750} ${labelScale}px Inter, sans-serif`,
-      fill: new Fill({ color: selected ? '#130b05' : '#21170d' }),
-      stroke: new Stroke({ color: selected ? 'rgba(255,252,230,.98)' : 'rgba(255,246,214,.92)', width: selected ? 5 : 3.6 }),
-      backgroundFill: selected ? new Fill({ color: 'rgba(255,229,151,.84)' }) : undefined,
-      padding: selected ? [2, 5, 2, 5] : [1, 2, 1, 2],
+      font: `${labelWeight} ${labelScale}px ${fontFamily}`,
+      fill: new Fill({ color: labelColor }),
+      stroke: new Stroke({ color: selected ? 'rgba(255,252,230,.98)' : haloColor, width: selected ? 5 : 3.25 }),
+      padding: selected ? [1, 3, 1, 3] : [1, 2, 1, 2],
     }) : undefined,
   });
 }
@@ -223,6 +229,7 @@ function AtlasMap({ data, selected, setSelected, search, category, layers, clean
       if (kind === 'area') { const area = hit.get('area') as AreaFeature; setSelected({ name: area.name, category: hit.get('areaKind'), detail: `${area.certainty}; ${area.points_px.length} source points.`, center: area.points_px[0] }); }
     });
     mapRef.current = map;
+    if (document.fonts) document.fonts.ready.then(() => vectors.locationLayer.changed()).catch(() => undefined);
     return () => map.setTarget(undefined);
   }, [data, setSelected]);
 
